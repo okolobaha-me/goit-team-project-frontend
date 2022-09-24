@@ -15,13 +15,15 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
     "react-router-dom": "^6.4.1",
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.0.8",
     "redux": "^4.2.0",
     "uuid": "^9.0.0",
     "vercel": "^28.4.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
