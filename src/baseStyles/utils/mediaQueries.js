@@ -1,0 +1,11 @@
+import { mqBreakpoints } from './variables';
+
+export const mq = {
+    mobileOnly: `@media (max-width: ${mqBreakpoints.preTablet})`,
+    mobile: `@media (min-width: ${mqBreakpoints.mobile})`,
+    tabletOnly: `@media (min-width: ${mqBreakpoints.tablet}) and (max-width: ${mqBreakpoints.preDesktop})`,
+    tablet: `@media (min-width: ${mqBreakpoints.tablet})`,
+    notTablet: `@media (max-width: ${mqBreakpoints.preTablet}), (min-width: ${mqBreakpoints.desktop})`,
+    desktop: `@media (min-width: ${mqBreakpoints.desktop})`,
+    notDesktop: `@media (max-width: ${mqBreakpoints.preDesktop})`,
+};
