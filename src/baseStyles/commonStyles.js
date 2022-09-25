@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { colors } from './utils/variables';
 import { mq } from './utils/mediaQueries';
-import styled from '@emotion/styled';
 
 export const list = () => {
     return css`
@@ -86,7 +85,7 @@ const chooseInputVariant = variant => {
             return css`
                 border: none;
                 background-color: ${colors.inputBg};
-                box-shadow: inset 0px 1px 2px rgb(0 0 0 / 0.3);
+                box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.3);
 
                 &:focus {
                     background-color: ${colors.whiteBg};
@@ -101,7 +100,7 @@ const chooseInputVariant = variant => {
 
                 &:focus {
                     background-color: ${colors.whiteBg};
-                    box-shadow: inset 0px 1px 2px rgb(0 0 0 / 0.3);
+                    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.3);
                     border: 1px solid transparent;
                 }
             `;
@@ -123,7 +122,3 @@ export const input = ({ variant }) => {
         }
     `;
 };
-
-export const Input = styled.input`
-    ${input};
-`;
