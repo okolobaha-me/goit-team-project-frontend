@@ -13,7 +13,7 @@ const Info = () => {
     return (
         <>
             <ScreenWidth ref={screenWidth} />
-            {shouldRedirect && <Navigate to={'/signin'} />}
+            {shouldRedirect && <Navigate to={'/signup'} />}
             <h1>Info</h1>
         </>
     );
