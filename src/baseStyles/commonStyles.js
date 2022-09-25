@@ -14,42 +14,48 @@ export const list = () => {
 const chooseBtnVariant = variant => {
     switch (variant) {
         case 'accent':
-            return `background-color: ${colors.accentBg};
-                    color: ${colors.whiteText};
-                    font-weight: 600;
-                    border: 1px solid transparent;;
-                    
-                    &:hover,
-                    &:focus {
+            return css`
+                background-color: ${colors.accentBg};
+                color: ${colors.whiteText};
+                font-weight: 600;
+                border: 1px solid transparent;
+
+                &:hover,
+                &:focus {
                     border: 1px solid ${colors.accentBg};
                     color: ${colors.accentText};
                     background-color: transparent;
-                    }`;
+                }
+            `;
         case 'gray':
-            return `background-color: ${colors.darkBg};
-                    color: ${colors.whiteText};
-                    font-weight: 500;
-                    border: 1px solid transparent;;
-                    
-                    &:hover,
-                    &:focus {
+            return css`
+                background-color: ${colors.darkBg};
+                color: ${colors.whiteText};
+                font-weight: 500;
+                border: 1px solid transparent;
+
+                &:hover,
+                &:focus {
                     border: 1px solid ${colors.darkBg};
                     color: ${colors.darkText};
                     background-color: transparent;
-                    }`;
+                }
+            `;
         case 'transparent':
         default:
-            return `background-color: transparent;
-                    color: ${colors.mainText};
-                    font-weight: 500;
-                    border: 1px solid ${colors.mainText};
-                    
-                    &:hover,
-                    &:focus {
+            return css`
+                background-color: transparent;
+                color: ${colors.mainText};
+                font-weight: 500;
+                border: 1px solid ${colors.mainText};
+
+                &:hover,
+                &:focus {
                     border: 1px solid transparent;
                     color: ${colors.whiteText};
                     background-color: ${colors.darkBg};
-                    }`;
+                }
+            `;
     }
 };
 
@@ -74,11 +80,47 @@ export const btn = ({ variant }) => {
     `;
 };
 
-export const input = () => {
+const chooseInputVariant = variant => {
+    switch (variant) {
+        case 'shadow':
+            return css`
+                border: none;
+                background-color: ${colors.inputBg};
+                box-shadow: inset 0px 1px 2px rgb(0 0 0 / 0.3);
+
+                &:focus {
+                    background-color: ${colors.whiteBg};
+                }
+            `;
+
+        case 'border':
+        default:
+            return css`
+                border: 1px solid ${colors.mainBorder};
+                background-color: ${colors.mainBg};
+
+                &:focus {
+                    background-color: ${colors.whiteBg};
+                    box-shadow: inset 0px 1px 2px rgb(0 0 0 / 0.3);
+                    border: 1px solid transparent;
+                }
+            `;
+    }
+};
+
+export const input = ({ variant }) => {
     return css`
+        ${chooseInputVariant(variant)};
+        outline: none;
+        color: ${colors.mainText};
         font-size: 14px;
         line-height: 1.2;
         padding: 12px;
+        transition: 0.2s linear;
+
+        &::placeholder {
+            color: ${colors.lightGrayText};
+        }
     `;
 };
 
