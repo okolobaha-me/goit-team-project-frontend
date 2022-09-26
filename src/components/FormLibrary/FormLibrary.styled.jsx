@@ -31,13 +31,18 @@ export const Form = styled.form`
 
 export const Button = styled.button`
     ${btn};
-    width: 171px;
+
     margin-right: auto;
     margin-left: auto;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    padding-left: 58px;
+    padding-right: 58px;
     ${mq.desktop} {
         margin: 0;
-        width: 181px;
         margin-top: auto;
+        padding-left: 63px;
+        padding-right: 63px;
     }
 `;
 
