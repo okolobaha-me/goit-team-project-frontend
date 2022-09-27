@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 
 // Components
 import { Layout } from './components/Layout/Layout';
+import { ModalWrapper } from './components/ModalWrapper/ModalWrapper';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -27,6 +28,8 @@ export const App = () => {
                     </Route>
                 </Routes>
             </Suspense>
+
+            <ModalWrapper />
         </>
     );
 };
