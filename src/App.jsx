@@ -1,9 +1,9 @@
-import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import {Route, Routes} from 'react-router-dom';
+import {lazy, Suspense, useState} from 'react';
 
 // Components
-import { Layout } from './components/Layout/Layout';
-import { ModalWrapper } from './components/ModalWrapper/ModalWrapper';
+import {Layout} from './components/Layout/Layout';
+import {ModalWrapper} from './components/ModalWrapper/ModalWrapper';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -14,6 +14,8 @@ const Statistics = lazy(() => import('./pages/Statistics/Statistics'));
 const Training = lazy(() => import('./pages/Training/Training'));
 
 export const App = () => {
+    const [modal, setModal] = useState(false);
+
     return (
         <>
             <Suspense fallback={<p>Loading....</p>}>
@@ -28,8 +30,8 @@ export const App = () => {
                     </Route>
                 </Routes>
             </Suspense>
-
-            <ModalWrapper />
+            <button onClick={() => setModal(true)}>asd</button>
+            {modal && <ModalWrapper closeModal={() => setModal(false)} />}
         </>
     );
 };

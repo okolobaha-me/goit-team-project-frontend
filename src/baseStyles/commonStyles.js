@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { colors } from './utils/variables';
-import { mq } from './utils/mediaQueries';
+import {css} from '@emotion/react';
+import {colors} from './utils/variables';
+import {mq} from './utils/mediaQueries';
 
 export const list = () => {
     return css`
@@ -110,6 +110,7 @@ const chooseInputVariant = variant => {
 export const input = ({ variant }) => {
     return css`
         ${chooseInputVariant(variant)};
+
         outline: none;
         color: ${colors.mainText};
         font-size: 14px;
