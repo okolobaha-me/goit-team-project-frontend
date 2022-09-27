@@ -1,26 +1,10 @@
-import {useEffect, useState} from 'react';
-import {createPortal} from 'react-dom';
-import {Controller, useForm} from 'react-hook-form';
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
-import {
-    Backdrop,
-    Button,
-    ButtonWrapper,
-    ErrWrapper,
-    Form,
-    Input,
-    InputName,
-    Label,
-    ModalContainer,
-    ModalContent,
-    StyledRating,
-    Title,
-} from './ModalWrapper.styled';
+import { Backdrop, ModalContainer, ModalContent } from './ModalWrapper.styled';
 
-export const ModalWrapper = ({ closeModal }) => {
+export const ModalWrapper = ({ closeModal, children }) => {
     const modalRoot = document.querySelector('#modal-root');
-    const { handleSubmit, control } = useForm();
-    const [ratingErr, setRatingErr] = useState(null);
 
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown);
@@ -48,69 +32,10 @@ export const ModalWrapper = ({ closeModal }) => {
         }
     };
 
-    const onSubmit = data => {
-        console.log(data);
-    };
-    const onError = err => setRatingErr(err.rating.message);
-
     return createPortal(
         <Backdrop onClick={handleBackdropClick}>
             <ModalContainer variant={'input'}>
-                <ModalContent>
-                    <Title>Обрати рейтинг книги</Title>
-                    <Form>
-                        <Controller
-                            name={'rating'}
-                            control={control}
-                            rules={{
-                                required:
-                                    'Поставте оцінку щоб відправити відгук',
-                            }}
-                            render={({ field: { onChange, value } }) => (
-                                <ErrWrapper>
-                                    <StyledRating
-                                        name="simple-controlled"
-                                        value={Number(value)}
-                                        onChange={newValue => {
-                                            setRatingErr(null);
-                                            onChange(newValue);
-                                        }}
-                                    />
-                                    {ratingErr && <p>{ratingErr}</p>}
-                                </ErrWrapper>
-                            )}
-                        />
-
-                        <Controller
-                            name={'comment'}
-                            control={control}
-                            render={({ field: { onChange, value } }) => (
-                                <Label>
-                                    <InputName>Резюме</InputName>
-                                    <Input
-                                        placeholder={'...'}
-                                        value={value}
-                                        onChange={onChange}
-                                    />
-                                </Label>
-                            )}
-                        />
-                        <ButtonWrapper>
-                            <Button
-                                onClick={closeModal}
-                                variant={'transparent'}
-                            >
-                                Назад
-                            </Button>
-                            <Button
-                                onClick={handleSubmit(onSubmit, onError)}
-                                variant={'accent'}
-                            >
-                                Зберегти
-                            </Button>
-                        </ButtonWrapper>
-                    </Form>
-                </ModalContent>
+                <ModalContent>{children}</ModalContent>
             </ModalContainer>
         </Backdrop>,
         modalRoot

@@ -1,9 +1,10 @@
-import {Route, Routes} from 'react-router-dom';
-import {lazy, Suspense, useState} from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense, useState } from 'react';
 
 // Components
-import {Layout} from './components/Layout/Layout';
-import {ModalWrapper} from './components/ModalWrapper/ModalWrapper';
+import { Layout } from './components/Layout/Layout';
+import { ModalWrapper } from './components/ModalWrapper/ModalWrapper';
+import { RatingModal } from './components/RatingModal/RatingModal';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -14,7 +15,7 @@ const Statistics = lazy(() => import('./pages/Statistics/Statistics'));
 const Training = lazy(() => import('./pages/Training/Training'));
 
 export const App = () => {
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(null);
 
     return (
         <>
@@ -30,7 +31,13 @@ export const App = () => {
                     </Route>
                 </Routes>
             </Suspense>
-            <button onClick={() => setModal(true)}>asd</button>
+            <button
+                onClick={() =>
+                    setModal(<RatingModal closeModal={() => setModal(false)} />)
+                }
+            >
+                asd
+            </button>
             {modal && <ModalWrapper closeModal={() => setModal(false)} />}
         </>
     );
