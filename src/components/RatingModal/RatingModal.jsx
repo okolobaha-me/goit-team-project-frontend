@@ -9,8 +9,8 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import { Controller, useForm } from 'react-hook-form';
-import { useState } from 'react';
+import {Controller, useForm} from 'react-hook-form';
+import {useState} from 'react';
 
 export const RatingModal = ({ closeModal }) => {
     const { handleSubmit, control } = useForm();
@@ -18,6 +18,7 @@ export const RatingModal = ({ closeModal }) => {
 
     const onSubmit = data => {
         console.log(data);
+        closeModal();
     };
 
     const onError = err => setRatingErr(err.rating.message);
@@ -62,7 +63,7 @@ export const RatingModal = ({ closeModal }) => {
                     )}
                 />
                 <ButtonWrapper>
-                    <Button onClick={closeModal} variant={'transparent'}>
+                    <Button variant={'transparent'} onClick={closeModal}>
                         Назад
                     </Button>
                     <Button

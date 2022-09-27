@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import React, {useEffect} from 'react';
+import {createPortal} from 'react-dom';
 
-import { Backdrop, ModalContainer, ModalContent } from './ModalWrapper.styled';
+import {Backdrop, ModalContainer, ModalContent} from './ModalWrapper.styled';
 
-export const ModalWrapper = ({ closeModal, children }) => {
+export const ModalWrapper = ({ closeModal, children, variant }) => {
     const modalRoot = document.querySelector('#modal-root');
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export const ModalWrapper = ({ closeModal, children }) => {
 
     return createPortal(
         <Backdrop onClick={handleBackdropClick}>
-            <ModalContainer variant={'input'}>
+            <ModalContainer variant={variant}>
                 <ModalContent>{children}</ModalContent>
             </ModalContainer>
         </Backdrop>,

@@ -1,10 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useState } from 'react';
+import {Route, Routes} from 'react-router-dom';
+import {lazy, Suspense} from 'react';
 
 // Components
-import { Layout } from './components/Layout/Layout';
-import { ModalWrapper } from './components/ModalWrapper/ModalWrapper';
-import { RatingModal } from './components/RatingModal/RatingModal';
+import {Layout} from './components/Layout/Layout';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -15,8 +13,6 @@ const Statistics = lazy(() => import('./pages/Statistics/Statistics'));
 const Training = lazy(() => import('./pages/Training/Training'));
 
 export const App = () => {
-    const [modal, setModal] = useState(null);
-
     return (
         <>
             <Suspense fallback={<p>Loading....</p>}>
@@ -31,14 +27,6 @@ export const App = () => {
                     </Route>
                 </Routes>
             </Suspense>
-            <button
-                onClick={() =>
-                    setModal(<RatingModal closeModal={() => setModal(false)} />)
-                }
-            >
-                asd
-            </button>
-            {modal && <ModalWrapper closeModal={() => setModal(false)} />}
         </>
     );
 };
