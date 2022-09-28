@@ -12,7 +12,7 @@ import {
     ExitButton,
     HeaderWrapper,
     UserAvatar,
-    Panel,
+    UserPanel,
 } from './Header.styled';
 import icons from '../../images/svg/icons.svg';
 
@@ -55,12 +55,12 @@ export const Header = () => {
                                 </NavItem>
                             </NavList>
                         </Nav>
-                        <Panel>
+                        <UserPanel>
                             <UserAvatar>M</UserAvatar>
                             <ExitButton onClick={openExitModal}>
                                 Вихід
                             </ExitButton>
-                        </Panel>
+                        </UserPanel>
                     </HeaderWrapper>
                 </Container>
             </HeaderStyled>

@@ -56,7 +56,7 @@ export const Icon = styled.svg`
     display: flex;
 `;
 
-export const Panel = styled.div`
+export const UserPanel = styled.div`
     display: flex;
     padding-left: 14px;
 `;
