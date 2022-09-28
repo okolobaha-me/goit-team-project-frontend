@@ -8,6 +8,11 @@ import {
     Icon,
     NavList,
     NavItem,
+    NavButton,
+    ExitButton,
+    HeaderWrapper,
+    UserAvatar,
+    Panel,
 } from './Header.styled';
 import icons from '../../images/svg/icons.svg';
 
@@ -28,24 +33,35 @@ export const Header = () => {
         <>
             <HeaderStyled>
                 <Container>
-                    <Logo isLoggedIn={isLoggedIn}>
-                        <p>BR</p>
-                    </Logo>
-                    <Nav>
-                        <NavList>
-                            <NavItem>
-                                <Icon width="22" height="17">
-                                    <use href={`${icons}#icon-book`} />
-                                </Icon>
-                            </NavItem>
-                            <NavItem>
-                                <Icon width="20" height="17">
-                                    <use href={`${icons}#icon-home`} />
-                                </Icon>
-                            </NavItem>
-                        </NavList>
-                    </Nav>
-                    {/* <button onClick={openExitModal}>exit</button> */}
+                    <HeaderWrapper>
+                        <Logo isLoggedIn={isLoggedIn}>
+                            <p>BR</p>
+                        </Logo>
+                        <Nav>
+                            <NavList>
+                                <NavItem>
+                                    <NavButton>
+                                        <Icon width="22" height="17">
+                                            <use href={`${icons}#icon-book`} />
+                                        </Icon>
+                                    </NavButton>
+                                </NavItem>
+                                <NavItem>
+                                    <NavButton>
+                                        <Icon width="20" height="17">
+                                            <use href={`${icons}#icon-home`} />
+                                        </Icon>
+                                    </NavButton>
+                                </NavItem>
+                            </NavList>
+                        </Nav>
+                        <Panel>
+                            <UserAvatar>M</UserAvatar>
+                            <ExitButton onClick={openExitModal}>
+                                Вихід
+                            </ExitButton>
+                        </Panel>
+                    </HeaderWrapper>
                 </Container>
             </HeaderStyled>
 

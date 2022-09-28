@@ -6,6 +6,7 @@ export const colors = {
     inputBg: '#F5F7FA',
     accentBg: '#FF6B08',
     darkBg: '#6D7A8D',
+    // transparentBg: transparent;
 
     //  text colors
     mainText: '#242A37',
