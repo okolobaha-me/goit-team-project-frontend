@@ -47,6 +47,10 @@ export const ModalContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    & button {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
 `;
 
 export const ModalContent = styled.div`

@@ -16,6 +16,10 @@ export const Logo = styled.p`
     line-height: 1.35;
 
     color: ${colors.mainText};
+
+    ${mq.tablet} {
+        margin: 0;
+    }
 `;
 
 export const HeaderWrapper = styled.div`

@@ -6,7 +6,6 @@ export const colors = {
     inputBg: '#F5F7FA',
     accentBg: '#FF6B08',
     darkBg: '#6D7A8D',
-    // transparentBg: transparent;
 
     //  text colors
     mainText: '#242A37',
@@ -30,7 +29,7 @@ export const fonts = {
 };
 
 export const mqBreakpoints = {
-    // mobile: '450px',
+    mobile: '320px',
     preTablet: '767px',
     tablet: '768px',
     preDesktop: '1279px',

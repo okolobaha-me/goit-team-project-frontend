@@ -16,12 +16,18 @@ import {
     UserName,
     UserInfo,
 } from './Header.styled';
+import ExitModal from '../ExitModal/ExitModal';
 import icons from '../../images/svg/icons.svg';
+
+import CongratulationsModal from '../CongratulationsModal/CongratulationsModal';
+import WellDoneModal from '../WellDoneModal/WellDoneModal';
 
 export const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const isLoggedIn = true;
+    const userName = 'Stepan';
+    const userAvatar = userName[0].toUpperCase();
 
     const openExitModal = () => {
         setIsModalOpen(true);
@@ -36,43 +42,51 @@ export const Header = () => {
             <HeaderStyled>
                 <Container>
                     <HeaderWrapper>
-                        <Logo isLoggedIn={isLoggedIn}>
-                            <p>BR</p>
-                        </Logo>
-                        <Nav>
-                            <NavList>
-                                <NavItem>
-                                    <NavButton>
-                                        <Icon width="22" height="17">
-                                            <use href={`${icons}#icon-book`} />
-                                        </Icon>
-                                    </NavButton>
-                                </NavItem>
-                                <NavItem>
-                                    <NavButton>
-                                        <Icon width="20" height="17">
-                                            <use href={`${icons}#icon-home`} />
-                                        </Icon>
-                                    </NavButton>
-                                </NavItem>
-                            </NavList>
-                        </Nav>
-                        <UserPanel>
-                            <UserInfo>
-                                <UserAvatar>M</UserAvatar>
-                                <UserName>Martha Stewart</UserName>
-                            </UserInfo>
-                            <ExitButton onClick={openExitModal}>
-                                Вихід
-                            </ExitButton>
-                        </UserPanel>
+                        <Logo isLoggedIn={isLoggedIn}>BR</Logo>
+                        {isLoggedIn && (
+                            <>
+                                <Nav>
+                                    <NavList>
+                                        <NavItem>
+                                            <NavButton>
+                                                <Icon width="22" height="17">
+                                                    <use
+                                                        href={`${icons}#icon-book`}
+                                                    />
+                                                </Icon>
+                                            </NavButton>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavButton>
+                                                <Icon width="20" height="17">
+                                                    <use
+                                                        href={`${icons}#icon-home`}
+                                                    />
+                                                </Icon>
+                                            </NavButton>
+                                        </NavItem>
+                                    </NavList>
+                                </Nav>
+                                <UserPanel>
+                                    <UserInfo>
+                                        <UserAvatar>{userAvatar}</UserAvatar>
+                                        <UserName>{userName}</UserName>
+                                    </UserInfo>
+                                    <ExitButton onClick={openExitModal}>
+                                        Вихід
+                                    </ExitButton>
+                                </UserPanel>
+                            </>
+                        )}
                     </HeaderWrapper>
                 </Container>
             </HeaderStyled>
 
             {isModalOpen && (
                 <ModalWrapper variant={'info'} closeModal={closeModal}>
-                    exit
+                    {/* <ExitModal closeModal={closeModal} /> */}
+                    {/* <CongratulationsModal closeModal={closeModal} /> */}
+                    <WellDoneModal closeModal={closeModal} />
                 </ModalWrapper>
             )}
         </>
