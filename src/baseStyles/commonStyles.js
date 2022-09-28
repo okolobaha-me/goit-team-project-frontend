@@ -1,6 +1,7 @@
-import {css} from '@emotion/react';
-import {colors} from './utils/variables';
-import {mq} from './utils/mediaQueries';
+import { css } from '@emotion/react';
+import { colors, mqBreakpoints } from './utils/variables';
+import { mq } from './utils/mediaQueries';
+import styled from '@emotion/styled';
 
 export const list = () => {
     return css`
@@ -123,3 +124,19 @@ export const input = ({ variant }) => {
         }
     `;
 };
+
+export const Container = styled.div`
+    max-width: ${mqBreakpoints.mobile};
+    margin: 0 auto;
+    padding: 0 20px;
+
+    ${mq.tablet} {
+        max-width: ${mqBreakpoints.tablet};
+        padding: 0 32px;
+    }
+
+    ${mq.desktop} {
+        max-width: ${mqBreakpoints.desktop};
+        padding: 0 16px;
+    }
+`;
