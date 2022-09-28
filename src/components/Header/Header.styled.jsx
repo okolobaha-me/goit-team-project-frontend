@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors, fonts } from '../../baseStyles/utils/variables';
+import { mq } from '../../baseStyles/utils/mediaQueries';
 
 export const HeaderStyled = styled.header`
     padding: 16px 0;
@@ -20,6 +21,10 @@ export const Logo = styled.p`
 export const HeaderWrapper = styled.div`
     display: flex;
     align-items: center;
+
+    ${mq.tablet} {
+        position: relative;
+    }
 `;
 
 export const Nav = styled.nav`
@@ -61,7 +66,28 @@ export const UserPanel = styled.div`
     padding-left: 14px;
 `;
 
-export const UserAvatar = styled.a`
+export const UserInfo = styled.div`
+    ${mq.tablet} {
+        display: flex;
+        align-items: center;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+`;
+
+export const UserName = styled.p`
+    display: none;
+
+    ${mq.tablet} {
+        display: block;
+    }
+`;
+
+export const UserAvatar = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,9 +105,28 @@ export const UserAvatar = styled.a`
     border: 0;
     border-radius: 50%;
     background-color: #f5f7fa;
+
+    cursor: default;
+
+    ${mq.tablet} {
+        margin-right: 12px;
+    }
 `;
 
 export const ExitButton = styled.button`
     color: ${colors.mainText};
-    border-bottom: 1px solid ${colors.mainText};
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background-color: ${colors.mainText};
+        transition: width 0.3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+        transition: width 250ms;
+    }
 `;

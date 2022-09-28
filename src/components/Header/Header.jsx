@@ -13,6 +13,8 @@ import {
     HeaderWrapper,
     UserAvatar,
     UserPanel,
+    UserName,
+    UserInfo,
 } from './Header.styled';
 import icons from '../../images/svg/icons.svg';
 
@@ -56,7 +58,10 @@ export const Header = () => {
                             </NavList>
                         </Nav>
                         <UserPanel>
-                            <UserAvatar>M</UserAvatar>
+                            <UserInfo>
+                                <UserAvatar>M</UserAvatar>
+                                <UserName>Martha Stewart</UserName>
+                            </UserInfo>
                             <ExitButton onClick={openExitModal}>
                                 Вихід
                             </ExitButton>

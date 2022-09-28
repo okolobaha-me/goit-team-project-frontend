@@ -30,7 +30,7 @@ export const fonts = {
 };
 
 export const mqBreakpoints = {
-    mobile: '320px',
+    // mobile: '450px',
     preTablet: '767px',
     tablet: '768px',
     preDesktop: '1279px',
