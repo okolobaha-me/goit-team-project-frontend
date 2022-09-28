@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import { DatePicker, Select } from 'antd';
 import { btn } from '../../baseStyles/commonStyles';
 import { mq } from '../../baseStyles/utils/mediaQueries';
-import { DatePicker, Select } from 'antd';
+import { colors, fonts } from '../../baseStyles/utils/variables';
 
 export const DatePickers = styled(DatePicker)`
     font-size: 14px;

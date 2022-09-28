@@ -58,7 +58,7 @@ const chooseBtnVariant = variant => {
     }
 };
 
-export const btn = variant => {
+export const btn = ({ variant }) => {
     return css`
         ${chooseBtnVariant(variant)};
 

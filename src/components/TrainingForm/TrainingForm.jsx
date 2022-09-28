@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { useState } from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
