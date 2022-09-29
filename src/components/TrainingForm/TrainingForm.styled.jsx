@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { DatePicker, Select } from 'antd';
-import { btn } from '../../baseStyles/commonStyles';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import {DatePicker, Select} from 'antd';
+import {btn, input} from '../../baseStyles/commonStyles';
+import {mq} from '../../baseStyles/utils/mediaQueries';
+import {colors, fonts} from '../../baseStyles/utils/variables';
 
 export const DatePickers = styled(DatePicker)`
     font-size: 14px;
@@ -19,6 +19,7 @@ export const DatePickers = styled(DatePicker)`
 `;
 
 export const Selects = styled(Select)`
+    ${input};
     font-size: 14px;
     font-family: ${fonts.main};
 

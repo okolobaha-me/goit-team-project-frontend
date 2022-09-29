@@ -14,6 +14,7 @@ export const colors = {
     darkGrayText: '#898F9F',
     lightGrayText: '#A6ABB9',
     whiteText: '#FFFFFF',
+    errorText: '#f05037',
 
     //  borders colors
     mainBorder: '#A6ABB9',
