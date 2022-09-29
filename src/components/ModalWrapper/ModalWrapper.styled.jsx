@@ -26,6 +26,7 @@ const chooseModalVariant = variant => {
         case 'info':
         default:
             return css`
+                width: 280px;
                 padding: 48px 24px;
                 text-align: center;
                 line-height: 1.38;
@@ -42,7 +43,7 @@ export const ModalContainer = styled.div`
 
     background-color: ${colors.whiteBg};
     box-shadow: 10px 10px 20px rgba(9, 30, 63, 0.2);
-    width: 280px;
+
     position: absolute;
     top: 50%;
     left: 50%;

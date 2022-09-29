@@ -9,10 +9,10 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import {Controller, useForm} from 'react-hook-form';
-import {useState} from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useState } from 'react';
 
-export const RatingModal = ({ closeModal }) => {
+const RatingModal = ({ closeModal }) => {
     const { handleSubmit, control } = useForm();
     const [ratingErr, setRatingErr] = useState(null);
 
@@ -77,3 +77,5 @@ export const RatingModal = ({ closeModal }) => {
         </>
     );
 };
+
+export default RatingModal;

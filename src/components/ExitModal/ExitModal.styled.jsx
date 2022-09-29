@@ -13,6 +13,10 @@ export const Text = styled.p`
     text-align: center;
 
     color: ${colors.mainText};
+
+    ${mq.tablet} {
+        margin-bottom: 24px;
+    }
 `;
 
 export const ButtonWrapper = styled.div`

@@ -16,11 +16,12 @@ import {
     UserName,
     UserInfo,
 } from './Header.styled';
-import ExitModal from '../ExitModal/ExitModal';
 import icons from '../../images/svg/icons.svg';
 
+import ExitModal from '../ExitModal/ExitModal';
 import CongratulationsModal from '../CongratulationsModal/CongratulationsModal';
 import WellDoneModal from '../WellDoneModal/WellDoneModal';
+import RatingModal from '../RatingModal/RatingModal';
 
 export const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,9 +85,10 @@ export const Header = () => {
 
             {isModalOpen && (
                 <ModalWrapper variant={'info'} closeModal={closeModal}>
-                    {/* <ExitModal closeModal={closeModal} /> */}
+                    {/* <RatingModal closeModal={closeModal} /> */}
+                    <ExitModal closeModal={closeModal} />
                     {/* <CongratulationsModal closeModal={closeModal} /> */}
-                    <WellDoneModal closeModal={closeModal} />
+                    {/* <WellDoneModal closeModal={closeModal} /> */}
                 </ModalWrapper>
             )}
         </>
