@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { colors } from '../../baseStyles/utils/variables';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { btn } from '../../baseStyles/commonStyles';
+import {colors} from '../../../baseStyles/utils/variables';
+import {mq} from '../../../baseStyles/utils/mediaQueries';
+import {btn} from '../../../baseStyles/commonStyles';
 
 export const Icon = styled.svg`
     fill: ${colors.accentText};
@@ -26,10 +26,4 @@ export const Button = styled.button`
     padding: 12px;
 
     margin: 0 auto;
-
-    ${mq.tablet} {
-        font-size: 14px;
-    }
 `;
-
-// #a6abb9

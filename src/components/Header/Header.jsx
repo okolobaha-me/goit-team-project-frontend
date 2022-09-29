@@ -1,27 +1,23 @@
-import { useState } from 'react';
-import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
-import { Container } from '../../baseStyles/commonStyles';
+import {useState} from 'react';
+import {Container} from '../../baseStyles/commonStyles';
 import {
+    ExitButton,
     HeaderStyled,
+    HeaderWrapper,
+    Icon,
     Logo,
     Nav,
-    Icon,
-    NavList,
-    NavItem,
     NavButton,
-    ExitButton,
-    HeaderWrapper,
+    NavItem,
+    NavList,
     UserAvatar,
-    UserPanel,
-    UserName,
     UserInfo,
+    UserName,
+    UserPanel,
 } from './Header.styled';
 import icons from '../../images/svg/icons.svg';
 
-import ExitModal from '../ExitModal/ExitModal';
-import CongratulationsModal from '../CongratulationsModal/CongratulationsModal';
-import WellDoneModal from '../WellDoneModal/WellDoneModal';
-import RatingModal from '../RatingModal/RatingModal';
+import ExitModal from '../Modals/ExitModal/ExitModal';
 
 export const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,14 +79,7 @@ export const Header = () => {
                 </Container>
             </HeaderStyled>
 
-            {isModalOpen && (
-                <ModalWrapper variant={'info'} closeModal={closeModal}>
-                    {/* <RatingModal closeModal={closeModal} /> */}
-                    <ExitModal closeModal={closeModal} />
-                    {/* <CongratulationsModal closeModal={closeModal} /> */}
-                    {/* <WellDoneModal closeModal={closeModal} /> */}
-                </ModalWrapper>
-            )}
+            {isModalOpen && <ExitModal closeModal={closeModal} />}
         </>
     );
 };

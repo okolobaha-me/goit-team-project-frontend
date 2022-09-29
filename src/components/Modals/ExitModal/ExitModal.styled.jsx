@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { colors } from '../../baseStyles/utils/variables';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { btn } from '../../baseStyles/commonStyles';
+import {colors} from '../../../baseStyles/utils/variables';
+import {mq} from '../../../baseStyles/utils/mediaQueries';
+import {btn} from '../../../baseStyles/commonStyles';
 
 export const Text = styled.p`
     margin-bottom: 20px;

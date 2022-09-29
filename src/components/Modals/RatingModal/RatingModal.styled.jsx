@@ -1,8 +1,8 @@
-import { colors } from '../../baseStyles/utils/variables';
-import { btn, input } from '../../baseStyles/commonStyles';
-import { Rating } from '@mui/material';
+import {colors} from '../../../baseStyles/utils/variables';
+import {btn, input} from '../../../baseStyles/commonStyles';
+import {Rating} from '@mui/material';
 import styled from '@emotion/styled';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {mq} from '../../../baseStyles/utils/mediaQueries';
 
 export const Form = styled.form`
     font-weight: 500;

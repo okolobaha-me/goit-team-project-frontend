@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
+import {css} from '@emotion/react';
 import styled from '@emotion/styled';
-import { colors } from '../../baseStyles/utils/variables';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {colors} from '../../../baseStyles/utils/variables';
+import {mq} from '../../../baseStyles/utils/mediaQueries';
 
 export const Backdrop = styled.div`
     position: fixed;
@@ -50,7 +50,11 @@ export const ModalContainer = styled.div`
     transform: translate(-50%, -50%);
 
     & button {
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+
+        ${mq.tablet} {
+            font-size: 14px;
+        }
     }
 `;
 
