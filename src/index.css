@@ -1,13 +1,60 @@
-@import-normalize;
-
+/*@import-normalize;*/
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                               not supported by any browser */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+}
+
+h1,h2,h3,h4,h5,h6, p {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+@include mq(desktop) {
+}
+
+@include mq(tablet) {
+}
+
+@include mq(tablet-only) {
+}
+
+@include mq(mobile-only) {
 }

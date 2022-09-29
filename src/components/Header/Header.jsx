@@ -1,9 +1,85 @@
+import {useState} from 'react';
+import {Container} from '../../baseStyles/commonStyles';
+import {
+    ExitButton,
+    HeaderStyled,
+    HeaderWrapper,
+    Icon,
+    Logo,
+    Nav,
+    NavButton,
+    NavItem,
+    NavList,
+    UserAvatar,
+    UserInfo,
+    UserName,
+    UserPanel,
+} from './Header.styled';
+import icons from '../../images/svg/icons.svg';
+
+import ExitModal from '../Modals/ExitModal/ExitModal';
+
 export const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const isLoggedIn = true;
+    const userName = 'Stepan';
+    const userAvatar = userName[0].toUpperCase();
+
+    const openExitModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <>
-            <header>
-                <p>LOGO</p>
-            </header>
+            <HeaderStyled>
+                <Container>
+                    <HeaderWrapper>
+                        <Logo isLoggedIn={isLoggedIn}>BR</Logo>
+                        {isLoggedIn && (
+                            <>
+                                <Nav>
+                                    <NavList>
+                                        <NavItem>
+                                            <NavButton>
+                                                <Icon width="22" height="17">
+                                                    <use
+                                                        href={`${icons}#icon-book`}
+                                                    />
+                                                </Icon>
+                                            </NavButton>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavButton>
+                                                <Icon width="20" height="17">
+                                                    <use
+                                                        href={`${icons}#icon-home`}
+                                                    />
+                                                </Icon>
+                                            </NavButton>
+                                        </NavItem>
+                                    </NavList>
+                                </Nav>
+                                <UserPanel>
+                                    <UserInfo>
+                                        <UserAvatar>{userAvatar}</UserAvatar>
+                                        <UserName>{userName}</UserName>
+                                    </UserInfo>
+                                    <ExitButton onClick={openExitModal}>
+                                        Вихід
+                                    </ExitButton>
+                                </UserPanel>
+                            </>
+                        )}
+                    </HeaderWrapper>
+                </Container>
+            </HeaderStyled>
+
+            {isModalOpen && <ExitModal closeModal={closeModal} />}
         </>
     );
 };
