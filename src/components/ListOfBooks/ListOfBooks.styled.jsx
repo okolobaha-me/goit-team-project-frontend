@@ -60,6 +60,10 @@ export const Item = styled.li`
 export const Wrapper = styled.div`
     display: flex;
     align-items: flex-start;
+
+    ${mq.tablet} {
+        width: 40%;
+    }
 `;
 
 export const Title = styled.p`
@@ -75,6 +79,21 @@ export const Title = styled.p`
     color: #242a37;
 
     margin-bottom: 12px;
+
+    ${mq.tablet} {
+        font-size: 14px;
+        line-height: 17px;
+
+        width: 180px;
+        height: 34px;
+        /* overflow: hidden; */
+        /* text-overflow: ellipsis; */
+        /* white-space: nowrap; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        overflow-wrap: break-word;
+    }
 `;
 
 export const ListOfDesc = styled.ul`
@@ -101,6 +120,11 @@ export const Label = styled.p`
 
     flex-basis: 30%;
     align-self: flex-start;
+
+    ${mq.tablet} {
+        font-size: 14px;
+        line-height: 17px;
+    }
 `;
 
 export const Desc = styled.p`
@@ -119,4 +143,9 @@ export const Desc = styled.p`
 
     flex-basis: 70%;
     flex-grow: 1;
+
+    ${mq.tablet} {
+        font-size: 14px;
+        line-height: 17px;
+    }
 `;

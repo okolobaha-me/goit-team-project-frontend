@@ -15,17 +15,16 @@ import { HiCheck } from 'react-icons/hi';
 
 // GrCheckboxSelected;
 
-import icons from '../../images/svg/icons.svg';
 import Checkbox from 'react-custom-checkbox';
 
 export function ListOfBooks() {
     return (
         <>
             <ListOfLabels>
-                <ItemLabel>Назва книги</ItemLabel>
-                <ItemLabel>Автор</ItemLabel>
-                <ItemLabel>Рік</ItemLabel>
-                <ItemLabel>Стор.</ItemLabel>
+                <ItemLabel style={{ width: '40%' }}>Назва книги</ItemLabel>
+                <ItemLabel style={{ width: '30%' }}>Автор</ItemLabel>
+                <ItemLabel style={{ width: '10%' }}>Рік</ItemLabel>
+                <ItemLabel style={{ width: '20%' }}>Стор.</ItemLabel>
             </ListOfLabels>
             <ListOfBook>
                 <Item>
