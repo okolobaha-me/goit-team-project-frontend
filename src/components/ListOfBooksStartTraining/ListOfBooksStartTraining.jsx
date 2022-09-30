@@ -30,9 +30,11 @@ export function ListOfBooksStartTraining() {
             <ListOfBook>
                 <Item>
                     <Wrapper>
-                        <IconBook>
-                            <use href={`${icons}#icon-book`} />
-                        </IconBook>
+                        <div>
+                            <IconBook>
+                                <use href={`${icons}#icon-book`} />
+                            </IconBook>
+                        </div>
                         <TrTitle>
                             Scrum. Революционный метод управлениями проектами.
                         </TrTitle>
@@ -59,9 +61,11 @@ export function ListOfBooksStartTraining() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <IconBook>
-                            <use href={`${icons}#icon-book`} />
-                        </IconBook>
+                        <div>
+                            <IconBook>
+                                <use href={`${icons}#icon-book`} />
+                            </IconBook>
+                        </div>
                         <TrTitle>
                             5 Пороков команды. Притчи о лидерстве.{' '}
                         </TrTitle>
@@ -88,9 +92,11 @@ export function ListOfBooksStartTraining() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <IconBook>
-                            <use href={`${icons}#icon-book`} />
-                        </IconBook>
+                        <div>
+                            <IconBook>
+                                <use href={`${icons}#icon-book`} />
+                            </IconBook>
+                        </div>
                         <TrTitle>
                             Deadline. Роман об управлении проектами.{' '}
                         </TrTitle>

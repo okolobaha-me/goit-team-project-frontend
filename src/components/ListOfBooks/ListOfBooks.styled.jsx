@@ -97,7 +97,7 @@ export const Item = styled.li`
 
     border-bottom: 1px solid ${colors.sectionBorder};
 
-    &::first-of-type {
+    &:first-of-type {
         border-top: 1px solid ${colors.sectionBorder};
     }
 
@@ -194,7 +194,6 @@ export const BtnDelete = styled.button`
     }
 
     ${mq.desktop} {
-        position: absolute;
         top: 19px;
         right: 38px;
     }
