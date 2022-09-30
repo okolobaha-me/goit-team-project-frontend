@@ -14,7 +14,7 @@ import {
     StepDescrIcon,
 } from './EmptyLibrary.styled';
 
-export const EmptyLibrary = () => {
+const EmptyLibrary = () => {
     return (
         <>
         <MobileContainer>
@@ -70,3 +70,5 @@ export const EmptyLibrary = () => {
         </>
     );
 };
+
+export default EmptyLibrary;
