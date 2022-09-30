@@ -1,4 +1,5 @@
 import {
+    TableOfBooks,
     ListOfBook,
     Item,
     Title,
@@ -9,38 +10,28 @@ import {
     Wrapper,
     ItemLabel,
     ListOfLabels,
-} from './ListOfBooks.styled';
-import { HiCheck } from 'react-icons/hi';
-// import { Checkbox } from '@mui/material';
+    CheckboxChecked,
+    IconChecked,
+    CustomCheckbox,
+} from '../ListOfBooks/ListOfBooks.styled';
 
-// GrCheckboxSelected;
-
-import Checkbox from 'react-custom-checkbox';
-
-export function ListOfBooks() {
+export function ListOfBooksTraining() {
     return (
-        <>
+        <TableOfBooks>
             <ListOfLabels>
-                <ItemLabel style={{ width: '40%' }}>Назва книги</ItemLabel>
-                <ItemLabel style={{ width: '30%' }}>Автор</ItemLabel>
-                <ItemLabel style={{ width: '10%' }}>Рік</ItemLabel>
-                <ItemLabel style={{ width: '20%' }}>Стор.</ItemLabel>
+                <ItemLabel>Назва книги</ItemLabel>
+                <ItemLabel>Автор</ItemLabel>
+                <ItemLabel>Рік</ItemLabel>
+                <ItemLabel>Стор.</ItemLabel>
             </ListOfLabels>
             <ListOfBook>
                 <Item>
                     <Wrapper>
-                        <Checkbox
+                        <CustomCheckbox
                             icon={
-                                <div
-                                    style={{
-                                        width: 13,
-                                        height: 13,
-                                        border: '1px solid #FF6B08',
-                                        borderRadius: '2px',
-                                    }}
-                                >
-                                    <HiCheck color="#FF6B08" size={14} />
-                                </div>
+                                <CheckboxChecked>
+                                    <IconChecked />
+                                </CheckboxChecked>
                             }
                             name="my-input"
                             checked={true}
@@ -51,7 +42,6 @@ export function ListOfBooks() {
                             size={13}
                             borderRadius={2}
                             borderWidth={1}
-                            style={{ cursor: 'pointer', marginRight: 19 }}
                         />
                         <Title>
                             Scrum. Революционный метод управлениями проектами.
@@ -74,18 +64,11 @@ export function ListOfBooks() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <Checkbox
+                        <CustomCheckbox
                             icon={
-                                <div
-                                    style={{
-                                        width: 13,
-                                        height: 13,
-                                        border: '1px solid #FF6B08',
-                                        borderRadius: '2px',
-                                    }}
-                                >
-                                    <HiCheck color="#FF6B08" size={14} />
-                                </div>
+                                <CheckboxChecked>
+                                    <IconChecked />
+                                </CheckboxChecked>
                             }
                             name="my-input"
                             checked={true}
@@ -96,7 +79,6 @@ export function ListOfBooks() {
                             size={13}
                             borderRadius={2}
                             borderWidth={1}
-                            style={{ cursor: 'pointer', marginRight: 19 }}
                         />
                         <Title>5 Пороков команды. Притчи о лидерстве. </Title>
                     </Wrapper>
@@ -117,18 +99,11 @@ export function ListOfBooks() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <Checkbox
+                        <CustomCheckbox
                             icon={
-                                <div
-                                    style={{
-                                        width: 13,
-                                        height: 13,
-                                        border: '1px solid #FF6B08',
-                                        borderRadius: '2px',
-                                    }}
-                                >
-                                    <HiCheck color="#FF6B08" size={14} />
-                                </div>
+                                <CheckboxChecked>
+                                    <IconChecked />
+                                </CheckboxChecked>
                             }
                             name="my-input"
                             checked={false}
@@ -139,7 +114,6 @@ export function ListOfBooks() {
                             size={13}
                             borderRadius={2}
                             borderWidth={1}
-                            style={{ cursor: 'pointer', marginRight: 19 }}
                         />
                         <Title>Deadline. Роман об управлении проектами. </Title>
                     </Wrapper>
@@ -159,6 +133,6 @@ export function ListOfBooks() {
                     </ListOfDesc>
                 </Item>
             </ListOfBook>
-        </>
+        </TableOfBooks>
     );
 }

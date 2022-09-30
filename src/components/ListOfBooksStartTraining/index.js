@@ -1,0 +1,1 @@
+export { ListOfBooksStartTraining } from './ListOfBooksStartTraining';
