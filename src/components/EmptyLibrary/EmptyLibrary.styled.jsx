@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
-import { btn, list } from '../../baseStyles/commonStyles';
-import { colors } from '../../baseStyles/utils/variables';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {btn, colors, list, mq} from '../../baseStyles';
 
 export const MobileContainer = styled.div`
     ${mq.mobileOnly} {
@@ -20,7 +18,7 @@ export const ArrowBackIcon = styled.svg`
     }
 `;
 export const BookName = styled.p`
-    ${list}
+    ${list};
     font-size: 14px;
     line-height: 1.21;
     color: ${colors.darkGrayText};
@@ -35,7 +33,7 @@ export const Box = styled.div`
     margin: 0 auto;
 
     background-color: ${colors.whiteBg};
-    box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+    box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
     padding: 40px;
 
     ${mq.mobileOnly} {
@@ -45,7 +43,7 @@ export const Box = styled.div`
 `;
 
 export const List = styled.ul`
-    ${list}
+    ${list};
 `;
 
 export const ListItem = styled.li`
@@ -58,7 +56,7 @@ export const ListItem = styled.li`
 `;
 
 export const Title = styled.h2`
-    ${list}
+    ${list};
     margin-bottom: 16px;
     font-size: 19px;
     line-height: 1.21;
@@ -71,7 +69,7 @@ export const Title = styled.h2`
 `;
 
 export const StepText = styled.p`
-    ${list}
+    ${list};
     display: flex;
     margin-bottom: 8px;
 
@@ -91,7 +89,7 @@ export const StepTexIcon = styled.svg`
 `;
 
 export const StepDescr = styled.p`
-    ${list}
+    ${list};
     margin-left: 34px;
     font-size: 14px;
     line-height: 1.21;
@@ -103,7 +101,7 @@ export const StepDescrIcon = styled.svg`
 `;
 
 export const Btn = styled.button`
-    ${btn}
+    ${btn};
     padding: 12px 53px;
     margin: 40px auto 0;
     ${mq.tablet} {

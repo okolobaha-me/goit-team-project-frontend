@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
-import { colors } from '../../baseStyles/utils/variables';
-import { btn, input } from '../../baseStyles/commonStyles';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {btn, colors, input, mq} from '../../baseStyles';
 
 export const Wrapper = styled.div`
-        background: ${colors.mainBg};
-        padding-bottom: 40px;
-`
+    background: ${colors.mainBg};
+    padding-bottom: 40px;
+`;
 
 export const Icon = styled.svg`
     margin-left: 20px;
