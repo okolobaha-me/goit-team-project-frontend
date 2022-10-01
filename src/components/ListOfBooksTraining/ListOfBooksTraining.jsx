@@ -10,10 +10,9 @@ import {
     Wrapper,
     ItemLabel,
     ListOfLabels,
-    CheckboxChecked,
-    IconChecked,
-    CustomCheckbox,
+    IconCheckbox,
 } from '../ListOfBooks/ListOfBooks.styled';
+import icons from '../../images/svg/icons.svg';
 
 export function ListOfBooksTraining() {
     return (
@@ -27,22 +26,11 @@ export function ListOfBooksTraining() {
             <ListOfBook>
                 <Item>
                     <Wrapper>
-                        <CustomCheckbox
-                            icon={
-                                <CheckboxChecked>
-                                    <IconChecked />
-                                </CheckboxChecked>
-                            }
-                            name="my-input"
-                            checked={true}
-                            onChange={value => {
-                                console.log(value);
-                            }}
-                            borderColor="#A6ABB9"
-                            size={13}
-                            borderRadius={2}
-                            borderWidth={1}
-                        />
+                        <div>
+                            <IconCheckbox>
+                                <use href={`${icons}#icon-checkbox-color`} />
+                            </IconCheckbox>
+                        </div>
                         <Title>
                             Scrum. Революционный метод управлениями проектами.
                         </Title>
@@ -64,22 +52,11 @@ export function ListOfBooksTraining() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <CustomCheckbox
-                            icon={
-                                <CheckboxChecked>
-                                    <IconChecked />
-                                </CheckboxChecked>
-                            }
-                            name="my-input"
-                            checked={true}
-                            onChange={value => {
-                                console.log(value);
-                            }}
-                            borderColor="#A6ABB9"
-                            size={13}
-                            borderRadius={2}
-                            borderWidth={1}
-                        />
+                        <div>
+                            <IconCheckbox>
+                                <use href={`${icons}#icon-checkbox-color`} />
+                            </IconCheckbox>
+                        </div>
                         <Title>5 Пороков команды. Притчи о лидерстве. </Title>
                     </Wrapper>
                     <ListOfDesc>
@@ -99,22 +76,11 @@ export function ListOfBooksTraining() {
                 </Item>
                 <Item>
                     <Wrapper>
-                        <CustomCheckbox
-                            icon={
-                                <CheckboxChecked>
-                                    <IconChecked />
-                                </CheckboxChecked>
-                            }
-                            name="my-input"
-                            checked={false}
-                            onChange={value => {
-                                console.log(value);
-                            }}
-                            borderColor="#A6ABB9"
-                            size={13}
-                            borderRadius={2}
-                            borderWidth={1}
-                        />
+                        <div>
+                            <IconCheckbox>
+                                <use href={`${icons}#icon-checkbox`} />
+                            </IconCheckbox>
+                        </div>
                         <Title>Deadline. Роман об управлении проектами. </Title>
                     </Wrapper>
                     <ListOfDesc>

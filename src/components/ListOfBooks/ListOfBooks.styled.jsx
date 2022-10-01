@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import Checkbox from 'react-custom-checkbox';
-import { HiCheck } from 'react-icons/hi';
+// import Checkbox from 'react-custom-checkbox';
+// import { HiCheck } from 'react-icons/hi';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 import { colors, fonts } from '../../baseStyles/utils/variables';
 
@@ -122,35 +122,9 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const CustomCheckbox = styled(Checkbox)`
-    cursor: pointer;
-    margin-right: 19px;
-
-    ${mq.tablet} {
-        margin-right: 18px;
-    }
-
-    ${mq.desktop} {
-        margin-right: 21px;
-    }
-`;
-
-export const CheckboxChecked = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 13px;
-    height: 13px;
-    border: 1px solid ${colors.accentBg};
-    border-radius: 2px;
-`;
-
-export const IconChecked = styled(HiCheck)`
-    width: 11px;
-    height: 11px;
-
-    color: ${colors.accentBg};
+export const IconCheckbox = styled.svg`
+    width: 15px;
+    height: 15px;
 `;
 
 export const IconBook = styled.svg`
@@ -159,6 +133,7 @@ export const IconBook = styled.svg`
 `;
 
 export const Title = styled.p`
+    margin-left: 19px;
     margin-bottom: 12px;
     color: ${colors.mainText};
 
@@ -169,11 +144,14 @@ export const Title = styled.p`
         overflow: hidden;
 
         width: 180px;
+        margin-left: 18px;
         margin-bottom: 0;
     }
 
     ${mq.desktop} {
         width: 309px;
+        margin-left: 23px;
+
         -webkit-line-clamp: 1;
     }
 `;
