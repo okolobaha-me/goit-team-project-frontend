@@ -1,8 +1,8 @@
-import {Route, Routes} from 'react-router-dom';
-import {lazy, Suspense} from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 // Components
-import {Layout} from './components/Layout/Layout';
+import { Layout } from './components/Layout/Layout';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
