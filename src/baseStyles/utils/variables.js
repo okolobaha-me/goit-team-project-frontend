@@ -19,6 +19,7 @@ export const colors = {
     //  borders colors
     mainBorder: '#A6ABB9',
     invalidBorder: '#f05037',
+    sectionBorder: '#e0e5eb',
 };
 
 export const fonts = {
