@@ -1,7 +1,10 @@
+import { ListOfBooksStartTraining } from '../../components/ListOfBooksStartTraining';
+
 const Training = () => {
     return (
         <>
-            <h1>Training</h1>
+            {/* <h1>Training</h1> */}
+            <ListOfBooksStartTraining></ListOfBooksStartTraining>
         </>
     );
 };
