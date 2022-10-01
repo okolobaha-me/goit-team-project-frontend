@@ -1,5 +1,4 @@
 import { Select } from 'antd';
-
 import { useState } from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
@@ -12,7 +11,6 @@ import {
     InputDateWrapper,
     Selects,
 } from './TrainingForm.styled';
-// import 'antd/dist/antd.min.css';
 
 const { Option } = Select;
 
