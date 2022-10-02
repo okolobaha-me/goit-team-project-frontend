@@ -59,20 +59,21 @@ export const TimerList = styled.div`
 
 export const TaimerAlign = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    ${mq.notTablet} {
-        flex-direction: column;
-    }
+   
+    ${mq.tablet} {
+        margin-right: 74px;
+        &:last-child{
+            margin-right: 0;
+        }
+    } 
 `;
 
 export const TimerContainer = styled.div`
-    margin-right: 20px;
-    &:last-of-type {
-        margin-right: 0;
-    }
-    ${mq.notTablet} {
-        margin-right: 0;
-    }
+    ${mq.tablet} {
+        display: flex;
+        justify-content: center
+    } 
 `;
