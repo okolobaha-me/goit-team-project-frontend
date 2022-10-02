@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 
 // Components
 import { Layout } from './components/Layout/Layout';
-import Goals from './components/Goals/Goals';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -28,7 +27,6 @@ export const App = () => {
                     </Route>
                 </Routes>
             </Suspense>
-            <Goals />
         </>
     );
 };
