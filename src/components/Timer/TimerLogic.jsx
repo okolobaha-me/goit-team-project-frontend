@@ -8,7 +8,7 @@ import {
     TimerList,
     TaimerAlign,
 } from './Timer.styled';
-const Timer = ({ expectDate }) => {
+const TimerLogic = ({ expectDate }) => {
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -92,4 +92,4 @@ const Timer = ({ expectDate }) => {
     );
 };
 
-export default Timer;
+export default TimerLogic;

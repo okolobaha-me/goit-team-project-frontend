@@ -5,8 +5,8 @@ const Timer = () => {
     return (
         <>
             <TimerContainer>
-                <TimerLogic expectDate={'13 May 2023'} />
                 <TimerLogic />
+                <TimerLogic expectDate={'13 May 2023'} />
             </TimerContainer>
         </>
     );

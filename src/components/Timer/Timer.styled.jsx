@@ -13,22 +13,16 @@ export const TaimerMain = styled.div`
     box-shadow: 4px 4px 8px rgba(36, 42, 55, 0.15);
 `;
 
-export const TimerTitle = styled.div`
+export const TimerTitle = styled.p`
     font-family: ${fonts.main};
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    margin-top: 24px;
     color: ${colors.darkGrayText};
-    ${mq.mobile} {
-        &:first-of-type {
-            margin-top: 20px;
-        }
-    }
 `;
 
-export const TimerDays = styled.span`
+export const TimerDays = styled.p`
     font-family: ${fonts.main};
     font-weight: 500;
     font-size: 10px;
@@ -37,7 +31,7 @@ export const TimerDays = styled.span`
     color: ${colors.darkGrayText};
 `;
 
-export const TimerNumber = styled.span`
+export const TimerNumber = styled.p`
     font-family: ${fonts.openSans};
     font-weight: 700;
     font-size: 25px;
@@ -46,14 +40,12 @@ export const TimerNumber = styled.span`
 `;
 
 export const TimerList = styled.div`
-    display: flex;
-    flex-direction: column;
     margin: 0 10px;
+    &:last-child {
+        margin-right: 0;
+    }
     &:first-of-type {
         margin-left: 0;
-    }
-    &:last-of-type {
-        margin-right: 0;
     }
 `;
 
@@ -61,19 +53,23 @@ export const TaimerAlign = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-   
-    ${mq.tablet} {
-        margin-right: 74px;
-        &:last-child{
-            margin-right: 0;
+    margin-top: 20px;
+    &:last-child {
+        margin-left: 74px;
+    };
+
+    ${mq.mobileOnly} {
+        &:last-child {
+            margin-left: 0px;
+            margin-top: 24px;
         }
-    } 
+    }
 `;
 
 export const TimerContainer = styled.div`
     ${mq.tablet} {
         display: flex;
-        justify-content: center
-    } 
+        align-items: baseline;
+        justify-content: center;
+    }
 `;
