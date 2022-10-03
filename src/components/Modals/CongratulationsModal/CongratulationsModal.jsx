@@ -1,7 +1,7 @@
-import {Button, Icon, Text} from './CongratulationsModal.styled';
+import { Button, Icon, Text } from './CongratulationsModal.styled';
 
 import icons from '../../../images/svg/icons.svg';
-import {ModalWrapper} from '../ModalWrapper/ModalWrapper';
+import { ModalWrapper } from '../ModalWrapper';
 
 const CongratulationsModal = ({ closeModal }) => {
     return (
