@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 // import Checkbox from 'react-custom-checkbox';
-// import { HiCheck } from 'react-icons/hi';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import { HiCheck } from 'react-icons/hi';
+import { colors, fonts, mq } from '../../baseStyles';
 
 export const TableOfBooks = styled.div`
     font-family: ${fonts.main};
@@ -122,9 +121,22 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const IconCheckbox = styled.svg`
-    width: 15px;
-    height: 15px;
+export const CheckboxChecked = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 13px;
+    height: 13px;
+    border: 1px solid ${colors.accentBg};
+    border-radius: 2px;
+`;
+
+export const IconChecked = styled(HiCheck)`
+    width: 11px;
+    height: 11px;
+
+    color: ${colors.accentBg};
 `;
 
 export const IconBook = styled.svg`

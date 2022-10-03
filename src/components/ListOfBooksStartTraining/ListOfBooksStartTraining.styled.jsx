@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { DescItem, ItemLabel, Title } from '../ListOfBooks/ListOfBooks.styled';
+import {mq} from '../../baseStyles';
+import {DescItem, ItemLabel, Title} from '../ListOfBooks/ListOfBooks.styled';
 
 export const TrTitle = styled(Title)`
     margin-left: 12px;

@@ -1,5 +1,5 @@
-import {Button, ButtonWrapper, Text} from './ExitModal.styled';
-import {ModalWrapper} from '../ModalWrapper/ModalWrapper';
+import { Button, ButtonWrapper, Text } from './ExitModal.styled';
+import ModalWrapper from '../ModalWrapper';
 
 const ExitModal = ({ closeModal }) => {
     const logout = () => {

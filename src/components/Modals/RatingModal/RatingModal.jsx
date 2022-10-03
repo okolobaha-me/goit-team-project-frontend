@@ -9,9 +9,9 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import {Controller, useForm} from 'react-hook-form';
-import {useState} from 'react';
-import {ModalWrapper} from '../ModalWrapper/ModalWrapper';
+import { Controller, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { ModalWrapper } from '../ModalWrapper';
 
 const RatingModal = ({ closeModal }) => {
     const { handleSubmit, control } = useForm();

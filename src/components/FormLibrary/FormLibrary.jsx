@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Button, Input, Label, Form, Icon } from './FormLibrary.styled';
+import { Button, Input, Label, Form, Icon, Wrapper } from './FormLibrary.styled';
 import icons from '../../images/svg/icons.svg';
 import { NavLink } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const FormLibrary = () => {
         reset();
     };
     return (
-        <div>
+        <Wrapper>
             <NavLink>
                 <Icon width="24" height="12">
                     <use href={`${icons}#icon-arrowBack`} />
@@ -44,6 +44,7 @@ const FormLibrary = () => {
                         type="number"
                         name="publicationDate"
                         placeholder="..."
+                        min="1"
                     />
                 </Label>
                 <Label>
@@ -53,6 +54,7 @@ const FormLibrary = () => {
                         type="number"
                         name="pages"
                         placeholder="..."
+                        min="1"
                     />
                 </Label>
 
@@ -60,7 +62,7 @@ const FormLibrary = () => {
                     Додати
                 </Button>
             </Form>
-        </div>
+        </Wrapper>
     );
 };
 
