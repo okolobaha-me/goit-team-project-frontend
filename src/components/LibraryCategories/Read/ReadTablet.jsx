@@ -4,7 +4,7 @@ import {
     Author,
     Year,
     Page,
-    Rating,
+    RatingTitle,
     ListOther,
     Title,
 } from '../LibraryCategories.styled';
@@ -22,7 +22,7 @@ const ReadTablet = ({ color, books }) => {
                         <Author>Автор</Author>
                         <Year>Рік</Year>
                         <Page>Стор.</Page>
-                        <Rating>Рейтинг</Rating>
+                        <RatingTitle>Рейтинг</RatingTitle>
                     </WrapperTitles>
                     <ListOther>
                         {books &&

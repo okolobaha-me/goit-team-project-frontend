@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import { list, btn } from '../../baseStyles/commonStyles';
 import { colors } from '../../baseStyles/utils/variables';
 import { mq } from '../../baseStyles/utils/mediaQueries';
+import { Rating } from '@mui/material';
 
 export const titles = () => {
     return css`
@@ -111,6 +112,8 @@ export const Text = styled.p`
     font-size: 12px;
     color: ${colors.mainText};
     margin-bottom: 14px;
+    display: flex;
+    align-items: center;
 
     &:first-of-type {
         margin-top: 0px;
@@ -185,7 +188,7 @@ export const Page = styled.p`
     }
 `;
 
-export const Rating = styled.p`
+export const RatingTitle = styled.p`
     ${titles}
 `;
 
@@ -243,6 +246,8 @@ export const NumberPages = styled.p`
 export const Stars = styled.p`
     width: 119px;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
     ${mq.desktop} {
         width: 146px;
         margin-right: 16px;
@@ -326,4 +331,13 @@ export const BookPage = styled.p`
         width: 88px;
         margin-right: 18px;
     }
+`;
+
+export const StyledRating = styled(Rating)`
+width: 97px;
+height: 17px;
+${mq.desktop} {
+    width: 101px;
+
+}
 `;

@@ -10,7 +10,7 @@ const books = [
         author: 'Купер Алан',
         year: '2009',
         totalPages: '183',
-        rating: 'rating',
+        rating: 3,
     },
 ];
 

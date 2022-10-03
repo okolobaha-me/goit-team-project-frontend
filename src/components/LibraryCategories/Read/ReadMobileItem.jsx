@@ -6,6 +6,7 @@ import {
     WrapperItem,
     TextSelection,
     Icon,
+    StyledRating,
 } from '../LibraryCategories.styled';
 
 const ReadMobileItem = ({ book, color }) => {
@@ -27,7 +28,7 @@ const ReadMobileItem = ({ book, color }) => {
                     <TextSelection>Стор.:</TextSelection> {totalPages}
                 </Text>
                 <Text>
-                    <TextSelection>Рейтинг:</TextSelection> {rating}
+                    <TextSelection>Рейтинг:</TextSelection> <StyledRating name="no-value" value={rating} readOnly size="small" />
                 </Text>
                 <Button type="button" variant={'gray'}>
                     Резюме

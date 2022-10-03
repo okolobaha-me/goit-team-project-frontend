@@ -7,6 +7,7 @@ import {
     NumberPages,
     Stars,
     ButtonRating,
+    StyledRating,
 } from '../LibraryCategories.styled';
 
 import icons from '../../../images/svg/icons.svg';
@@ -24,7 +25,7 @@ const ReadTabletItem = ({ color, book }) => {
                 <Writer>{author}</Writer>
                 <Date>{year}</Date>
                 <NumberPages>{totalPages}</NumberPages>
-                <Stars>{rating}</Stars>
+                <Stars><StyledRating name="no-value" value={rating} readOnly  /></Stars>
                 <ButtonRating type="button" variant={'gray'}>
                     Резюме
                 </ButtonRating>
