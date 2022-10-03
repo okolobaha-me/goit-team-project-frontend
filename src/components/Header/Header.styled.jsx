@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { colors, fonts } from '../../baseStyles/utils/variables';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {colors, fonts, mq} from '../../baseStyles';
 
 export const HeaderStyled = styled.header`
+    background-color: ${colors.whiteBg};
     padding: 16px 0;
-    box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+    box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
 `;
 
 export const Logo = styled.p`

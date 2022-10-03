@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
-import { btn, input } from '../../baseStyles/commonStyles';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {btn, colors, input, mq} from '../../baseStyles';
+
+export const Wrapper = styled.div`
+    background: ${colors.mainBg};
+    padding-bottom: 40px;
+`;
 
 export const Icon = styled.svg`
     margin-left: 20px;
@@ -14,8 +18,6 @@ export const Icon = styled.svg`
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
-    margin-left: 20px;
 
     ${mq.tablet} {
         flex-direction: row;
@@ -23,8 +25,6 @@ export const Form = styled.form`
     }
 
     ${mq.tabletOnly} {
-        margin-right: 32px;
-        margin-left: 32px;
         max-width: 704px;
     }
 `;
@@ -56,6 +56,7 @@ export const Label = styled.label`
     flex-direction: column;
     font-size: 14px;
     padding-bottom: 20px;
+    color: ${colors.darkGrayText};
 
     ${mq.mobileOnly} {
         &:last-of-type {

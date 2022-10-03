@@ -6,6 +6,7 @@ export const colors = {
     inputBg: '#F5F7FA',
     accentBg: '#FF6B08',
     darkBg: '#6D7A8D',
+    greyBg: '#b1b5c2',
 
     //  text colors
     mainText: '#242A37',
@@ -15,10 +16,12 @@ export const colors = {
     lightGrayText: '#A6ABB9',
     whiteText: '#FFFFFF',
     errorText: '#f05037',
+    blackBlueText: '#091e3f',
 
     //  borders colors
     mainBorder: '#A6ABB9',
     invalidBorder: '#f05037',
+    sectionBorder: '#e0e5eb',
 };
 
 export const fonts = {
