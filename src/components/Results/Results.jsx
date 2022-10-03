@@ -9,14 +9,25 @@ import {
     Form,
     WrapperOdLabels,
     DatesList,
-    DatesItem,
-    Date,
-    Time,
-    NumberOfPages,
-    Pages,
 } from './Results.styled';
 import icons from '../../images/svg/icons.svg';
 import moment from 'moment';
+import { DateItem } from './DateItem';
+
+const items = [
+    {
+        id: '1',
+        date: '10.10.2019',
+        time: '08:10:23',
+        numberOfPages: 342,
+    },
+    {
+        id: '2',
+        date: '10.09.2022',
+        time: '11:10:00',
+        numberOfPages: 34,
+    },
+];
 
 export function Results() {
     return (
@@ -49,38 +60,9 @@ export function Results() {
             </Form>
             <Title>СТАТИСТИКА</Title>
             <DatesList>
-                <DatesItem>
-                    <Date>10.10.2019</Date>
-                    <Time>08:10:23</Time>
-                    <NumberOfPages>
-                        32&nbsp;
-                        <Pages>стор.</Pages>
-                    </NumberOfPages>
-                </DatesItem>
-                <DatesItem>
-                    <Date>10.10.2019</Date>
-                    <Time>23:50:23</Time>
-                    <NumberOfPages>
-                        212&nbsp;
-                        <Pages>стор.</Pages>
-                    </NumberOfPages>
-                </DatesItem>
-                <DatesItem>
-                    <Date>10.10.2019</Date>
-                    <Time>17:03:23</Time>
-                    <NumberOfPages>
-                        178&nbsp;
-                        <Pages>стор.</Pages>
-                    </NumberOfPages>
-                </DatesItem>
-                <DatesItem>
-                    <Date>18.10.2022</Date>
-                    <Time>22:22:22</Time>
-                    <NumberOfPages>
-                        32&nbsp;
-                        <Pages>стор.</Pages>
-                    </NumberOfPages>
-                </DatesItem>
+                {items.map(item => {
+                    return <DateItem key={item.id} data={item}></DateItem>;
+                })}
             </DatesList>
         </Wrapper>
     );

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { DatePicker, InputNumber } from 'antd';
 import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import { colors } from '../../baseStyles/utils/variables';
 
 export const Wrapper = styled.div`
     width: 280px;
@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 
     padding: 20px;
 
-    font-family: ${fonts.main};
     font-size: 14px;
     line-height: 17px;
 
