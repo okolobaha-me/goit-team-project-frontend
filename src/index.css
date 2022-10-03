@@ -1,6 +1,7 @@
 @import-normalize;
 
 body {
+    background-color: #F6F7FB;
     margin: 0;
     padding: 0;
     min-height: 100vh;
