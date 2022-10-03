@@ -24,6 +24,20 @@ export const infoBook = () => {
     `;
 };
 
+export const item = () => {
+    return css`
+        display: flex;
+        margin-bottom: 8px;
+        align-items: center;
+        justify-content: center;
+        background: ${colors.whiteText};
+        box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+        :last-of-type {
+            margin-bottom: 0px;
+        }
+    `;
+};
+
 export const Wrapper = styled.div`
     background: ${colors.mainBg};
 `;
@@ -70,6 +84,23 @@ export const Item = styled.li`
     &:last-of-type {
         margin-bottom: 0px;
     }
+`;
+
+export const ItemBook = styled.li`
+    ${item}
+    padding: 11px 16px;
+
+    align-items: center;
+    justify-content: center;
+    background: ${colors.whiteText};
+    box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+    :last-of-type {
+        margin-bottom: 0px;
+    }
+`;
+export const ItemOtherBook = styled.li`
+    ${item}
+    padding: 20px 23px;
 `;
 
 export const Icon = styled.svg`
@@ -164,19 +195,6 @@ export const ListOther = styled.ul`
     flex-direction: column;
 `;
 
-export const ItemBook = styled.li`
-    display: flex;
-    padding: 11px 16px;
-    margin-bottom: 8px;
-    align-items: center;
-    justify-content: center;
-    background: ${colors.whiteText};
-    box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
-    :last-of-type {
-        margin-bottom: 0px;
-    }
-`;
-
 export const IconBook = styled.svg`
     fill: ${({ color }) => color};
     margin-right: 18px;
@@ -231,7 +249,7 @@ export const Stars = styled.p`
     }
 `;
 
-export const Button2 = styled.button`
+export const ButtonRating = styled.button`
     ${btn}
     padding: 10px;
     ${mq.desktop} {

@@ -6,14 +6,14 @@ import {
     BookAuthor,
     BookYear,
     BookPage,
-    ItemBook,
+    ItemOtherBook,
 } from '../LibraryCategories.styled';
 
 const OtherCategoriesTabletItem = ({ color, book }) => {
     const { title, author, year, totalPages } = book;
 
     return (
-        <ItemBook>
+        <ItemOtherBook>
             <IconBook color={color} width="22" height="17">
                 <use href={`${icons}#icon-book-no-color`} />
             </IconBook>
@@ -22,7 +22,7 @@ const OtherCategoriesTabletItem = ({ color, book }) => {
             <BookAuthor>{author}</BookAuthor>
             <BookYear>{year}</BookYear>
             <BookPage>{totalPages}</BookPage>
-        </ItemBook>
+        </ItemOtherBook>
     );
 };
 export default OtherCategoriesTabletItem;
