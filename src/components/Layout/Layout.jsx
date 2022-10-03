@@ -1,11 +1,10 @@
-import { Outlet } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import Timer from '../Timer/Timer'
+import {Outlet} from 'react-router-dom';
+import {Header} from '../Header/Header';
+
 export const Layout = () => {
     return (
         <>
             <Header />
-            <Timer/>
             <Outlet />
         </>
     );
