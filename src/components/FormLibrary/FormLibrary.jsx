@@ -44,6 +44,7 @@ const FormLibrary = () => {
                         type="number"
                         name="publicationDate"
                         placeholder="..."
+                        min="1"
                     />
                 </Label>
                 <Label>
@@ -53,6 +54,7 @@ const FormLibrary = () => {
                         type="number"
                         name="pages"
                         placeholder="..."
+                        min="1"
                     />
                 </Label>
 
