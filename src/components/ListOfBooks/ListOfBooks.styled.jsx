@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 // import Checkbox from 'react-custom-checkbox';
-import {HiCheck} from 'react-icons/hi';
-import {colors, fonts, mq} from '../../baseStyles';
+import { HiCheck } from 'react-icons/hi';
+import { colors, fonts, mq } from '../../baseStyles';
 
 export const TableOfBooks = styled.div`
     font-family: ${fonts.main};
