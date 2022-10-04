@@ -1,8 +1,11 @@
 @import-normalize;
 
 body {
+    background-color: #F6F7FB;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    background-color: #F6F7FB;
 
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
