@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 import { colors, fonts } from '../../baseStyles/utils/variables';
-import  {btn, Container as componentbox, input} from '../../baseStyles/commonStyles';
+import {
+    btn,
+    Container as componentbox,
+    input,
+} from '../../baseStyles/commonStyles';
 import {
     desktopRegisterBgx2,
     desktopRegisterBg,
@@ -14,9 +18,14 @@ import { css } from '@emotion/react';
 import { Link as link } from 'react-router-dom';
 
 export const Container = styled(componentbox)`
-${mq.mobile} {
-    padding: 0;
-}  
+    ${mq.mobile} {
+        padding: 0;
+    }
+
+    ${mq.desktop} {
+        display: flex;
+        margin: 0;
+    }
 `;
 
 export const DesktopBox = styled.div`
@@ -39,14 +48,13 @@ export const TabletBox = styled.div`
             ),
             url(${tabletRegisterBg});
 
-       ${mq.retinax2} {
+        ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
                 ),
                 url(${tabletRegisterBgx2});
         }
-
     }
     ${mq.desktop} {
         padding-top: 185px;
@@ -133,15 +141,14 @@ export const LinkBox = styled.p`
 `;
 
 export const LinkSpan = styled.span`
-margin-right: 5px;
+    margin-right: 5px;
     color: ${colors.darkGrayText};
-`
+`;
 
 export const Link = styled(link)`
     text-decoration-line: underline;
     color: ${colors.accentText};
 `;
-
 
 const label = () => {
     return css`
