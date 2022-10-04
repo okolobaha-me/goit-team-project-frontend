@@ -1,38 +1,22 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { btn, input } from '../../baseStyles/commonStyles';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 import { colors, fonts } from '../../baseStyles/utils/variables';
+import  {Container as componentbox} from '../../baseStyles/commonStyles';
 import {
     desktopLoginBg,
     desktopLoginBgx2,
-    desktopLoginBgx3,
     mobLoginBg,
     mobLoginBgx2,
-    mobLoginBgx3,
     tabletLoginBg,
     tabletLoginBgx2,
-    tabletLoginBgx3,
 } from '../../images';
 
-const label = () => {
-    return css`
-        width: 100%;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 1.21;
-        color: ${colors.whiteText};
-
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-
-        ${mq.tablet} {
-            font-weight: 500;
-            color: ${colors.darkGrayText};
-        }
-    `;
-};
+export const Container = styled(componentbox)`
+${mq.mobile} {
+    padding: 0;
+}
+   
+`
 
 export const DesktopBox = styled.div`
     ${mq.desktop} {
@@ -54,9 +38,7 @@ export const TabletBox = styled.div`
             ),
             url(${tabletLoginBg});
 
-        @media screen and (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
+       ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
@@ -64,15 +46,6 @@ export const TabletBox = styled.div`
                 url(${tabletLoginBgx2});
         }
 
-        @media screen and (min-device-pixel-ratio: 3),
-            (min-resolution: 288dpi),
-            (min-resolution: 3dppx) {
-            background-image: linear-gradient(
-                    rgba(9, 30, 63, 0.8),
-                    rgba(9, 30, 63, 0.8)
-                ),
-                url(${tabletLoginBgx3});
-        }
     }
     ${mq.desktop} {
         padding-top: 185px;
@@ -83,24 +56,12 @@ export const TabletBox = styled.div`
             ),
             url(${desktopLoginBg});
 
-        @media screen and (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
+        ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
                 ),
                 url(${desktopLoginBgx2});
-        }
-
-        @media screen and (min-device-pixel-ratio: 3),
-            (min-resolution: 288dpi),
-            (min-resolution: 3dppx) {
-            background-image: linear-gradient(
-                    rgba(9, 30, 63, 0.8),
-                    rgba(9, 30, 63, 0.8)
-                ),
-                url(${desktopLoginBgx3});
         }
     }
 `;
@@ -117,24 +78,12 @@ export const MobBox = styled.div`
             ),
             url(${mobLoginBg});
 
-        @media screen and (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
+        ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
                 ),
                 url(${mobLoginBgx2});
-        }
-
-        @media screen and (min-device-pixel-ratio: 3),
-            (min-resolution: 288dpi),
-            (min-resolution: 3dppx) {
-            background-image: linear-gradient(
-                    rgba(9, 30, 63, 0.8),
-                    rgba(9, 30, 63, 0.8)
-                ),
-                url(${mobLoginBgx3});
         }
     }
     ${mq.tablet} {
@@ -172,48 +121,6 @@ export const GoogleIcon = styled.span`
     top: 11px;
     left: 14px;
     margin-right: 17px;
-`;
-
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-`;
-
-export const Input = styled.input`
-    ${input};
-    box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
-    width: 100%;
-`;
-
-export const EmailLabel = styled.label`
-    ${label}
-`;
-
-export const PasLabel = styled.label`
-    ${label}
-    ${mq.tablet} {
-        margin-bottom: 32px;
-    }
-`;
-
-export const LabelText = styled.p`
-    margin-bottom: 8px;
-`;
-
-export const Span = styled.span`
-    margin-left: 5px;
-    color: ${colors.accentText};
-`;
-
-export const EnterBtn = styled.button`
-    ${btn}
-    font-size: 16px;
-    line-height: 1.25;
-    padding: 20px 110px;
-    ${mq.mobileOnly} {
-        margin-bottom: 16px;
-    }
-    margin-bottom: 20px;
 `;
 
 export const Link = styled.a`

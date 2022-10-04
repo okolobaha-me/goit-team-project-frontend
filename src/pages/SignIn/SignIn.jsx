@@ -1,12 +1,7 @@
 import {
-    Form,
     Button,
     DesktopBox,
-    Input,
-    Span,
     TabletBox,
-    EmailLabel,
-    PasLabel,
     QuoteAutor,
     Line,
     QuoteTextBox,
@@ -15,15 +10,16 @@ import {
     QuoteText,
     MobBox,
     QuoteBox,
-    LabelText,
     Link,
-    EnterBtn,
+    Container
 } from './SignIn.styled';
 import googleIcon from '../../images/svg/google-icon.png';
 import icons from '../../images/svg/icons.svg';
+import {SignInForm} from '../../components/AuthForms';
 
 const SignIn = () => {
     return (
+        <Container>
         <DesktopBox>
             <TabletBox>
                 <MobBox>
@@ -39,34 +35,8 @@ const SignIn = () => {
                         Google
                     </Button>
 
-                    <Form>
-                        <EmailLabel>
-                            <LabelText>
-                                Електронна адреса<Span>*</Span>
-                            </LabelText>
-                            <Input
-                                variant="shadow"
-                                type="email"
-                                placeholder="your@email.com"
-                                autoFocus="on"
-                            />
-                        </EmailLabel>
-
-                        <PasLabel>
-                            <LabelText>
-                                Пароль<Span>*</Span>
-                            </LabelText>
-                            <Input
-                                variant="shadow"
-                                type="password"
-                                placeholder="Пароль"
-                            />
-                        </PasLabel>
-
-                        <EnterBtn variant="accent" type="submit">
-                            Увійти
-                        </EnterBtn>
-                    </Form>
+                    <SignInForm/>
+                
                     <Link href="#">Реєстрація</Link>
                 </MobBox>
             </TabletBox>
@@ -87,6 +57,7 @@ const SignIn = () => {
                 <QuoteAutor>Бэкон Ф.</QuoteAutor>
             </QuoteBox>
         </DesktopBox>
+        </Container>
     );
 };
 

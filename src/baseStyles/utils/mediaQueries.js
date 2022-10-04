@@ -8,4 +8,7 @@ export const mq = {
     notTablet: `@media (max-width: ${mqBreakpoints.preTablet}), (min-width: ${mqBreakpoints.desktop})`,
     desktop: `@media (min-width: ${mqBreakpoints.desktop})`,
     notDesktop: `@media (max-width: ${mqBreakpoints.preDesktop})`,
+    retinax2: `@media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx)`
 };
