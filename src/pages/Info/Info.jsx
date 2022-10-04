@@ -1,5 +1,6 @@
 import {ScreenWidth} from './Info.styled';
 import {Navigate} from 'react-router-dom';
+import {BooksInfo} from '../../components/BooksInfo';
 
 const Info = () => {
     const wasLoggedIn = window.localStorage.getItem('wasLoggedIn');
@@ -10,7 +11,7 @@ const Info = () => {
         <>
             <ScreenWidth />
             {!isMobile && <Navigate to={redirectTo} />}
-            <h1>Info</h1>
+            <BooksInfo/>
         </>
     );
 };

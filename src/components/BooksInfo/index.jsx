@@ -1,1 +1,7 @@
-export {default} from './BooksInfo';
+import BooksInfo from './BooksInfo';
+import MobLinks from './MobLinks';
+
+export {
+    BooksInfo,
+    MobLinks
+}
