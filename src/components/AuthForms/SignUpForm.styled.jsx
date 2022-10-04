@@ -18,17 +18,21 @@ import { css } from '@emotion/react';
 import { Link as link } from 'react-router-dom';
 
 export const Container = styled(componentbox)`
+ 
     ${mq.mobile} {
         padding: 0;
     }
 
     ${mq.desktop} {
+        height: 100vh;
         display: flex;
         margin: 0;
+       
     }
 `;
 
 export const DesktopBox = styled.div`
+
     ${mq.desktop} {
         display: flex;
         align-items: center;
@@ -36,7 +40,11 @@ export const DesktopBox = styled.div`
 `;
 
 export const TabletBox = styled.div`
+ 
     ${mq.tablet} {
+        height: 100%;
+        display: flex;
+        align-items: center;
         padding-top: 65px;
         padding-bottom: 65px;
         background-position: center;
@@ -57,8 +65,6 @@ export const TabletBox = styled.div`
         }
     }
     ${mq.desktop} {
-        padding-top: 185px;
-        padding-bottom: 175px;
         background-image: linear-gradient(
                 rgba(9, 30, 63, 0.8),
                 rgba(9, 30, 63, 0.8)
@@ -77,6 +83,10 @@ export const TabletBox = styled.div`
 
 export const MobBox = styled.div`
     ${mq.mobileOnly} {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 32px 20px;
         background-position: center;
         background-size: cover;

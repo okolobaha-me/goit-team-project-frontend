@@ -9,6 +9,7 @@ export const Container = styled(componentBox)`
         padding: 32px 25px 40px 25px;
     }
     ${mq.tablet} {
+
         padding: 64px 0 88px 0;
         display: flex;
         flex-direction: column;
@@ -20,6 +21,7 @@ export const Container = styled(componentBox)`
 `;
 
 export const ListBox = styled.ul`
+height: 100%;
     ${mq.mobileOnly} {
         margin-bottom: 60px;
     }

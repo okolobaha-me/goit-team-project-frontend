@@ -1,15 +1,15 @@
 import { SignUpForm } from '../../components/AuthForms';
 import { BooksInfo } from '../../components/BooksInfo';
-import SignUpWrapper from '../../components/SignUpWrapper';
+import { Box } from './SignUp.styled';
 
 const SignUp = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     return (
-        <SignUpWrapper>
+        <Box>
             <SignUpForm />
             {!isMobile && <BooksInfo />}
-        </SignUpWrapper>
+        </Box>
     );
 };
 
