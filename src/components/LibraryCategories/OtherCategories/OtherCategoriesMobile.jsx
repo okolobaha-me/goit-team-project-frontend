@@ -1,6 +1,5 @@
-import { Title, List, ButtonMore, IconMore } from '../LibraryCategories.styled';
+import {List, Title} from '../LibraryCategories.styled';
 import OtherCategoriesMobileItem from '../OtherCategories/OtherCategoriesMobileItem';
-import icons from '../../../images/svg/icons.svg';
 
 let mobile = window.matchMedia('(max-width: 767px)').matches;
 
@@ -20,14 +19,6 @@ const OtherCategoriesMobile = ({ color, type, books }) => {
                                 book={book}
                             />
                         ))}
-                    {type === 'readIntention' && (
-                        <ButtonMore>
-                            {' '}
-                            <IconMore width="52" height="52">
-                                <use href={`${icons}#icon-more`}></use>
-                            </IconMore>
-                        </ButtonMore>
-                    )}
                 </List>
             )}
         </>

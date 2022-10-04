@@ -1,16 +1,13 @@
 import icons from '../../../images/svg/icons.svg';
-import {
-    Button,
-    Item,
-    Text,
-    WrapperItem,
-    TextSelection,
-    Icon,
-    StyledRating,
-} from '../LibraryCategories.styled';
+import {Button, Icon, Item, StyledRating, Text, TextSelection, WrapperItem,} from '../LibraryCategories.styled';
 
-const ReadMobileItem = ({ book, color }) => {
-    const { title, author, year, totalPages, rating } = book;
+const ReadMobileItem = ({ book, color, openModal }) => {
+    const { title, author, year, totalPages, rating, id } = book;
+
+    const openResumeModal = () => {
+        openModal(id);
+    };
+
     return (
         <Item>
             <Icon color={color} width="22" height="18.1">
@@ -28,9 +25,19 @@ const ReadMobileItem = ({ book, color }) => {
                     <TextSelection>Стор.:</TextSelection> {totalPages}
                 </Text>
                 <Text>
-                    <TextSelection>Рейтинг:</TextSelection> <StyledRating name="no-value" value={rating} readOnly size="small" />
+                    <TextSelection>Рейтинг:</TextSelection>{' '}
+                    <StyledRating
+                        name="no-value"
+                        value={rating}
+                        readOnly
+                        size="small"
+                    />
                 </Text>
-                <Button type="button" variant={'gray'}>
+                <Button
+                    type="button"
+                    variant={'gray'}
+                    onClick={openResumeModal}
+                >
                     Резюме
                 </Button>
             </WrapperItem>

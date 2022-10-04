@@ -1,83 +1,57 @@
-import { Wrapper } from './LibraryCategories.styled';
-import { colors } from '../../baseStyles/utils/variables';
+import {ArrowMore, ButtonMore, IconMore, LinkMore, LinkMoreWrapper, Wrapper,} from './LibraryCategories.styled';
 import Read from './Read';
-import OtherCategories from './OtherCategories';
-
-const books = [
-    {
-        id: '1',
-        title: 'Психбольница в руках пациентов...',
-        author: 'Купер Алан',
-        year: '2009',
-        totalPages: '183',
-        rating: 3,
-    },
-];
-
-const processReading = [
-    {
-        id: '2',
-        title: 'Разработка ценностных предложений.',
-        author: 'Алекс Остервальдер, Ив Пинье',
-        year: '2013',
-        totalPages: '368',
-    },
-    {
-        id: '3',
-        title: 'Управление продуктом в Scrum. Agile-методы для вашего бизнеса.',
-        author: 'Роман Пихлер ',
-        year: '2010',
-        totalPages: '92',
-    },
-];
-
-const goingToRead = [
-    {
-        id: '4',
-        title: 'Scrum. Революционный метод управлениями...',
-        author: 'Джефф Сазерленд',
-        year: '2014',
-        totalPages: '25',
-    },
-    {
-        id: '5',
-        title: 'Deadline. Роман об управлении проектами.',
-        author: 'Том ДеМарко ',
-        year: '2006',
-        totalPages: '188',
-    },
-    {
-        id: '6',
-        title: '5 Пороков команды. Притчи о лидерстве.',
-        author: 'Патрик Ленсиони ',
-        year: '2011',
-        totalPages: '125',
-    },
-];
+import {Plan} from './Plan';
+import {InProcess} from './InProcess';
+import FormLibrary from '../FormLibrary';
+import icons from '../../images/svg/icons.svg';
 
 const LibraryCategories = () => {
+    let isMobile = window.matchMedia('(max-width: 767px)').matches;
+
     return (
-        <Wrapper>
-            <>
-                <Read books={books} color={`${colors.darkGrayText}`} />
-            </>
+        <>
+            {!isMobile && <FormLibrary />}
 
-            <>
-                <OtherCategories
-                    books={processReading}
-                    type="inProcess"
-                    color={`${colors.accentBg}`}
-                />
-            </>
+            <Wrapper>
+                <Read length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'read'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
 
-            <>
-                <OtherCategories
-                    type="readIntention"
-                    books={goingToRead}
-                    color={`${colors.darkGrayText}`}
-                />
-            </>
-        </Wrapper>
+                <InProcess length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'in-process'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
+
+                <Plan length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'plan'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
+            </Wrapper>
+
+            {isMobile && (
+                <ButtonMore to={'add-book'} relative="library">
+                    <IconMore width="52" height="52">
+                        <use href={`${icons}#icon-more`}></use>
+                    </IconMore>
+                </ButtonMore>
+            )}
+        </>
     );
 };
 

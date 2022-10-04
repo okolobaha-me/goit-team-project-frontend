@@ -1,8 +1,6 @@
-import {colors} from '../../../baseStyles/utils/variables';
-import {btn, input} from '../../../baseStyles/commonStyles';
-import {Rating} from '@mui/material';
+import {btn, colors, input, mq} from '../../../baseStyles';
+import {Rating, TextField} from '@mui/material';
 import styled from '@emotion/styled';
-import {mq} from '../../../baseStyles/utils/mediaQueries';
 
 export const Form = styled.form`
     font-weight: 500;
@@ -79,4 +77,40 @@ export const ButtonWrapper = styled.div`
     ${mq.tablet} {
         gap: 28px;
     }
+`;
+
+export const YearPicker = styled(TextField)`
+    & .MuiFormLabel-root {
+        position: relative;
+        font-size: 14px;
+        color: ${colors.darkGrayText};
+    }
+
+    & input {
+        ${input};
+        margin: -1px;
+        z-index: 10;
+    }
+
+    & fieldset {
+        border: none;
+    }
+
+    & .MuiInputBase-root {
+        ${input};
+        border: none;
+        padding: 0 16px 0 0;
+        border-radius: 0;
+        height: 100%;
+
+        &:hover {
+            border: none;
+        }
+    }
+`;
+
+export const WrapYear = styled.div`
+    margin-top: 8px;
+    border: 1px solid ${colors.mainBorder};
+    height: max-content;
 `;

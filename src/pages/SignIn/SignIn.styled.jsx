@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
-import  {Container as componentbox} from '../../baseStyles/commonStyles';
+import {colors, fonts, mq} from '../../baseStyles';
+import {Container as componentbox} from '../../baseStyles/commonStyles';
+import {Link as link} from 'react-router-dom';
+
 import {
     desktopLoginBg,
     desktopLoginBgx2,
@@ -12,11 +13,10 @@ import {
 } from '../../images';
 
 export const Container = styled(componentbox)`
-${mq.mobile} {
-    padding: 0;
-}
-   
-`
+    ${mq.mobile} {
+        padding: 0;
+    }
+`;
 
 export const DesktopBox = styled.div`
     ${mq.desktop} {
@@ -38,14 +38,13 @@ export const TabletBox = styled.div`
             ),
             url(${tabletLoginBg});
 
-       ${mq.retinax2} {
+        ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
                 ),
                 url(${tabletLoginBgx2});
         }
-
     }
     ${mq.desktop} {
         padding-top: 185px;
@@ -108,7 +107,7 @@ export const Button = styled.button`
 
     color: #707375;
     background-color: ${colors.inputBg};
-    box-shadow: 0px 2px 2px rgba(9, 30, 63, 0.15);
+    box-shadow: 0 2px 2px rgba(9, 30, 63, 0.15);
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 29px;
@@ -123,7 +122,7 @@ export const GoogleIcon = styled.span`
     margin-right: 17px;
 `;
 
-export const Link = styled.a`
+export const Link = styled(link)`
     display: flex;
     justify-content: center;
     font-weight: 500;
@@ -184,7 +183,7 @@ export const QuoteText = styled.p`
 export const Line = styled.div`
     margin: 0 auto 12px;
     width: 100px;
-    height: 0px;
+    height: 0;
     border-bottom: 1px solid rgba(36, 42, 55, 0.5);
 
     ${mq.tablet} {

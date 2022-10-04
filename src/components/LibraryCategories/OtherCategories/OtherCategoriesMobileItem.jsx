@@ -1,7 +1,7 @@
 import icons from '../../../images/svg/icons.svg';
-import { Item, Text, WrapperItem, TextSelection, Icon } from '../LibraryCategories.styled';
+import {Icon, Item, Text, TextSelection, WrapperItem,} from '../LibraryCategories.styled';
 
-const OtherCategoriesMobileitem = ({ color, book }) => {
+const OtherCategoriesMobileItem = ({ color, book }) => {
     const { title, author, year, totalPages } = book;
     return (
         <Item>
@@ -26,4 +26,4 @@ const OtherCategoriesMobileitem = ({ color, book }) => {
     );
 };
 
-export default OtherCategoriesMobileitem;
+export default OtherCategoriesMobileItem;

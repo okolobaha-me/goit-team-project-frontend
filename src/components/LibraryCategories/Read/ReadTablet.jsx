@@ -1,17 +1,9 @@
-import {
-    WrapperTitles,
-    NameBook,
-    Author,
-    Year,
-    Page,
-    RatingTitle,
-    ListOther,
-    Title,
-} from '../LibraryCategories.styled';
+import {Author, ListOther, NameBook, Page, RatingTitle, Title, WrapperTitles, Year,} from '../LibraryCategories.styled';
 import ReadTabletItem from '../Read/ReadTabletItem';
+
 let tablet = window.matchMedia('(min-width: 768px)').matches;
 
-const ReadTablet = ({ color, books }) => {
+const ReadTablet = ({ color, books, openModal }) => {
     return (
         <>
             <Title>Прочитано</Title>
@@ -31,6 +23,7 @@ const ReadTablet = ({ color, books }) => {
                                     key={book.id}
                                     color={color}
                                     book={book}
+                                    openModal={openModal}
                                 />
                             ))}
                     </ListOther>{' '}

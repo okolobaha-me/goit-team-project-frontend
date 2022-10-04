@@ -1,6 +1,6 @@
-import { Button, ButtonWrapper, Icon, Text } from './WellDoneModal.styled';
+import {Button, ButtonWrapper, Icon, Text} from './WellDoneModal.styled';
 import icons from '../../../images/svg/icons.svg';
-import { ModalWrapper } from '../ModalWrapper';
+import {ModalWrapper} from '../ModalWrapper';
 
 const WellDoneModal = ({ closeModal }) => {
     const goToNewTraining = () => {

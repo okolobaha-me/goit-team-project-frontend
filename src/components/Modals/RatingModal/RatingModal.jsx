@@ -9,16 +9,16 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import { Controller, useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { ModalWrapper } from '../ModalWrapper';
+import {Controller, useForm} from 'react-hook-form';
+import {useState} from 'react';
+import {ModalWrapper} from '../ModalWrapper';
 
-const RatingModal = ({ closeModal }) => {
+const RatingModal = ({ closeModal, bookId }) => {
     const { handleSubmit, control } = useForm();
     const [ratingErr, setRatingErr] = useState(null);
 
     const onSubmit = data => {
-        console.log(data);
+        console.log(data, bookId);
         closeModal();
     };
 

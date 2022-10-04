@@ -1,22 +1,34 @@
-import { useForm } from 'react-hook-form';
-import { Button, Input, Label, Form, Icon, Wrapper } from './FormLibrary.styled';
+import {Controller, useForm} from 'react-hook-form';
+import {Button, Form, Icon, Input, Label, Wrapper,} from './FormLibrary.styled';
 import icons from '../../images/svg/icons.svg';
-import { NavLink } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {LocalizationProvider} from '@mui/x-date-pickers';
+import {DatePicker} from '@mui/x-date-pickers/DatePicker';
+import {useState} from 'react';
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
+import {format} from 'date-fns';
+import {WrapYear, YearPicker} from '../Modals/RatingModal/RatingModal.styled';
 
 const FormLibrary = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
+    const [reqDate, setReqDate] = useState(new Date());
 
     const onSubmit = data => {
-        console.log(data);
+        const { title, author, pages } = data;
+        const year = format(data.reqDate, 'yyyy');
+        const newBook = { title, author, pages, year };
+
+        console.log(newBook);
         reset();
     };
+
     return (
         <Wrapper>
-            <NavLink>
+            <Link to={'..'}>
                 <Icon width="24" height="12">
                     <use href={`${icons}#icon-arrowBack`} />
                 </Icon>
-            </NavLink>
+            </Link>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Label>
                     Назва книги
@@ -37,16 +49,31 @@ const FormLibrary = () => {
                         placeholder="..."
                     />
                 </Label>
-                <Label>
-                    Рік випуску
-                    <Input
-                        {...register('publicationDate', { required: false })}
-                        type="number"
-                        name="publicationDate"
-                        placeholder="..."
-                        min="1"
-                    />
-                </Label>
+                <Controller
+                    name="reqDate"
+                    defaultValue={reqDate}
+                    control={control}
+                    render={({ field: { onChange, ...restField } }) => (
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                views={['year']}
+                                onChange={event => {
+                                    onChange(event);
+                                    setReqDate(event);
+                                }}
+                                renderInput={params => (
+                                    <Label>
+                                        <span>Рік випуску</span>
+                                        <WrapYear>
+                                            <YearPicker {...params} />
+                                        </WrapYear>
+                                    </Label>
+                                )}
+                                {...restField}
+                            />
+                        </LocalizationProvider>
+                    )}
+                />
                 <Label>
                     Кількість сторінок
                     <Input

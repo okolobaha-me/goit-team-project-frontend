@@ -1,19 +1,24 @@
 import {
+    Book,
+    ButtonRating,
+    Date,
     IconBook,
     ItemBook,
-    Book,
-    Writer,
-    Date,
     NumberPages,
     Stars,
-    ButtonRating,
     StyledRating,
+    Writer,
 } from '../LibraryCategories.styled';
 
 import icons from '../../../images/svg/icons.svg';
 
-const ReadTabletItem = ({ color, book }) => {
-    const { title, author, year, totalPages, rating } = book;
+const ReadTabletItem = ({ color, book, openModal }) => {
+    const { title, author, year, totalPages, rating, id } = book;
+
+    const openResumeModal = () => {
+        openModal(id);
+    };
+
     return (
         <>
             <ItemBook>
@@ -25,8 +30,14 @@ const ReadTabletItem = ({ color, book }) => {
                 <Writer>{author}</Writer>
                 <Date>{year}</Date>
                 <NumberPages>{totalPages}</NumberPages>
-                <Stars><StyledRating name="no-value" value={rating} readOnly  /></Stars>
-                <ButtonRating type="button" variant={'gray'}>
+                <Stars>
+                    <StyledRating name="no-value" value={rating} readOnly />
+                </Stars>
+                <ButtonRating
+                    type="button"
+                    variant={'gray'}
+                    onClick={openResumeModal}
+                >
                     Резюме
                 </ButtonRating>
             </ItemBook>
