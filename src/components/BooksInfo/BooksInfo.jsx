@@ -1,9 +1,10 @@
-import { Box, MainTitle, SecTitle, Text, ListItem, ListBox, IconSpan, BtnList, EnterBtn, RegisterBtn, BtnItem, FirstList, SecList } from './BooksInfo.styled';
+import {  MainTitle, SecTitle, Text, ListItem, ListBox, IconSpan, BtnList, RegisterBtn, BtnItem, FirstList, SecList, EnterLink, RegisterLink, Container } from './BooksInfo.styled';
 import icons from '../../images/svg/icons.svg';
+
 
 const BookInfo = () => {
     return (
-        <Box>
+        <Container>
            
             <MainTitle>Books Reading</MainTitle>
             <ListBox>
@@ -50,10 +51,10 @@ const BookInfo = () => {
             </SecList>
             </ListBox>
             <BtnList>
-                <BtnItem><EnterBtn variant={'transparent'}>Увійти</EnterBtn></BtnItem>
-                <BtnItem><RegisterBtn variant={'accent'}>Реєстрація</RegisterBtn></BtnItem>
+                <BtnItem><EnterLink to={'/signin'} variant={'transparent'}>Увійти</EnterLink></BtnItem>
+                <BtnItem><RegisterLink to={'/signup'} variant={'accent'}>Реєстрація</RegisterLink></BtnItem>
             </BtnList>
-        </Box>
+        </Container>
     )
 };
 

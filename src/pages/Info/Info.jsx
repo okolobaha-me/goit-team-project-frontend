@@ -7,17 +7,11 @@ const Info = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     return (
-<<<<<<< HEAD
-        <ScreenWidth ref={screenWidth} />
-        {shouldRedirect && <Navigate to={'/signup'} />}
-        
-=======
         <>
             <ScreenWidth />
             {!isMobile && <Navigate to={redirectTo} />}
             <h1>Info</h1>
         </>
->>>>>>> dev
     );
 };
 

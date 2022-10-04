@@ -2,10 +2,14 @@ import styled from '@emotion/styled';
 import { list, btn } from '../../baseStyles/commonStyles';
 import { colors, fonts } from '../../baseStyles/utils/variables';
 import { mq } from '../../baseStyles/utils/mediaQueries';
+import { Link as link } from 'react-router-dom';
+import { Container as componentBox } from '../../baseStyles/commonStyles';
 
-export const Box = styled.div`
-padding: 32px 25px 40px 25px;
-${mq.tablet} {
+export const Container = styled(componentBox)`
+    ${mq.mobile} {
+        padding: 32px 25px 40px 25px;
+    }
+    ${mq.tablet} {
     padding: 64px 0 88px 0;
      display: flex;
     flex-direction: column;
@@ -14,7 +18,7 @@ ${mq.tablet} {
 ${mq.desktop} {
     padding: 179px 0 239px 0;
 }
-`
+`;
 
 export const ListBox = styled.ul`
 ${mq.mobileOnly} {
@@ -89,18 +93,32 @@ export const BtnItem = styled.li`
 &:not(:last-child) {
     margin-right: 20px;
 }
-`
+`;
 
-export const EnterBtn = styled.button`
+export const EnterLink = styled(link)`
     ${btn}
     font-weight: 500;
     padding-left: 40px;
-    padding-right: 40px;  
-`
+    padding-right: 40px; 
+`;
 
-export const RegisterBtn = styled.button`
-     ${btn}
-     font-weight: 500;
+export const RegisterLink = styled(link)`
+    ${btn}
+    font-weight: 500;
      padding-left: 24px;
     padding-right: 24px;
 `
+
+// export const EnterBtn = styled.button`
+//     ${btn}
+//     font-weight: 500;
+//     padding-left: 40px;
+//     padding-right: 40px;  
+// `
+
+// export const RegisterBtn = styled.button`
+//      ${btn}
+//      font-weight: 500;
+//      padding-left: 24px;
+//     padding-right: 24px;
+// `
