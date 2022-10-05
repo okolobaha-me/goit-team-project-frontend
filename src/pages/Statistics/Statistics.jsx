@@ -85,7 +85,7 @@ const Statistics = () => {
     </LineChart>
   </ResponsiveContainer>
     </StatisticsHome>
-    <ResultStats/>
+    {/* <ResultStats/> */}
   </StatisticsBox>
         
         </Container>

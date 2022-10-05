@@ -28,6 +28,11 @@ export const StatisticsHome = styled.div({
       padding: '20px',
     },
 
+    [`@media screen and (min-width: 768px)`]: {
+      width: '810px',
+      padding: '30px 48px',
+    },
+
     [`@media screen and (min-width: 1280px)`]: {
       width: '810px',
     },
