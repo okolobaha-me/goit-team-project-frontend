@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 import { colors, fonts } from '../../baseStyles/utils/variables';
-import  {Container as componentbox} from '../../baseStyles/commonStyles';
+import { Container as componentbox } from '../../baseStyles/commonStyles';
 import {
     desktopLoginBg,
     desktopLoginBgx2,
@@ -10,25 +10,40 @@ import {
     tabletLoginBg,
     tabletLoginBgx2,
 } from '../../images';
+import { Link as link } from 'react-router-dom';
 
 export const Container = styled(componentbox)`
-${mq.mobile} {
-    padding: 0;
-}
-   
-`
+    height: calc(100vh - 60px);
+    ${mq.mobile} {
+        padding: 0;
+    }
+`;
 
 export const DesktopBox = styled.div`
-    ${mq.desktop} {
+    ${mq.mobile} {
+        height: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+    }
+
+    ${mq.tablet} {
+        width: 100%;
+        justify-content: center;
+    }
+
+    ${mq.desktop} {
+        flex-direction: row;
     }
 `;
 
 export const TabletBox = styled.div`
+    ${mq.mobile} {
+        height: 100vh;
+    }
+
     ${mq.tablet} {
-        padding-top: 65px;
-        padding-bottom: 65px;
+        display: flex;
+        align-items: center;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -38,18 +53,15 @@ export const TabletBox = styled.div`
             ),
             url(${tabletLoginBg});
 
-       ${mq.retinax2} {
+        ${mq.retinax2} {
             background-image: linear-gradient(
                     rgba(9, 30, 63, 0.8),
                     rgba(9, 30, 63, 0.8)
                 ),
                 url(${tabletLoginBgx2});
         }
-
     }
     ${mq.desktop} {
-        padding-top: 185px;
-        padding-bottom: 175px;
         background-image: linear-gradient(
                 rgba(9, 30, 63, 0.8),
                 rgba(9, 30, 63, 0.8)
@@ -68,6 +80,10 @@ export const TabletBox = styled.div`
 
 export const MobBox = styled.div`
     ${mq.mobileOnly} {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 32px 20px;
         background-position: center;
         background-size: cover;
@@ -123,7 +139,7 @@ export const GoogleIcon = styled.span`
     margin-right: 17px;
 `;
 
-export const Link = styled.a`
+export const Link = styled(link)`
     display: flex;
     justify-content: center;
     font-weight: 500;
@@ -137,13 +153,16 @@ export const QuoteBox = styled.div`
     ${mq.mobileOnly} {
         padding: 16px 45px;
     }
-    ${mq.tablet} {
+    ${mq.tabletOnly} {
         padding: 64px 0 71px 0;
     }
 
     ${mq.desktop} {
-        padding: 64px 0 71px 0;
-        margin: 0 auto;
+        width: 730px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
     }
 `;
 
