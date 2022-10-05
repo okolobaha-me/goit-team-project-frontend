@@ -16,19 +16,18 @@ import {
 } from './Statistics.styled';
 
 const Statistics = () => {
-    let isMobile = window.matchMedia('(max-width: 767px)').matches;
-
+    const isTablet = window.screen.width > 767 && window.screen.width <= 1279;
     return (
         <Container>
             <Section>
-                <TimerWrapper>
-                    <Timer />
-                </TimerWrapper>
                 <GoalsWrapper>
                     <Goals />
                 </GoalsWrapper>
+                <TimerWrapper>
+                    <Timer />
+                </TimerWrapper>
                 <FormWrapper>
-                    {!isMobile && (
+                    {isTablet && (
                         <>
                             <Title>Моє тренування</Title>
                             <TrainingForm />
