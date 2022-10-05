@@ -18,7 +18,6 @@ import { css } from '@emotion/react';
 import { Link as link } from 'react-router-dom';
 
 export const Container = styled(componentbox)`
- 
     ${mq.mobile} {
         padding: 0;
     }
@@ -27,12 +26,10 @@ export const Container = styled(componentbox)`
         height: 100%;
         display: flex;
         margin: 0;
-       
     }
 `;
 
 export const DesktopBox = styled.div`
-
     ${mq.desktop} {
         display: flex;
         align-items: center;
@@ -40,9 +37,8 @@ export const DesktopBox = styled.div`
 `;
 
 export const TabletBox = styled.div`
- 
+    height: 100%;
     ${mq.tablet} {
-        height: 100%;
         display: flex;
         align-items: center;
         padding-top: 65px;

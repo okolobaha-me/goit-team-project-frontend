@@ -19,6 +19,7 @@ import {
 import googleIcon from '../../images/svg/google-icon.png';
 
 const SignUpForm = () => {
+
     const formSubmit = evt => {
         evt.preventDefault();
     };
