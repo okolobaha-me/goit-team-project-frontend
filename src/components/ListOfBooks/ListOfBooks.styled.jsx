@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import {colors, fonts, mq} from '../../baseStyles';
 
 export const TableOfBooks = styled.div`
     font-family: ${fonts.main};

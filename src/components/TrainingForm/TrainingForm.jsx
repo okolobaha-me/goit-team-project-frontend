@@ -1,5 +1,5 @@
-import { Select } from 'antd';
-import { useState } from 'react';
+import {Select} from 'antd';
+import {useState} from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
     Button,
@@ -141,7 +141,9 @@ export function TrainingForm() {
                 <Option value="la-vida">La vida</Option>
                 <Option value="remember-me">Remember me</Option>
             </Selects>
-            <Button type="submit">Додати</Button>
+            <Button type="submit" variant={'transparent'}>
+                Додати
+            </Button>
         </Form>
     );
 }

@@ -1,14 +1,4 @@
-import { Container } from '../../baseStyles/commonStyles';
-
-import {
-    Title,
-    Wrapper,
-    InfoWrapper,
-    StatsItem,
-    Item,
-    Text,
-    Description,
-} from './Goals.styled';
+import {Description, InfoWrapper, Item, StatsItem, Text, Title, Wrapper,} from './Goals.styled';
 
 const Goals = () => {
     const amountBooks = 3;
@@ -17,35 +7,31 @@ const Goals = () => {
 
     return (
         <>
-            <Container>
-                <Wrapper booksLeft={booksLeft}>
-                    <Title>Моя мета прочитати</Title>
-                    <InfoWrapper>
+            <Wrapper booksLeft={booksLeft}>
+                <Title>Моя мета прочитати</Title>
+                <InfoWrapper>
+                    <StatsItem>
+                        <Item>
+                            <Text>{amountBooks}</Text>
+                        </Item>
+                        <Description>Кількість книжок</Description>
+                    </StatsItem>
+                    <StatsItem>
+                        <Item>
+                            <Text>{amountDays}</Text>
+                        </Item>
+                        <Description>Кількість днів</Description>
+                    </StatsItem>
+                    {!!booksLeft && (
                         <StatsItem>
                             <Item>
-                                <Text>{amountBooks}</Text>
+                                <Text booksLeft={booksLeft}>{booksLeft}</Text>
                             </Item>
-                            <Description>Кількість книжок</Description>
+                            <Description>Залишилось книжок</Description>
                         </StatsItem>
-                        <StatsItem>
-                            <Item>
-                                <Text>{amountDays}</Text>
-                            </Item>
-                            <Description>Кількість днів</Description>
-                        </StatsItem>
-                        {!!booksLeft && (
-                            <StatsItem>
-                                <Item>
-                                    <Text booksLeft={booksLeft}>
-                                        {booksLeft}
-                                    </Text>
-                                </Item>
-                                <Description>Залишилось книжок</Description>
-                            </StatsItem>
-                        )}
-                    </InfoWrapper>
-                </Wrapper>
-            </Container>
+                    )}
+                </InfoWrapper>
+            </Wrapper>
         </>
     );
 };
