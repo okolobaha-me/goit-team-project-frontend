@@ -8,6 +8,7 @@ import {
   } from "recharts";
 import ResultStats from "./ResultStats/ResultStats";
 import { StatisticsBox, BooksDay, NumberDay, Span, StatisticsHome, TextStats } from "./Statistics.styled";
+import {Container} from '../../baseStyles';
 
 const data = [
     {
@@ -41,7 +42,7 @@ const data = [
       amt: 2100
     }
   ];
-import {Container} from '../../baseStyles';
+
 
 const Statistics = () => {
 
