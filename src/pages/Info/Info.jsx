@@ -1,20 +1,15 @@
-import { ScreenWidth } from './Info.styled';
-import { useRef, useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
+import {BooksInfo} from '../../components/BooksInfo';
 
 const Info = () => {
-    const [shouldRedirect, SetShouldRedirect] = useState();
-    const screenWidth = useRef(null);
-
-    useEffect(() => {
-        SetShouldRedirect(screenWidth.current.clientWidth >= 768);
-    }, []);
+    const wasLoggedIn = window.localStorage.getItem('wasLoggedIn');
+    const redirectTo = wasLoggedIn ? '/signin' : '/signup';
+    let isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     return (
         <>
-            <ScreenWidth ref={screenWidth} />
-            {shouldRedirect && <Navigate to={'/signup'} />}
-            <h1>Info</h1>
+            {!isMobile && <Navigate to={redirectTo} />}
+            <BooksInfo/>
         </>
     );
 };

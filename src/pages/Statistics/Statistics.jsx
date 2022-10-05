@@ -41,10 +41,12 @@ const data = [
       amt: 2100
     }
   ];
+import {Container} from '../../baseStyles';
+
 const Statistics = () => {
 
     return (
-      
+<Container>
       <StatisticsBox> 
           
         <StatisticsHome>
@@ -84,6 +86,8 @@ const Statistics = () => {
     </StatisticsHome>
     <ResultStats/>
   </StatisticsBox>
+        
+        </Container>
     );
 };
 

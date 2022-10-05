@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
-import { btn, input } from '../../baseStyles/commonStyles';
-import { mq } from '../../baseStyles/utils/mediaQueries';
+import {btn, colors, fonts, input, mq} from '../../baseStyles';
+import {TextField} from '@mui/material';
+
+export const Wrapper = styled.div`
+    background: ${colors.mainBg};
+    padding-bottom: 40px;
+`;
 
 export const Icon = styled.svg`
     margin-left: 20px;
@@ -14,8 +19,6 @@ export const Icon = styled.svg`
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
-    margin-left: 20px;
 
     ${mq.tablet} {
         flex-direction: row;
@@ -23,8 +26,6 @@ export const Form = styled.form`
     }
 
     ${mq.tabletOnly} {
-        margin-right: 32px;
-        margin-left: 32px;
         max-width: 704px;
     }
 `;
@@ -56,6 +57,7 @@ export const Label = styled.label`
     flex-direction: column;
     font-size: 14px;
     padding-bottom: 20px;
+    color: ${colors.darkGrayText};
 
     ${mq.mobileOnly} {
         &:last-of-type {
@@ -104,4 +106,45 @@ export const Label = styled.label`
             margin-right: 48px;
         }
     }
+`;
+
+export const YearPicker = styled(TextField)`
+    & .MuiFormLabel-root {
+        position: relative;
+        font-size: 14px;
+        color: ${colors.darkGrayText};
+    }
+
+    & * {
+        font-weight: 400 !important;
+        font-family: ${fonts.main} !important;
+    }
+
+    & input {
+        ${input};
+        margin-left: -1px;
+        z-index: 10;
+    }
+
+    & fieldset {
+        border: none;
+        height: 44px;
+    }
+
+    & .MuiInputBase-root {
+        ${input};
+        border: none;
+        padding: 0 16px 0 0;
+        border-radius: 0;
+        height: 44px;
+
+        &:hover {
+            border: none;
+        }
+    }
+`;
+
+export const WrapYear = styled.div`
+    margin-top: 8px;
+    border: 1px solid ${colors.mainBorder};
 `;
