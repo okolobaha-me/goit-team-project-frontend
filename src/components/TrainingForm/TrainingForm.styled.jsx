@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
-import { DatePicker, Select } from 'antd';
-import { btn, input } from '../../baseStyles/commonStyles';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import {DatePicker, Select} from 'antd';
+import {btn, colors, fonts, input, mq} from '../../baseStyles';
 
 export const DatePickers = styled(DatePicker)`
     font-size: 14px;
@@ -45,7 +43,6 @@ export const Form = styled.form`
     ${mq.tablet} {
         display: flex;
         flex-wrap: wrap;
-        width: 928px;
     }
 `;
 
@@ -58,21 +55,31 @@ export const DatesWrapper = styled.div`
     }
 
     ${mq.desktop} {
-        justify-content: center;
         width: 928px;
+        padding-left: 171px;
     }
 `;
 
 export const Button = styled.button`
-    ${btn('transparent')};
+    ${btn};
 
     width: 181px;
     height: 40px;
     padding: 11px;
 
     font-weight: 500;
+
+    ${mq.mobileOnly} {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     ${mq.tablet} {
         font-size: 14px;
+    }
+
+    ${mq.tabletOnly} {
+        width: 171px;
     }
 `;
 

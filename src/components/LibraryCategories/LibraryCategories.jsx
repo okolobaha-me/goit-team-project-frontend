@@ -1,53 +1,57 @@
-import { Title, List, Wrapper, Icon, Button } from './LibraryCategories.styled';
-import OtherCategories from './Mobile/OtherCategoriesMobile';
-import ReadMobile from './Mobile/ReadMobile';
-import ReadTablet from './Tablet/ReadTablet';
-import { colors } from '../../baseStyles/utils/variables';
+import {ArrowMore, ButtonMore, IconMore, LinkMore, LinkMoreWrapper, Wrapper,} from './LibraryCategories.styled';
+import Read from './Read';
+import {Plan} from './Plan';
+import {InProcess} from './InProcess';
+import FormLibrary from '../FormLibrary';
 import icons from '../../images/svg/icons.svg';
-import OtherCategoriesTablet from './Tablet/OtherCategoriesTablet';
 
 const LibraryCategories = () => {
-    let mobile = window.matchMedia('(max-width: 767px)');
-    let tablet = window.matchMedia('(min-width: 768px)');
+    let isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     return (
-        <Wrapper>
-            <Title>Прочитано</Title>
-            <List>
-                {mobile.matches && (
-                    <ReadMobile color={`${colors.darkGrayText}`} />
-                )}
-                {tablet.matches && (
-                    <ReadTablet color={`${colors.darkGrayText}`} />
-                )}
-            </List>
-            <Title>Читаю</Title>
-            <List>
-                {mobile.matches && (
-                    <OtherCategories color={`${colors.accentBg}`} />
-                )}
-                {tablet.matches && (
-                    <OtherCategoriesTablet color={`${colors.accentBg}`} />
-                )}
-            </List>
-            <Title>Маю намір прочитати</Title>
-            <List>
-                {mobile.matches && (
-                    <>
-                        <OtherCategories color={`${colors.darkGrayText}`} />
-                        <Button>
-                            {' '}
-                            <Icon width="52" height="52">
-                                <use href={`${icons}#icon-more`}></use>
-                            </Icon>
-                        </Button>
-                    </>
-                )}
-                {tablet.matches && (
-                    <OtherCategoriesTablet color={`${colors.darkGrayText}`} />
-                )}
-            </List>
-        </Wrapper>
+        <>
+            {!isMobile && <FormLibrary />}
+
+            <Wrapper>
+                <Read length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'read'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
+
+                <InProcess length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'in-process'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
+
+                <Plan length={'short'} />
+                <LinkMoreWrapper>
+                    <LinkMore to={'plan'}>
+                        Усі книги
+                        <ArrowMore width="24" height="12">
+                            <use href={`${icons}#icon-arrowMore`} />
+                        </ArrowMore>
+                    </LinkMore>
+                </LinkMoreWrapper>
+            </Wrapper>
+
+            {isMobile && (
+                <ButtonMore to={'add-book'} relative="library">
+                    <IconMore width="52" height="52">
+                        <use href={`${icons}#icon-more`}></use>
+                    </IconMore>
+                </ButtonMore>
+            )}
+        </>
     );
 };
 

@@ -1,127 +1,71 @@
-import icons from '../../images/svg/icons.svg';
-import {
-    BtnDelete,
-    Desc,
-    IconBook,
-    IconDelete,
-    Item,
-    Label,
-    ListOfBook,
-    ListOfDesc,
-    ListOfLabels,
-    TableOfBooks,
-    Wrapper,
-} from '../ListOfBooks/ListOfBooks.styled';
-import {
-    TrDescItem,
-    TrItemLabel,
-    TrTitle,
-} from './ListOfBooksStartTraining.styled';
+import {ListOfBook, ListOfLabels, TableOfBooks,} from '../ListOfBooks/ListOfBooks.styled';
+import {TrItemLabel} from './ListOfBooksStartTraining.styled';
+import {BookStartTraining} from './BookStartTraining';
+
+const books = [
+    {
+        id: '123',
+        name: 'Scrum. Революционный метод управлениями проектами.',
+        year: 2019,
+        amountOfPages: 223,
+        author: 'Джефф Сазерленд',
+        checked: false,
+    },
+    {
+        id: '321',
+        name: 'Scrum. Революционный метод управлениями проектами.',
+        year: 2019,
+        amountOfPages: 223,
+        author: 'Джефф Сазерленд',
+        checked: false,
+    },
+    {
+        id: '1423',
+        name: 'Scrum. Революционный метод управлениями проектами.',
+        year: 2019,
+        amountOfPages: 223,
+        author: 'Джефф Сазерленд',
+        checked: false,
+    },
+    {
+        id: '1423423',
+        name: 'Scrum. Революционный метод управлениями проектами.',
+        year: 2019,
+        amountOfPages: 223,
+        author: 'Джефф Сазерленд',
+        checked: false,
+    },
+    {
+        id: '2134',
+        name: 'Scrum. Революционный метод управлениями проектами.',
+        year: 2019,
+        amountOfPages: 223,
+        author: 'Джефф Сазерленд',
+        checked: false,
+    },
+];
 
 export function ListOfBooksStartTraining() {
     return (
-        <TableOfBooks>
+        <>
             <ListOfLabels>
                 <TrItemLabel>Назва книги</TrItemLabel>
                 <TrItemLabel>Автор</TrItemLabel>
                 <TrItemLabel>Рік</TrItemLabel>
                 <TrItemLabel>Стор.</TrItemLabel>
             </ListOfLabels>
-            <ListOfBook>
-                <Item>
-                    <Wrapper>
-                        <div>
-                            <IconBook>
-                                <use href={`${icons}#icon-book`} />
-                            </IconBook>
-                        </div>
-                        <TrTitle>
-                            Scrum. Революционный метод управлениями проектами.
-                        </TrTitle>
-                        <BtnDelete>
-                            <IconDelete>
-                                <use href={`${icons}#icon-delete`} />
-                            </IconDelete>
-                        </BtnDelete>
-                    </Wrapper>
-                    <ListOfDesc>
-                        <TrDescItem>
-                            <Label>Автор:</Label>
-                            <Desc>Джефф Сазерленд</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Рік:</Label>
-                            <Desc>2014</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Стор:</Label>
-                            <Desc>25</Desc>
-                        </TrDescItem>
-                    </ListOfDesc>
-                </Item>
-                <Item>
-                    <Wrapper>
-                        <div>
-                            <IconBook>
-                                <use href={`${icons}#icon-book`} />
-                            </IconBook>
-                        </div>
-                        <TrTitle>
-                            5 Пороков команды. Притчи о лидерстве.{' '}
-                        </TrTitle>
-                        <BtnDelete>
-                            <IconDelete>
-                                <use href={`${icons}#icon-delete`} />
-                            </IconDelete>
-                        </BtnDelete>
-                    </Wrapper>
-                    <ListOfDesc>
-                        <TrDescItem>
-                            <Label>Автор:</Label>
-                            <Desc>Патрик Ленсиони</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Рік:</Label>
-                            <Desc>2011</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Стор:</Label>
-                            <Desc>125</Desc>
-                        </TrDescItem>
-                    </ListOfDesc>
-                </Item>
-                <Item>
-                    <Wrapper>
-                        <div>
-                            <IconBook>
-                                <use href={`${icons}#icon-book`} />
-                            </IconBook>
-                        </div>
-                        <TrTitle>
-                            Deadline. Роман об управлении проектами.{' '}
-                        </TrTitle>
-                        <BtnDelete>
-                            <IconDelete>
-                                <use href={`${icons}#icon-delete`} />
-                            </IconDelete>
-                        </BtnDelete>
-                    </Wrapper>
-                    <ListOfDesc>
-                        <TrDescItem>
-                            <Label>Автор:</Label>
-                            <Desc>Том ДеМарко</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Рік:</Label>
-                            <Desc>2006</Desc>
-                        </TrDescItem>
-                        <TrDescItem>
-                            <Label>Стор:</Label>
-                            <Desc>188</Desc>
-                        </TrDescItem>
-                    </ListOfDesc>
-                </Item>
-            </ListOfBook>
-        </TableOfBooks>
+            <TableOfBooks>
+                <ListOfBook>
+                    {books.map(book => {
+                        return (
+                            <BookStartTraining
+                                key={book.id}
+                                data={book}
+                            ></BookStartTraining>
+                        );
+                    })}
+                </ListOfBook>
+            </TableOfBooks>
+        </>
     );
 }

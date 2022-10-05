@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import {btn, colors, input, mq} from '../../baseStyles';
+import {btn, colors, fonts, input, mq} from '../../baseStyles';
+import {TextField} from '@mui/material';
 
 export const Wrapper = styled.div`
     background: ${colors.mainBg};
@@ -105,4 +106,45 @@ export const Label = styled.label`
             margin-right: 48px;
         }
     }
+`;
+
+export const YearPicker = styled(TextField)`
+    & .MuiFormLabel-root {
+        position: relative;
+        font-size: 14px;
+        color: ${colors.darkGrayText};
+    }
+
+    & * {
+        font-weight: 400 !important;
+        font-family: ${fonts.main} !important;
+    }
+
+    & input {
+        ${input};
+        margin-left: -1px;
+        z-index: 10;
+    }
+
+    & fieldset {
+        border: none;
+        height: 44px;
+    }
+
+    & .MuiInputBase-root {
+        ${input};
+        border: none;
+        padding: 0 16px 0 0;
+        border-radius: 0;
+        height: 44px;
+
+        &:hover {
+            border: none;
+        }
+    }
+`;
+
+export const WrapYear = styled.div`
+    margin-top: 8px;
+    border: 1px solid ${colors.mainBorder};
 `;
