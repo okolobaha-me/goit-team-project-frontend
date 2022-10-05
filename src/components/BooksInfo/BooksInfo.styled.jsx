@@ -5,28 +5,41 @@ import { mq } from '../../baseStyles/utils/mediaQueries';
 import { Container as componentBox } from '../../baseStyles/commonStyles';
 
 export const Container = styled(componentBox)`
-    ${mq.mobile} {
+    ${mq.mobileOnly} {
         padding: 32px 25px 40px 25px;
     }
     ${mq.tablet} {
         padding: 64px 0 88px 0;
+    }
+    ${mq.desktop} {
+        height: 100%;
+        width: 730px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: 0;
+        padding: 0;
     }
-    ${mq.desktop} {
-        padding: 179px 0 239px 0;
+`;
+
+export const DesktopBox = styled.div`
+    ${mq.tablet} {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
 
 export const ListBox = styled.ul`
+    height: 100%;
     ${mq.mobileOnly} {
         margin-bottom: 60px;
     }
 
     ${mq.tablet} {
-        margin-left: auto;
-        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 `;
 
