@@ -4,8 +4,11 @@ import {
     XAxis,
     Tooltip,
     CartesianGrid,
+    ResponsiveContainer
   } from "recharts";
-import { BooksDay, NumberDay, Span, StatisticsHome, TextStats } from "./Statistics.styled";
+import ResultStats from "./ResultStats/ResultStats";
+import { StatisticsBox, BooksDay, NumberDay, Span, StatisticsHome, TextStats } from "./Statistics.styled";
+
 const data = [
     {
       uv: 4000,
@@ -16,11 +19,6 @@ const data = [
       uv: 3000,
       pv: 1398,
       amt: 2210
-    },
-    {
-      uv: 2000,
-      pv: 6800,
-      amt: 2290
     },
     {
       uv: 2780,
@@ -44,8 +42,11 @@ const data = [
     }
   ];
 const Statistics = () => {
+
     return (
-      <>       
+      
+      <StatisticsBox> 
+          
         <StatisticsHome>
         <BooksDay>
           <TextStats>Кількість сторінок</TextStats>
@@ -53,19 +54,17 @@ const Statistics = () => {
           <TextStats> день </TextStats>
           <NumberDay>0</NumberDay>
         </BooksDay>
-        <LineChart
-        width={810}
-        height={245}
-        data={data}
-        >
+        <ResponsiveContainer width="100%" height={245}>   
+        <LineChart data={data}>
       <CartesianGrid  vertical horizontal={false}/>
       <XAxis 
         dataKey="name"
-        label={{ value: "Time", position: "insideBottomRight", offset: 0 }}
+        label={{ value: "Час", position: "insideBottomRight", offset: 0 }}
         stroke="#B1B5C2" 
         tickLine={false}
       />
-        <Tooltip />
+      <Tooltip />
+      
       <Line
         type="monotone"
         dataKey="pv"
@@ -73,14 +72,18 @@ const Statistics = () => {
         strokeWidth={2}
         activeDot={{ r: 5 }}
       />
+      
+      <Line/>
       <Line type="monotone"
         dataKey="uv"
         stroke="#FF6B08"
         strokeWidth={2}
        />
     </LineChart>
+  </ResponsiveContainer>
     </StatisticsHome>
-        </>
+    <ResultStats/>
+  </StatisticsBox>
     );
 };
 
