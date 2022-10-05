@@ -3,6 +3,14 @@ import {btn, colors, mq} from '../../baseStyles';
 
 export const Section = styled.section`
     padding: 20px 0 60px;
+
+    ${mq.tablet} {
+        padding: 32px 0 74px;
+    }
+
+    ${mq.desktop} {
+        padding: 40px 0;
+    }
 `;
 
 export const GoalsWrapper = styled.div`
