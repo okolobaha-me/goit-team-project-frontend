@@ -13,6 +13,22 @@ const books = [
         year: 2019,
         amountOfPages: 223,
         author: 'Джефф Сазерленд',
+        checked: true,
+    },
+    {
+        id: '456',
+        name: 'Deadline. Роман об управлении проектами.',
+        year: 2006,
+        amountOfPages: 188,
+        author: 'Том ДеМарко',
+        checked: true,
+    },
+    {
+        id: '789',
+        name: '5 Пороков команды.Притчи о лидерстве.',
+        year: 2011,
+        amountOfPages: 125,
+        author: 'Патрик Ленсиони',
         checked: false,
     },
 ];
