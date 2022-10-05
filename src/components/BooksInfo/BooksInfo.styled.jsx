@@ -9,7 +9,7 @@ export const Container = styled(componentBox)`
         padding: 32px 25px 40px 25px;
     }
     ${mq.tablet} {
-        padding: 64px 0 88px 0;
+        padding: 64px 0 64px 0;
     }
     ${mq.desktop} {
         height: 100%;

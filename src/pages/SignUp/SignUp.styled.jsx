@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 
 export const Box = styled.div`
-    height: calc(100vh - 60px);
+    height: calc(100vh - 65px);
 
     ${mq.desktop} {
         display: flex;
