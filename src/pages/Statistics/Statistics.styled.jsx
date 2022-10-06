@@ -37,6 +37,10 @@ export const InnerWrapper = styled.div`
 
 export const TimerWrapper = styled.div`
     margin-bottom: 40px;
+    ${mq.desktop} {
+        margin-bottom: 0px;
+        padding-top: 8px;
+    }
 `;
 
 export const FormWrapper = styled.div`
