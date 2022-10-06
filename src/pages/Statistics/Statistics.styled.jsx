@@ -6,8 +6,13 @@ export const Section = styled.section`
     padding-bottom: 32px;
 `;
 
-export const TimerWrapper = styled.div`
-    margin-bottom: 40px;
+export const TopWrapper = styled.div`
+    ${mq.desktop} {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
 `;
 
 export const GoalsWrapper = styled.div`
@@ -16,6 +21,22 @@ export const GoalsWrapper = styled.div`
     ${mq.tablet} {
         margin-bottom: 40px;
     }
+
+    ${mq.desktop} {
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+`;
+
+export const InnerWrapper = styled.div`
+    ${mq.desktop} {
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
+export const TimerWrapper = styled.div`
+    margin-bottom: 40px;
 `;
 
 export const FormWrapper = styled.div`
@@ -30,6 +51,7 @@ export const ListWrapper = styled.div`
 
     ${mq.desktop} {
         width: 928px;
+        margin-bottom: 0;
     }
 `;
 
@@ -50,8 +72,6 @@ export const GraphWrapper = styled.div`
     }
 `;
 
-export const ResultsWrapper = styled.div``;
-
 export const Title = styled.h1`
     background-color: ${colors.greyBg};
     color: ${colors.whiteText};
@@ -63,5 +83,12 @@ export const Title = styled.h1`
 
     ${mq.tablet} {
         margin-bottom: 28px;
+    }
+`;
+
+export const BottomWrapper = styled.div`
+    ${mq.desktop} {
+        display: flex;
+        gap: 32px;
     }
 `;

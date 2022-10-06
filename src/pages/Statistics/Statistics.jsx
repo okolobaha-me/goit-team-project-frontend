@@ -11,8 +11,10 @@ import {
     FormWrapper,
     ListWrapper,
     GraphWrapper,
-    ResultsWrapper,
     Title,
+    TopWrapper,
+    InnerWrapper,
+    BottomWrapper,
 } from './Statistics.styled';
 
 const Statistics = () => {
@@ -20,29 +22,33 @@ const Statistics = () => {
     return (
         <Container>
             <Section>
-                <GoalsWrapper>
-                    <Goals />
-                </GoalsWrapper>
-                <TimerWrapper>
-                    <Timer />
-                </TimerWrapper>
-                <FormWrapper>
-                    {isTablet && (
-                        <>
-                            <Title>Моє тренування</Title>
-                            <TrainingForm />
-                        </>
-                    )}
-                </FormWrapper>
-                <ListWrapper>
-                    <ListOfBooksTraining />
-                </ListWrapper>
-                <GraphWrapper>
-                    <h1>Graphic</h1>
-                </GraphWrapper>
-                <ResultsWrapper>
+                <TopWrapper>
+                    <GoalsWrapper>
+                        <Goals />
+                    </GoalsWrapper>
+                    <InnerWrapper>
+                        <TimerWrapper>
+                            <Timer />
+                        </TimerWrapper>
+                        <FormWrapper>
+                            {isTablet && (
+                                <>
+                                    <Title>Моє тренування</Title>
+                                    <TrainingForm />
+                                </>
+                            )}
+                        </FormWrapper>
+                        <ListWrapper>
+                            <ListOfBooksTraining />
+                        </ListWrapper>
+                    </InnerWrapper>
+                </TopWrapper>
+                <BottomWrapper>
+                    <GraphWrapper>
+                        <h1>Graphic</h1>
+                    </GraphWrapper>
                     <Results />
-                </ResultsWrapper>
+                </BottomWrapper>
             </Section>
         </Container>
     );
