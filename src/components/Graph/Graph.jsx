@@ -1,4 +1,4 @@
-import {StatisticsHome, TextStats} from './Graph.styled';
+import {NumberDay, StatisticsHome, TextStats} from './Graph.styled';
 import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 
 export const Graph = () => {
@@ -54,9 +54,13 @@ export const Graph = () => {
         return 235;
     };
 
+    const averagePages = 35;
+
     return (
         <StatisticsHome>
-            <TextStats>Кількість сторінок / день 0</TextStats>
+            <TextStats>
+                Кількість сторінок / день <NumberDay>{averagePages}</NumberDay>
+            </TextStats>
             <ResponsiveContainer width="100%" height={getGraphHeight()}>
                 <LineChart data={visibleData()}>
                     <CartesianGrid vertical horizontal={false} />

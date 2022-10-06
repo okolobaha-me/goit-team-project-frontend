@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import {colors, mq} from '../../baseStyles';
 
 export const StatisticsHome = styled.div`
-    margin-top: 100px;
     width: 100%;
     padding: 24px 20px 20px;
     background-color: ${colors.whiteBg};
@@ -27,4 +26,9 @@ export const TextStats = styled.p`
     text-transform: uppercase;
 `;
 
-export const NumberDay = styled.span``;
+export const NumberDay = styled.span`
+    display: inline-block;
+    padding: 8px 5px;
+    margin: -8px 10px;
+    background-color: ${colors.lightBg};
+`;

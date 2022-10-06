@@ -5,7 +5,6 @@ import {
     FormListWrapper,
     FormWrapper,
     GoalsWrapper,
-    GraphWrapper,
     HeadWrapper,
     ListWrapper,
     Title,
@@ -14,6 +13,7 @@ import Goals from '../../../components/Goals';
 import {ListOfBooksStartTraining} from '../../../components/ListOfBooksStartTraining';
 import {ButtonMore, IconMore,} from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
+import {Graph} from '../../../components/Graph/Graph';
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
@@ -44,7 +44,7 @@ export const Training = () => {
             <BottomWrapper>
                 <Button variant={'accent'}>Почати тренування</Button>
 
-                <GraphWrapper />
+                <Graph />
             </BottomWrapper>
 
             {isMobile && (

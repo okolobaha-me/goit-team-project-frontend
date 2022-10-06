@@ -1,21 +1,21 @@
-import { Container } from '../../baseStyles';
+import {Container} from '../../baseStyles';
 import Timer from '../../components/Timer';
 import Goals from '../../components/Goals';
-import { ListOfBooksTraining } from '../../components/ListOfBooksTraining';
-import { Results } from '../../components/Results';
-import { TrainingForm } from '../../components/TrainingForm';
+import {ListOfBooksTraining} from '../../components/ListOfBooksTraining';
+import {Results} from '../../components/Results';
+import {TrainingForm} from '../../components/TrainingForm';
 import {
+    BottomWrapper,
+    FormWrapper,
+    GoalsWrapper,
+    InnerWrapper,
+    ListWrapper,
     Section,
     TimerWrapper,
-    GoalsWrapper,
-    FormWrapper,
-    ListWrapper,
-    GraphWrapper,
     Title,
     TopWrapper,
-    InnerWrapper,
-    BottomWrapper,
 } from './Statistics.styled';
+import {Graph} from '../../components/Graph/Graph';
 
 const Statistics = () => {
     const isTablet = window.screen.width > 767 && window.screen.width <= 1279;
@@ -44,9 +44,7 @@ const Statistics = () => {
                     </InnerWrapper>
                 </TopWrapper>
                 <BottomWrapper>
-                    <GraphWrapper>
-                        <h1>Graphic</h1>
-                    </GraphWrapper>
+                    <Graph />
                     <Results />
                 </BottomWrapper>
             </Section>
