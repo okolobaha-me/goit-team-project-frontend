@@ -8,6 +8,7 @@ import Read from './components/LibraryCategories/Read';
 import {InProcess} from './components/LibraryCategories/InProcess';
 import AddPage from './pages/Library/AddPage/AddPage';
 import {Training} from './pages/Training/Training/Training';
+import {Loader} from './components/Loader/Loader';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -24,9 +25,9 @@ const StartNewTraining = lazy(() =>
 export const App = () => {
     return (
         <>
-            <Routes>
-                <Route path={'/'} element={<Layout />}>
-                    <Suspense fallback={<p>Loading....</p>}>
+            <Suspense fallback={<Loader />}>
+                <Routes>
+                    <Route path={'/'} element={<Layout />}>
                         <Route index element={<Info />} />
                         <Route path={'signup'} element={<SignUp />} />
                         <Route path={'signin'} element={<SignIn />} />
@@ -51,9 +52,9 @@ export const App = () => {
                             />
                         </Route>
                         <Route path={'statistics'} element={<Statistics />} />
-                    </Suspense>
-                </Route>
-            </Routes>
+                    </Route>
+                </Routes>
+            </Suspense>
         </>
     );
 };
