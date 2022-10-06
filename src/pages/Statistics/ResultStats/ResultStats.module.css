@@ -1,0 +1,27 @@
+.Mango{
+    margin-top: 5px;
+    background: #F6F7FB;
+    border: 1px solid #A6ABB9;
+    padding: 12px;
+    max-width: 110px;
+}
+
+@media screen and (min-width: 320px) {
+    .Mango {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Mango {
+        width: 110px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .Mango {
+        max-width: 110px;
+    }
+}
+
+

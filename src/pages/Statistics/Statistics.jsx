@@ -1,9 +1,10 @@
 import {Container} from '../../baseStyles';
+import {Graph} from '../../components/Graph/Graph';
 
 const Statistics = () => {
     return (
         <Container>
-            <h1>Statistics</h1>
+            <Graph />
         </Container>
     );
 };
