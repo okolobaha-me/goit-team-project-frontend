@@ -1,5 +1,5 @@
-import {Select} from 'antd';
-import {useState} from 'react';
+import { Select } from 'antd';
+import { useState } from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
     Button,
@@ -18,6 +18,7 @@ export function TrainingForm() {
     const [startValue, setStartValue] = useState(null);
     const [endValue, setEndValue] = useState(null);
     const [endOpen, setEndOpen] = useState(false);
+    const [book, setBook] = useState(null);
 
     const disabledStartDate = startValue => {
         if (!startValue || !endValue) {
@@ -66,8 +67,24 @@ export function TrainingForm() {
         setEndOpen(open);
     };
 
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        const data = {
+            start: startValue._d,
+            end: endValue._d,
+            book,
+        };
+
+        return data;
+    };
+
+    const handleChange = data => {
+        setBook(data);
+    };
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <DatesWrapper>
                 <InputDateWrapper>
                     <DatePickers
@@ -112,12 +129,12 @@ export function TrainingForm() {
                     </CalendarIcon>
                 </InputDateWrapper>
             </DatesWrapper>
-
             <Selects
                 showSearch
                 placeholder="Виберіть книги з бібліотеки"
                 size="large"
                 optionFilterProp="children"
+                onChange={handleChange}
                 filterOption={(input, option) => {
                     return option.children
                         .toLowerCase()
