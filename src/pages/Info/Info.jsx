@@ -9,7 +9,7 @@ const Info = () => {
     return (
         <>
             {!isMobile && <Navigate to={redirectTo} />}
-            <BooksInfo/>
+            <BooksInfo />
         </>
     );
 };
