@@ -24,9 +24,9 @@ const StartNewTraining = lazy(() =>
 export const App = () => {
     return (
         <>
-            <Suspense fallback={<p>Loading....</p>}>
-                <Routes>
-                    <Route path={'/'} element={<Layout />}>
+            <Routes>
+                <Route path={'/'} element={<Layout />}>
+                    <Suspense fallback={<p>Loading....</p>}>
                         <Route index element={<Info />} />
                         <Route path={'signup'} element={<SignUp />} />
                         <Route path={'signin'} element={<SignIn />} />
@@ -51,9 +51,9 @@ export const App = () => {
                             />
                         </Route>
                         <Route path={'statistics'} element={<Statistics />} />
-                    </Route>
-                </Routes>
-            </Suspense>
+                    </Suspense>
+                </Route>
+            </Routes>
         </>
     );
 };
