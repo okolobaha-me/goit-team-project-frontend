@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
+import {combineReducers} from 'redux';
+import {createReducer} from '@reduxjs/toolkit';
 
-import { signIn, signUp, signOut } from './auth-operations';
+import {signIn, signOut, signUp} from './auth-operations';
 
 const initialState = {
     user: { name: '', email: '' },
@@ -12,11 +12,9 @@ const initialState = {
 
 const user = createReducer(initialState, {
     [signUp.fulfilled]: (_, { payload }) => {
-        console.log(payload);
         return payload.user;
     },
     [signIn.fulfilled]: (_, { payload }) => {
-        console.log(payload);
         return payload.token;
     },
     [signOut.fulfilled]: () => initialState,

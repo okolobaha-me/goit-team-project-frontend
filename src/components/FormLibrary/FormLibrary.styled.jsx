@@ -123,7 +123,6 @@ export const YearPicker = styled(TextField)`
     & input {
         ${input};
         margin-left: -1px;
-        z-index: 10;
     }
 
     & fieldset {

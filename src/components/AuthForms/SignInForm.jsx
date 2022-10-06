@@ -1,14 +1,7 @@
-import {
-    Form,
-    EmailLabel,
-    LabelText,
-    Span,
-    Input,
-    PasLabel,
-    EnterBtn,
-    ErrText,
-} from './SignInForm.styled';
-import { useForm } from 'react-hook-form';
+import {EmailLabel, EnterBtn, ErrText, Form, Input, LabelText, PasLabel, Span,} from './SignInForm.styled';
+import {useForm} from 'react-hook-form';
+import {useDispatch} from 'react-redux';
+import {signIn} from '../../redux/auth/auth-operations';
 
 const SignInForm = () => {
     const {
@@ -16,9 +9,10 @@ const SignInForm = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const dispatch = useDispatch();
 
     const onSubmit = data => {
-        console.log(data);
+        dispatch(signIn(data));
     };
 
     return (
@@ -35,10 +29,7 @@ const SignInForm = () => {
                         autoFocus="on"
                         name="email"
                         {...register('email', {
-                            required: {
-                                value: true,
-                                message: 'Введіть Ваш email',
-                            },
+                            required: 'Введіть Ваш email',
                             pattern: {
                                 value: /^[A-Za-z0-9_!#$%&'*+=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
                                 message: 'Введіть корректну єлектронну адресу ',
@@ -84,7 +75,7 @@ const SignInForm = () => {
                     )}
                 </PasLabel>
 
-                <EnterBtn variant="accent" type="submit">
+                <EnterBtn variant="accent" onClick={handleSubmit(onSubmit)}>
                     Увійти
                 </EnterBtn>
             </Form>

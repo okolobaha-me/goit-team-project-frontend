@@ -14,7 +14,7 @@ const OtherCategoriesMobile = ({ color, type, books }) => {
                     {books &&
                         books.map(book => (
                             <OtherCategoriesMobileItem
-                                key={book.id}
+                                key={book._id}
                                 color={color}
                                 book={book}
                             />

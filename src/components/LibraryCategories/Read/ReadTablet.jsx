@@ -20,7 +20,7 @@ const ReadTablet = ({ color, books, openModal }) => {
                         {books &&
                             books.map(book => (
                                 <ReadTabletItem
-                                    key={book.id}
+                                    key={book._id}
                                     color={color}
                                     book={book}
                                     openModal={openModal}

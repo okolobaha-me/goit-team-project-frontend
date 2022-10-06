@@ -1,21 +1,16 @@
 import styled from '@emotion/styled';
-import { mq } from '../../baseStyles/utils/mediaQueries';
-import { colors, fonts } from '../../baseStyles/utils/variables';
+import {colors, fonts, mq} from '../../baseStyles';
+import {btn, Container as componentbox, input,} from '../../baseStyles/commonStyles';
 import {
-    btn,
-    Container as componentbox,
-    input,
-} from '../../baseStyles/commonStyles';
-import {
-    desktopRegisterBgx2,
     desktopRegisterBg,
+    desktopRegisterBgx2,
     mobRegisterBg,
     mobRegisterBgx2,
     tabletRegisterBg,
     tabletRegisterBgx2,
 } from '../../images';
-import { css } from '@emotion/react';
-import { Link as link } from 'react-router-dom';
+import {css} from '@emotion/react';
+import {Link as link} from 'react-router-dom';
 
 export const Container = styled(componentbox)`
     ${mq.mobile} {
@@ -103,7 +98,6 @@ export const MobBox = styled.div`
     }
     ${mq.tablet} {
         width: 400px;
-        height: 609px;
         padding: 40px;
         background-color: ${colors.whiteBg};
         margin: 0 auto;
@@ -123,7 +117,7 @@ export const Button = styled.button`
 
     color: #707375;
     background-color: ${colors.inputBg};
-    box-shadow: 0px 2px 2px rgba(9, 30, 63, 0.15);
+    box-shadow: 0 2px 2px rgba(9, 30, 63, 0.15);
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 29px;
@@ -182,7 +176,7 @@ export const Form = styled.form`
 
 export const Input = styled.input`
     ${input};
-    box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
+    box-shadow: inset 0 1px 2px rgba(29, 29, 27, 0.15);
     width: 100%;
 `;
 

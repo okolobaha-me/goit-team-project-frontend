@@ -2,50 +2,7 @@ import {ListOfBook, ListOfLabels, TableOfBooks,} from '../ListOfBooks/ListOfBook
 import {TrItemLabel} from './ListOfBooksStartTraining.styled';
 import {BookStartTraining} from './BookStartTraining';
 
-const books = [
-    {
-        id: '123',
-        name: 'Scrum. Революционный метод управлениями проектами.',
-        year: 2019,
-        amountOfPages: 223,
-        author: 'Джефф Сазерленд',
-        checked: false,
-    },
-    {
-        id: '321',
-        name: 'Scrum. Революционный метод управлениями проектами.',
-        year: 2019,
-        amountOfPages: 223,
-        author: 'Джефф Сазерленд',
-        checked: false,
-    },
-    {
-        id: '1423',
-        name: 'Scrum. Революционный метод управлениями проектами.',
-        year: 2019,
-        amountOfPages: 223,
-        author: 'Джефф Сазерленд',
-        checked: false,
-    },
-    {
-        id: '1423423',
-        name: 'Scrum. Революционный метод управлениями проектами.',
-        year: 2019,
-        amountOfPages: 223,
-        author: 'Джефф Сазерленд',
-        checked: false,
-    },
-    {
-        id: '2134',
-        name: 'Scrum. Революционный метод управлениями проектами.',
-        year: 2019,
-        amountOfPages: 223,
-        author: 'Джефф Сазерленд',
-        checked: false,
-    },
-];
-
-export function ListOfBooksStartTraining() {
+export function ListOfBooksStartTraining({ books, deleteBook }) {
     return (
         <>
             <ListOfLabels>
@@ -59,8 +16,10 @@ export function ListOfBooksStartTraining() {
                     {books.map(book => {
                         return (
                             <BookStartTraining
-                                key={book.id}
+                                key={book._id}
+                                id={book._id}
                                 data={book}
+                                deleteBook={deleteBook}
                             ></BookStartTraining>
                         );
                     })}

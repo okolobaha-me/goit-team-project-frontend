@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { colors, fonts, mq } from '../../baseStyles';
-import { Container as componentbox } from '../../baseStyles/commonStyles';
-import { Link as link } from 'react-router-dom';
+import {colors, fonts, mq} from '../../baseStyles';
+import {Container as componentbox} from '../../baseStyles/commonStyles';
+import {Link as link} from 'react-router-dom';
 
 import {
     desktopLoginBg,
@@ -108,7 +108,6 @@ export const MobBox = styled.div`
     }
     ${mq.tablet} {
         width: 400px;
-        height: 430px;
         padding: 40px;
         background-color: ${colors.whiteBg};
         margin: 0 auto;

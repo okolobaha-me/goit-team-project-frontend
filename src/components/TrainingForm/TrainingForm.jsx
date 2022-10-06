@@ -1,5 +1,5 @@
-import { Select } from 'antd';
-import { useState } from 'react';
+import {Select} from 'antd';
+import {useState} from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
     Button,
@@ -11,12 +11,17 @@ import {
     InputDateWrapper,
     Selects,
 } from './TrainingForm.styled';
+import {useGetPlanBooksQuery} from '../../redux/books/booksSlice';
 
 const { Option } = Select;
 
-export function TrainingForm() {
-    const [startValue, setStartValue] = useState(null);
-    const [endValue, setEndValue] = useState(null);
+export function TrainingForm({
+    addBook,
+    startValue,
+    setStartValue,
+    endValue,
+    setEndValue,
+}) {
     const [endOpen, setEndOpen] = useState(false);
     const [book, setBook] = useState(null);
 
@@ -67,16 +72,12 @@ export function TrainingForm() {
         setEndOpen(open);
     };
 
+    const { data: books = []} = useGetPlanBooksQuery();
+
     const handleSubmit = e => {
         e.preventDefault();
 
-        const data = {
-            start: startValue._d,
-            end: endValue._d,
-            book,
-        };
-
-        return data;
+        addBook(book);
     };
 
     const handleChange = data => {
@@ -140,23 +141,17 @@ export function TrainingForm() {
                         .toLowerCase()
                         .includes(input.toLowerCase());
                 }}
-                filterSort={(optionA, optionB) => {
-                    return optionA.children
-                        .toLowerCase()
-                        .localeCompare(optionB.children.toLowerCase());
-                }}
                 suffixIcon={
                     <Icon width="13" height="7">
                         <use href={`${icons}#icon-polygon`} />
                     </Icon>
                 }
             >
-                <Option value="gamlet">Gamlet</Option>
-                <Option value="moon">Moon</Option>
-                <Option value="war">War</Option>
-                <Option value="ukraine">Ukraine</Option>
-                <Option value="la-vida">La vida</Option>
-                <Option value="remember-me">Remember me</Option>
+                {books.data?.result.map(book => (
+                    <Option value={book._id} key={book._id}>
+                        {book.title}
+                    </Option>
+                ))}
             </Selects>
             <Button type="submit" variant={'transparent'}>
                 Додати

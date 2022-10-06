@@ -13,7 +13,7 @@ const ReadMobile = ({ color, books, openModal }) => {
                         {books &&
                             books.map(book => (
                                 <ReadMobileItem
-                                    key={book.id}
+                                    key={book._id}
                                     color={color}
                                     book={book}
                                     openModal={openModal}

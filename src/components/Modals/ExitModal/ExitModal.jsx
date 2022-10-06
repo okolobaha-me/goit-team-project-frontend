@@ -1,9 +1,16 @@
 import {Button, ButtonWrapper, Text} from './ExitModal.styled';
 import {ModalWrapper} from '../ModalWrapper';
+import {useDispatch, useSelector} from 'react-redux';
+import {signOut} from '../../../redux/auth/auth-operations';
+import {getUserId} from '../../../redux/auth/auth-selectors';
 
 const ExitModal = ({ closeModal }) => {
-    const logout = () => {
-        console.log('logout');
+    const dispatch = useDispatch();
+    const id = useSelector(getUserId);
+
+    const handleLogOut = () => {
+        dispatch(signOut(id));
+        closeModal();
     };
 
     return (
@@ -16,7 +23,7 @@ const ExitModal = ({ closeModal }) => {
                     <Button variant={'transparent'} onClick={closeModal}>
                         Відміна
                     </Button>
-                    <Button variant={'accent'} onClick={logout}>
+                    <Button variant={'accent'} onClick={handleLogOut}>
                         Вийти
                     </Button>
                 </ButtonWrapper>

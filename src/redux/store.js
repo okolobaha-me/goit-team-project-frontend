@@ -4,18 +4,19 @@ import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, RE
 
 import storage from 'redux-persist/lib/storage';
 
-import authSlice from './auth/auth-slice'; //Auzthorization reducer
+import authSlice from './auth/auth-slice';
+import {booksSlice} from './books/booksSlice'; //Auzthorization reducer
 
 const middleware = [
     ...getDefaultMiddleware({
         serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-    }),
+    }).concat(booksSlice.middleware),
 ];
 
 //Configuration for persistor
-const contactsPersistConfig = {
+const booksPersistConfig = {
     key: 'auth',
     storage,
     whitelist: ['token'],
@@ -23,7 +24,8 @@ const contactsPersistConfig = {
 
 export const store = configureStore({
     reducer: {
-        auth: persistReducer(contactsPersistConfig, authSlice),
+        auth: persistReducer(booksPersistConfig, authSlice),
+        [booksSlice.reducerPath]: booksSlice.reducer,
     },
     middleware,
 });

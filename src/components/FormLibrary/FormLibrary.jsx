@@ -7,17 +7,19 @@ import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {useState} from 'react';
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {format} from 'date-fns';
+import {useAddBookMutation} from '../../redux/books/booksSlice';
 
 const FormLibrary = () => {
     const { register, handleSubmit, reset, control } = useForm();
     const [reqDate, setReqDate] = useState(new Date());
+    const [addBook] = useAddBookMutation();
 
     const onSubmit = data => {
-        const { title, author, pages } = data;
+        const { title, author, totalPages } = data;
         const year = format(data.reqDate, 'yyyy');
-        const newBook = { title, author, pages, year };
+        const newBook = { title, author, totalPages, year };
 
-        console.log(newBook);
+        addBook(newBook);
         reset();
     };
 
@@ -76,9 +78,9 @@ const FormLibrary = () => {
                 <Label>
                     Кількість сторінок
                     <Input
-                        {...register('pages', { required: true })}
+                        {...register('totalPages', { required: true })}
                         type="number"
-                        name="pages"
+                        name="totalPages"
                         placeholder="..."
                         min="1"
                     />

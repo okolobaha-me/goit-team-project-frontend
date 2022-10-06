@@ -1,18 +1,17 @@
 import axios from 'axios';
-import { token } from './token';
+import {token} from './token';
 
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {baseUrl} from '../../API';
 
-axios.defaults.baseURL = 'https://books-reading-goit.herokuapp.com/';
+axios.defaults.baseURL = baseUrl;
 
 export const signUp = createAsyncThunk(
     'auth/signup',
     async (credentials, { rejectWithValue }) => {
         try {
             const { data } = await axios.post('/auth/signup', credentials);
-            token.set(null);
             token.set(data.token);
-
             return data;
         } catch (error) {
             return rejectWithValue(error.message);
@@ -25,8 +24,7 @@ export const signIn = createAsyncThunk(
     async (credentials, { rejectWithValue }) => {
         try {
             const { data } = await axios.post('/auth/signin', credentials);
-            token.set(data.token);
-            console.log('Successfully logged in');
+            token.set(data.data.token);
             return data;
         } catch (error) {
             return rejectWithValue(error.message);
@@ -36,10 +34,23 @@ export const signIn = createAsyncThunk(
 
 export const signOut = createAsyncThunk(
     'auth/signout',
-    async (_, { rejectWithValue }) => {
+    async (credentials, { rejectWithValue }) => {
         try {
-            await axios.get('/auth/signout');
+            await axios.get(`/auth/signout?_id=${credentials}`);
             token.unset();
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
+export const refresh = createAsyncThunk(
+    'user/refresh',
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.get('/user/current', credentials);
+            token.set(data.data.user.token);
+            return data;
         } catch (error) {
             return rejectWithValue(error.message);
         }

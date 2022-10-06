@@ -1,14 +1,15 @@
 import {
-    TitleName,
-    TitleAuthor,
-    TitleYear,
-    TitlePage,
     ListOther,
-    WrapperTitles,
     Title,
+    TitleAuthor,
+    TitleName,
+    TitlePage,
+    TitleYear,
+    WrapperTitles,
 } from '../LibraryCategories.styled';
 
 import OtherCategoriesTabletItem from '../OtherCategories/OtherCategoriesTabletItem';
+
 let tablet = window.matchMedia('(min-width: 768px)').matches;
 
 const OtherCategoriesTablet = ({ type, color, books }) => {
@@ -19,7 +20,6 @@ const OtherCategoriesTablet = ({ type, color, books }) => {
             </Title>
             {tablet && (
                 <>
-                    {' '}
                     <WrapperTitles>
                         <TitleName>Назва книги</TitleName>
                         <TitleAuthor>Автор</TitleAuthor>
@@ -30,7 +30,7 @@ const OtherCategoriesTablet = ({ type, color, books }) => {
                         {books &&
                             books.map(book => (
                                 <OtherCategoriesTabletItem
-                                    key={book.id}
+                                    key={book._id}
                                     color={color}
                                     book={book}
                                 />

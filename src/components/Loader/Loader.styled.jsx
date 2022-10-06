@@ -10,3 +10,10 @@ export const LoaderWrapper = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+export const MiniLoaderWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`;

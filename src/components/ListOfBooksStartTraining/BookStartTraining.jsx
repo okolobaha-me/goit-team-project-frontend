@@ -9,11 +9,17 @@ import {
     ListOfDesc,
     Wrapper,
 } from '../ListOfBooks/ListOfBooks.styled';
-import { TrDescItem, TrTitle } from './ListOfBooksStartTraining.styled';
+import {TrDescItem, TrTitle} from './ListOfBooksStartTraining.styled';
 
 export function BookStartTraining({
-    data: { name, year, amountOfPages, author },
+    data: { title, year, amountOfPages, author },
+    deleteBook,
+    id,
 }) {
+    const handleDeleteBook = () => {
+        deleteBook(id);
+    };
+
     return (
         <Item>
             <Wrapper>
@@ -22,8 +28,8 @@ export function BookStartTraining({
                         <use href={`${icons}#icon-book`} />
                     </IconBook>
                 </div>
-                <TrTitle>{name}</TrTitle>
-                <BtnDelete>
+                <TrTitle>{title}</TrTitle>
+                <BtnDelete onClick={handleDeleteBook}>
                     <IconDelete>
                         <use href={`${icons}#icon-delete`} />
                     </IconDelete>

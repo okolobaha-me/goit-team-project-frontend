@@ -9,7 +9,7 @@ let mobile = window.matchMedia('(max-width: 767px)').matches;
 const Read = ({ length }) => {
     const books = [
         {
-            id: '1',
+            _id: '1',
             title: 'Психбольница в руках пациентов...',
             author: 'Купер Алан',
             year: '2009',
@@ -17,7 +17,7 @@ const Read = ({ length }) => {
             rating: 3,
         },
         {
-            id: '2',
+            _id: '2',
             title: 'Психбольница в руках пациентов... 2',
             author: 'Купер Алан',
             year: '2009',
@@ -25,7 +25,7 @@ const Read = ({ length }) => {
             rating: 3,
         },
         {
-            id: '3',
+            _id: '3',
             title: 'Психбольница в руках пациентов... 3',
             author: 'Купер Алан',
             year: '2009',
@@ -33,7 +33,7 @@ const Read = ({ length }) => {
             rating: 3,
         },
         {
-            id: '4',
+            _id: '4',
             title: 'Психбольница в руках пациентов... 4',
             author: 'Купер Алан',
             year: '2009',
@@ -41,7 +41,7 @@ const Read = ({ length }) => {
             rating: 3,
         },
         {
-            id: '5',
+            _id: '5',
             title: 'Психбольница в руках пациентов... 5',
             author: 'Купер Алан',
             year: '2009',
