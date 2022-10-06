@@ -1,13 +1,13 @@
-import {useState} from 'react';
-import {Container} from '../../baseStyles/commonStyles';
+import { useState } from 'react';
+import { Container } from '../../baseStyles';
 import {
     ExitButton,
     HeaderStyled,
     HeaderWrapper,
     Icon,
+    Link,
     Logo,
     Nav,
-    NavButton,
     NavItem,
     NavList,
     UserAvatar,
@@ -45,22 +45,22 @@ export const Header = () => {
                                 <Nav>
                                     <NavList>
                                         <NavItem>
-                                            <NavButton>
+                                            <Link to={'library'}>
                                                 <Icon width="22" height="17">
                                                     <use
-                                                        href={`${icons}#icon-book`}
+                                                        href={`${icons}#icon-book-no-color`}
                                                     />
                                                 </Icon>
-                                            </NavButton>
+                                            </Link>
                                         </NavItem>
                                         <NavItem>
-                                            <NavButton>
+                                            <Link to={'training'}>
                                                 <Icon width="20" height="17">
                                                     <use
                                                         href={`${icons}#icon-home`}
                                                     />
                                                 </Icon>
-                                            </NavButton>
+                                            </Link>
                                         </NavItem>
                                     </NavList>
                                 </Nav>

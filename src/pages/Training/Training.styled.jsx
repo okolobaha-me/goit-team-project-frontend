@@ -92,5 +92,9 @@ export const FormListWrapper = styled.div`
 export const FormWrapper = styled.div``;
 
 export const BottomWrapper = styled.div`
-    width: max-content;
+    width: 100%;
+
+    ${mq.desktop} {
+        width: max-content;
+    }
 `;

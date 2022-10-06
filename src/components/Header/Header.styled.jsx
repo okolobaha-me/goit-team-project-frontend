@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import {colors, fonts, mq} from '../../baseStyles';
+import {NavLink} from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
     background-color: ${colors.whiteBg};
@@ -59,7 +60,33 @@ export const NavItem = styled.li`
     }
 `;
 
-export const NavButton = styled.button``;
+export const Link = styled(NavLink)`
+    fill: ${colors.lightGrayText};
+    transition: all 300ms linear;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 28px;
+        border-top: 3px solid ${colors.accentText};
+        border-radius: 3px 3px 0 0;
+        transition: all 300ms linear;
+        opacity: 0;
+        transform: translateX(-50%) scaleX(0);
+    }
+
+    &.active {
+        fill: ${colors.accentText};
+
+        &:after {
+            opacity: 1;
+            transform: translateX(-50%) scaleX(1);
+        }
+    }
+`;
 
 export const Icon = styled.svg`
     display: flex;
