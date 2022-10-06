@@ -5,12 +5,14 @@ export const TaimerMain = styled.div`
     display: flex;
     align-items: baseline;
     justify-content: center;
-    width: 290px;
+    width: 100%;
     height: 60px;
     background-color: ${colors.whiteBg};
     margin-top: 9px;
-    padding: 0 38px;
     box-shadow: 4px 4px 8px rgba(36, 42, 55, 0.15);
+    ${mq.tablet} {
+        width: 290px;
+    }
 `;
 
 export const TimerTitle = styled.p`
@@ -53,7 +55,6 @@ export const TaimerAlign = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     &:last-child {
         margin-left: 74px;
     };
