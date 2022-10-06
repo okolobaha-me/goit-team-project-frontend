@@ -213,3 +213,8 @@ export const EnterBtn = styled.button`
     padding: 20px 64px;
     margin-bottom: 20px;
 `;
+
+export const ErrText = styled.p`
+    margin-top: 5px;
+    color: ${colors.accentText};
+`;

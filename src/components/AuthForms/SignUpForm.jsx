@@ -15,14 +15,35 @@ import {
     EnterBtn,
     LinkBox,
     LinkSpan,
+    ErrText
 } from './SignUpForm.styled';
 import googleIcon from '../../images/svg/google-icon.png';
+import { useForm } from "react-hook-form";
+import { useState } from 'react';
 
 const SignUpForm = () => {
+    const [checkPas, setCheckPas] = useState(true);
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const formSubmit = evt => {
-        evt.preventDefault();
+// console.log(checkPas);
+
+const isPassMatch = (Pas, confirmPas) => {
+    if(Pas !== confirmPas) {
+        setCheckPas(false);
+        return false;
+    }
+    setCheckPas(true);
+    return true;
+}
+
+    const onSubmit = data => {
+    const {password, confirmPas} = data;
+
+   if(!isPassMatch(password, confirmPas)) return; 
+
+    console.log(data);
     };
+
     return (
         <>
             <Container>
@@ -40,7 +61,7 @@ const SignUpForm = () => {
                                 </GoogleIcon>
                                 Google
                             </Button>
-                            <Form onSubmit={formSubmit}>
+                            <Form onSubmit={handleSubmit(onSubmit)}>
                                 <Label>
                                     <LabelText>
                                         Ім’я<Span>*</Span>
@@ -50,7 +71,23 @@ const SignUpForm = () => {
                                         type="text"
                                         placeholder="..."
                                         autoFocus="on"
+                                        name='name'
+                                        {...register("name", 
+                                        { required: 
+                                            {value: true, 
+                                                message: "Поле Ім’я обов’язкове"},  
+
+                                                minLength: {
+                                            value: 3, 
+                                            message: "Ім’я повинно бути більше трьох символів"}, 
+
+                                            pattern: { value: /[А-Яа-я0-9a-zA-Z][^\W]/,
+                                            message: "Ім’я повинно складатися тільки з букв та цифр"}})}
+
+                                            aria-invalid={errors.name ? "true" : "false"}      
                                     />
+
+                                     {errors.name && <ErrText role="alert">{errors.name?.message}</ErrText>}
                                 </Label>
 
                                 <Label>
@@ -62,7 +99,18 @@ const SignUpForm = () => {
                                         type="email"
                                         placeholder="your@email.com"
                                         autoFocus="on"
+                                        name='email'
+                                        {...register("email", { required: {
+                                            value: true,
+                                            message: "Введіть Ваш email"
+                                        }, 
+                                         pattern: { value: /^[A-Za-z0-9_!#$%&'*+=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+                                        message: "Введіть корректну єлектронну адресу "}
+                                    
+                                    })}
+                                    aria-invalid={errors.email ? "true" : "false"} 
                                     />
+                                    {errors.email && <ErrText role="alert">{errors.email?.message}</ErrText>}
                                 </Label>
 
                                 <PasLabel>
@@ -73,7 +121,24 @@ const SignUpForm = () => {
                                         variant="shadow"
                                         type="password"
                                         placeholder="..."
+                                        name='password'
+                                        {...register("password", { required: {
+                                            value: true,
+                                            message: "Поле пароль обов'язкове"
+                                        }, 
+                                        pattern: {
+                                            value: /^([A-Za-z]|[0-9])+$/,
+                                            message: "Пароль повинен складатися з латинських букв та цифр"
+                                        },
+                                        minLength: {
+                                            value: 6,
+                                            message: "Довжина пароля не менше 6 символів"
+                                        }
+                                     })}
+                                     aria-invalid={errors.password ? "true" : "false"}
+
                                     />
+                                    {errors.password && <ErrText role="alert">{errors.password?.message}</ErrText>}
                                 </PasLabel>
 
                                 <PasLabel>
@@ -84,7 +149,11 @@ const SignUpForm = () => {
                                         variant="shadow"
                                         type="password"
                                         placeholder="..."
+                                        name='confirmPas'
+                                        {...register("confirmPas", { required:  true})}
+                                        aria-invalid={errors.confirmPas ? "true" : "false"}
                                     />
+                                    {!checkPas && <ErrText role="alert">Паролі повиненні бути однаковими</ErrText>}
                                 </PasLabel>
 
                                 <EnterBtn variant="accent" type="submit">
