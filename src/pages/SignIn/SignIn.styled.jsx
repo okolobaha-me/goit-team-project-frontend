@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import {colors, fonts, mq} from '../../baseStyles';
-import {Container as componentbox} from '../../baseStyles/commonStyles';
-import {Link as link} from 'react-router-dom';
+import { colors, fonts, mq } from '../../baseStyles';
+import { Container as componentbox } from '../../baseStyles/commonStyles';
+import { Link as link } from 'react-router-dom';
 
 import {
     desktopLoginBg,

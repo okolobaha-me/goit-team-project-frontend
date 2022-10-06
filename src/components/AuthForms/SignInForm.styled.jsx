@@ -4,7 +4,6 @@ import { colors } from '../../baseStyles/utils/variables';
 import { mq } from '../../baseStyles/utils/mediaQueries';
 import { btn, input } from '../../baseStyles/commonStyles';
 
-
 const label = () => {
     return css`
         width: 100%;
@@ -64,4 +63,9 @@ export const EnterBtn = styled.button`
         margin-bottom: 16px;
     }
     margin-bottom: 20px;
+`;
+
+export const ErrText = styled.p`
+    margin-top: 5px;
+    color: ${colors.accentText};
 `;
