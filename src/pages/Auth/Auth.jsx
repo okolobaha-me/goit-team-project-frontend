@@ -8,7 +8,7 @@ export const Auth = () => {
     const tokenValue = searchParams.get('token');
     console.log(searchParams.get('token'));
     const dispatch = useDispatch();
-    token.set(tokonValue)
+    token.set(tokenValue)
     dispatch(refresh(tokenValue));
     return <><Navigate to={"/library"}/></>;
 };
