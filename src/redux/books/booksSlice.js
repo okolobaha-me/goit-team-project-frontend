@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {baseUrl} from '../../API';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseUrl } from '../../API';
 
 export const booksSlice = createApi({
     reducerPath: 'books',
@@ -15,7 +15,7 @@ export const booksSlice = createApi({
             return headers;
         },
     }),
-    tagTypes: ['Plan', 'Read', 'Done'],
+    tagTypes: ['Plan', 'Read', 'Done', 'Planning'],
     keepUnusedDataFor: 3000,
     endpoints: builder => ({
         getPlanBooks: builder.query({
@@ -23,11 +23,11 @@ export const booksSlice = createApi({
             providesTags: ['Plan'],
         }),
         getReadBooks: builder.query({
-            query: () => '/get-status/read',
+            query: () => 'book/get-status/read',
             providesTags: ['Read'],
         }),
         getDoneBooks: builder.query({
-            query: () => '/get-status/done',
+            query: () => 'book/get-status/done',
             providesTags: ['Done'],
         }),
         addBook: builder.mutation({
@@ -44,7 +44,21 @@ export const booksSlice = createApi({
                 method: 'POST',
                 body: planing,
             }),
-            invalidatesTags: ['Plan', 'Read'],
+            invalidatesTags: ['Plan', 'Read', 'Planning'],
+        }),
+        getPlanning: builder.query({
+            query: () => ({
+                url: '/user/planning',
+                invalidatesTags: ['Planning'],
+            }),
+        }),
+        addBookReview: builder.mutation({
+            query: (id, review) => ({
+                url: `/book/${id}`,
+                method: 'PUT',
+                body: review,
+            }),
+            invalidatesTags: ['Done'],
         }),
     }),
 });
@@ -53,6 +67,8 @@ export const {
     useGetPlanBooksQuery,
     useGetReadBooksQuery,
     useGetDoneBooksQuery,
+    useGetPlanningQuery,
     useAddBookMutation,
     useAddPlaningMutation,
+    useAddBookReviewMutation,
 } = booksSlice;

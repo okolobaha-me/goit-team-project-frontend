@@ -1,4 +1,5 @@
-import {TrainingForm} from '../../../components/TrainingForm';
+import { Navigate } from 'react-router-dom';
+import { TrainingForm } from '../../../components/TrainingForm';
 import {
     BottomWrapper,
     Button,
@@ -10,19 +11,27 @@ import {
     Title,
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
-import {ListOfBooksStartTraining} from '../../../components/ListOfBooksStartTraining';
-import {ButtonMore, IconMore,} from '../../../components/LibraryCategories/LibraryCategories.styled';
+import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
+import {
+    ButtonMore,
+    IconMore,
+} from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
-import {Graph} from '../../../components/Graph/Graph';
-import {useState} from 'react';
-import {useAddPlaningMutation, useGetPlanBooksQuery,} from '../../../redux/books/booksSlice';
-import {differenceInCalendarDays, format} from 'date-fns';
+import { Graph } from '../../../components/Graph/Graph';
+import { useState } from 'react';
+import {
+    useAddPlaningMutation,
+    useGetPlanBooksQuery,
+    useGetPlanningQuery,
+} from '../../../redux/books/booksSlice';
+import { differenceInCalendarDays, format } from 'date-fns';
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     const [selectedBooks, setSelectedBooks] = useState([]);
     const [startValue, setStartValue] = useState(null);
     const [endValue, setEndValue] = useState(null);
+    const { data } = useGetPlanningQuery();
 
     const deleteBook = id => {
         setSelectedBooks(prev => prev.filter(book => book._id !== id));
@@ -32,7 +41,7 @@ export const Training = () => {
 
     const addBook = id => {
         if (selectedBooks.find(b => b._id === id)) {
-            console.log("you can't add same book again");
+            console.log("you can't add the same book again");
             return;
         }
 
@@ -71,6 +80,8 @@ export const Training = () => {
         if (!startValue || !endValue) return 0;
         return differenceInCalendarDays(endValue._d, startValue._d);
     };
+
+    if (data) return <Navigate to="../statistics" />;
 
     return (
         <>

@@ -19,12 +19,16 @@ import icons from '../../images/svg/icons.svg';
 
 import ExitModal from '../Modals/ExitModal/ExitModal';
 
+import { getUserName, getIsLoggedIn } from '../../redux/auth/auth-selectors';
+
+import { useSelector } from 'react-redux';
+
 export const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const isLoggedIn = true;
-    const userName = 'Stepan';
-    const userAvatar = userName[0].toUpperCase();
+    const isLoggedIn = useSelector(getIsLoggedIn);
+    const userName = useSelector(getUserName);
+    const userAvatar = userName[0]?.toUpperCase();
 
     const openExitModal = () => {
         setIsModalOpen(true);

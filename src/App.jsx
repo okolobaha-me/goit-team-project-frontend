@@ -1,23 +1,27 @@
-import {Route, Routes} from 'react-router-dom';
-import {lazy, Suspense, useEffect, useRef} from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 
 // Tostify
 import { ToastContainer } from 'react-toastify';
 
 // Components
-import {Layout} from './components/Layout/Layout';
+import { Layout } from './components/Layout/Layout';
 import LibraryCategories from './components/LibraryCategories';
 import Read from './components/LibraryCategories/Read';
-import {InProcess} from './components/LibraryCategories/InProcess';
+import { InProcess } from './components/LibraryCategories/InProcess';
 import AddPage from './pages/Library/AddPage/AddPage';
-import {Training} from './pages/Training/Training/Training';
-import {Loader} from './components/Loader/Loader';
-import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoggedIn, getLoadingCurrent, getToken,} from './redux/auth/auth-selectors';
-import {token} from './redux/auth/token';
-import {refresh} from './redux/auth/auth-operations';
-import {PrivateRoute} from './components/Routes/PrivateRoute';
-import {PublicRoute} from './components/Routes/PublicRoute';
+import { Training } from './pages/Training/Training/Training';
+import { Loader } from './components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    getIsLoggedIn,
+    getLoadingCurrent,
+    getToken,
+} from './redux/auth/auth-selectors';
+import { token } from './redux/auth/token';
+import { refresh } from './redux/auth/auth-operations';
+import { PrivateRoute } from './components/Routes/PrivateRoute';
+import { PublicRoute } from './components/Routes/PublicRoute';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -150,7 +154,9 @@ export const App = () => {
                             path={'start-new'}
                             element={
                                 <PrivateRoute isLoggedIn={isLoggedIn}>
-                                    <StartNewTraining />
+                                    <Suspense fallback={<Loader />}>
+                                        <StartNewTraining />
+                                    </Suspense>
                                 </PrivateRoute>
                             }
                         />
@@ -159,7 +165,9 @@ export const App = () => {
                         path={'statistics'}
                         element={
                             <PrivateRoute isLoggedIn={isLoggedIn}>
-                                <Statistics />
+                                <Suspense fallback={<Loader />}>
+                                    <Statistics />
+                                </Suspense>
                             </PrivateRoute>
                         }
                     />

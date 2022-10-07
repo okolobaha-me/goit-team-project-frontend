@@ -13,10 +13,10 @@ import {
 import icons from '../../../images/svg/icons.svg';
 
 const ReadTabletItem = ({ color, book, openModal }) => {
-    const { title, author, year, totalPages, rating, id } = book;
+    const { title, author, year, totalPages, rating, _id } = book;
 
     const openResumeModal = () => {
-        openModal(id);
+        openModal(_id);
     };
 
     return (
@@ -31,7 +31,11 @@ const ReadTabletItem = ({ color, book, openModal }) => {
                 <Date>{year}</Date>
                 <NumberPages>{totalPages}</NumberPages>
                 <Stars>
-                    <StyledRating name="no-value" value={rating} readOnly />
+                    <StyledRating
+                        name="no-value"
+                        value={Number(rating)}
+                        readOnly
+                    />
                 </Stars>
                 <ButtonRating
                     type="button"

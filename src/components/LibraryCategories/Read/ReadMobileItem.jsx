@@ -1,5 +1,13 @@
 import icons from '../../../images/svg/icons.svg';
-import {Button, Icon, Item, StyledRating, Text, TextSelection, WrapperItem,} from '../LibraryCategories.styled';
+import {
+    Button,
+    Icon,
+    Item,
+    StyledRating,
+    Text,
+    TextSelection,
+    WrapperItem,
+} from '../LibraryCategories.styled';
 
 const ReadMobileItem = ({ book, color, openModal }) => {
     const { title, author, year, totalPages, rating, id } = book;
@@ -28,7 +36,7 @@ const ReadMobileItem = ({ book, color, openModal }) => {
                     <TextSelection>Рейтинг:</TextSelection>{' '}
                     <StyledRating
                         name="no-value"
-                        value={rating}
+                        value={Number(rating)}
                         readOnly
                         size="small"
                     />
