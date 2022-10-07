@@ -2,7 +2,7 @@ import {useSearchParams} from 'react-router-dom';
 import {token} from '../../redux/auth/token';
 import {useDispatch} from 'react-redux';
 import {refresh} from '../../redux/auth/auth-operations';
-
+import {Navigate} from "react-router-dom"
 export const Auth = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const tokenValue = searchParams.get('token');
@@ -10,5 +10,5 @@ export const Auth = () => {
     const dispatch = useDispatch();
     token.set(tokonValue)
     dispatch(refresh(tokenValue));
-    return <></>;
+    return <><Navigate to={"../library"}/></>;
 };
