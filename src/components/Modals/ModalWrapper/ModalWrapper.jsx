@@ -3,6 +3,9 @@ import { createPortal } from 'react-dom';
 
 import { Backdrop, ModalContainer, ModalContent } from './ModalWrapper.styled';
 
+import { AnimatePresence } from 'framer-motion';
+import AnimationModal from '../../Animations/AnimationModal';
+
 const ModalWrapper = ({ closeModal, children, variant }) => {
     const modalRoot = document.querySelector('#modal-root');
 
@@ -33,11 +36,15 @@ const ModalWrapper = ({ closeModal, children, variant }) => {
     };
 
     return createPortal(
-        <Backdrop onClick={handleBackdropClick}>
-            <ModalContainer variant={variant}>
-                <ModalContent>{children}</ModalContent>
-            </ModalContainer>
-        </Backdrop>,
+        <AnimatePresence exitBeforeEnter>
+            <AnimationModal>
+                <Backdrop onClick={handleBackdropClick}>
+                    <ModalContainer variant={variant}>
+                        <ModalContent>{children}</ModalContent>
+                    </ModalContainer>
+                </Backdrop>
+            </AnimationModal>
+        </AnimatePresence>,
         modalRoot
     );
 };

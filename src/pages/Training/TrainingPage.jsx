@@ -1,14 +1,16 @@
-import {Section} from './Training.styled';
-import {Container} from '../../baseStyles';
-import {Outlet} from 'react-router-dom';
-
+import { Section } from './Training.styled';
+import { Container } from '../../baseStyles';
+import { Outlet } from 'react-router-dom';
+import AnimationPage from '../../components/Animations/AnimationPage';
 const TrainingPage = () => {
     return (
-        <Section>
-            <Container>
-                <Outlet />
-            </Container>
-        </Section>
+        <AnimationPage>
+            <Section>
+                <Container>
+                    <Outlet />
+                </Container>
+            </Section>
+        </AnimationPage>
     );
 };
 

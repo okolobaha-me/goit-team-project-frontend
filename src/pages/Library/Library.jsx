@@ -1,7 +1,8 @@
-import {Container} from '../../baseStyles';
-import {EmptyWrapper, Section} from './Library.styled';
+import { Container } from '../../baseStyles';
+import { EmptyWrapper, Section } from './Library.styled';
 import EmptyLibrary from '../../components/EmptyLibrary';
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import AnimatioPage from '../../components/Animations/AnimationPage';
 
 const Library = () => {
     const isLibraryEmpty = false;
@@ -9,13 +10,15 @@ const Library = () => {
     return (
         <Section>
             <Container>
-                {isLibraryEmpty ? (
-                    <EmptyWrapper>
-                        <EmptyLibrary />
-                    </EmptyWrapper>
-                ) : (
-                    <Outlet />
-                )}
+                <AnimatioPage>
+                    {isLibraryEmpty ? (
+                        <EmptyWrapper>
+                            <EmptyLibrary />
+                        </EmptyWrapper>
+                    ) : (
+                        <Outlet />
+                    )}
+                </AnimatioPage>
             </Container>
         </Section>
     );
