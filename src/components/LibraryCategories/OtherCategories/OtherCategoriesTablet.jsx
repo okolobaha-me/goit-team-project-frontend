@@ -1,4 +1,5 @@
 import {
+    EmptyCategoryMessage,
     ListOther,
     Title,
     TitleAuthor,
@@ -18,7 +19,8 @@ const OtherCategoriesTablet = ({ type, color, books }) => {
             <Title>
                 {type === 'inProcess' ? 'Читаю' : 'Маю намір прочитати'}
             </Title>
-            {tablet && (
+
+            {!!books?.length ? (
                 <>
                     <WrapperTitles>
                         <TitleName>Назва книги</TitleName>
@@ -37,6 +39,10 @@ const OtherCategoriesTablet = ({ type, color, books }) => {
                             ))}
                     </ListOther>
                 </>
+            ) : (
+                <EmptyCategoryMessage>
+                    Тут поки що немає книг
+                </EmptyCategoryMessage>
             )}
         </>
     );

@@ -2,16 +2,13 @@ import {colors} from '../../baseStyles';
 import OtherCategories from './OtherCategories';
 import {useGetPlanBooksQuery} from '../../redux/books/booksSlice';
 import {MiniLoader} from '../Loader/MiniLoader';
+import {useVisibleBooks} from '../../hooks/useVisibleBooks';
 
 export const Plan = ({ length }) => {
-    const { data: books = [], status } = useGetPlanBooksQuery();
+    const { data: books = [], isLoading } = useGetPlanBooksQuery();
 
-    if (status === 'pending') return <MiniLoader />;
-
-    const visibleBooks =
-        length === 'short'
-            ? books.data?.result.slice(books.data?.result.length - 3)
-            : books.data?.result;
+    const visibleBooks = useVisibleBooks(books.data?.result, length);
+    if (isLoading === 'pending') return <MiniLoader />;
 
     return (
         <OtherCategories

@@ -2,13 +2,14 @@ import {colors} from '../../baseStyles';
 import OtherCategories from './OtherCategories';
 import {useGetReadBooksQuery} from '../../redux/books/booksSlice';
 import {MiniLoader} from '../Loader/MiniLoader';
+import {useVisibleBooks} from '../../hooks/useVisibleBooks';
 
 export const InProcess = ({ length }) => {
-    const { data: books = [], status } = useGetReadBooksQuery();
+    const { data: books = [], isLoading } = useGetReadBooksQuery();
 
-    if (status === 'pending') return <MiniLoader />;
+    const visibleBooks = useVisibleBooks(books.data?.result, length);
 
-    const visibleBooks = length === 'short' ? books.slice(0, 3) : books;
+    if (isLoading === 'pending') return <MiniLoader />;
 
     return (
         <OtherCategories

@@ -3,6 +3,7 @@ import ReadTablet from './ReadTablet';
 import {colors} from '../../../baseStyles';
 import {useState} from 'react';
 import {RatingModal} from '../../Modals';
+import {EmptyCategoryMessage} from '../LibraryCategories.styled';
 
 let mobile = window.matchMedia('(max-width: 767px)').matches;
 
@@ -53,6 +54,11 @@ const Read = ({ length }) => {
     const visibleBooks = length === 'short' ? books.slice(0, 3) : books;
 
     const [resumeBookId, setResumeBookId] = useState(null);
+
+    if (!visibleBooks.length)
+        return (
+            <EmptyCategoryMessage>Тут поки що немає книг</EmptyCategoryMessage>
+        );
 
     const closeModal = () => {
         setResumeBookId(null);

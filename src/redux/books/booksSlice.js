@@ -16,7 +16,7 @@ export const booksSlice = createApi({
         },
     }),
     tagTypes: ['Plan', 'Read', 'Done'],
-    keepUnusedDataFor: 1,
+    keepUnusedDataFor: 3000,
     endpoints: builder => ({
         getPlanBooks: builder.query({
             query: () => 'book/get-status/plan',

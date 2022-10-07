@@ -26,16 +26,16 @@ export const infoBook = () => {
 
 export const item = () => {
     return css`
-      display: flex;
-      margin-bottom: 8px;
-      align-items: center;
-      justify-content: center;
-      background: ${colors.whiteText};
-      box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
+        display: flex;
+        margin-bottom: 8px;
+        align-items: center;
+        justify-content: center;
+        background: ${colors.whiteText};
+        box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
 
-      :last-of-type {
-        margin-bottom: 0;
-      }
+        :last-of-type {
+            margin-bottom: 0;
+        }
     `;
 };
 
@@ -44,17 +44,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  &:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-  }
+    &:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+    }
 
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: ${colors.mainText};
-  padding-top: 20px;
-  padding-bottom: 20px;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: ${colors.mainText};
+    padding-top: 20px;
+    padding-bottom: 20px;
 `;
 
 export const List = styled.ul`
@@ -74,16 +74,16 @@ export const ButtonMore = styled(Link)`
 `;
 
 export const Item = styled.li`
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 26px 32px 20px;
-  background: ${colors.whiteBg};
-  box-shadow: 0 2px 3px 0 #091e3f1a;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 26px 32px 20px;
+    background: ${colors.whiteBg};
+    box-shadow: 0 2px 3px 0 #091e3f1a;
+    margin-bottom: 20px;
 
-  &:last-of-type {
-    margin-bottom: 0;
-  }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 `;
 
 export const ItemBook = styled.li`
@@ -302,15 +302,15 @@ export const BookHeader = styled.p`
 `;
 
 export const BookAuthor = styled.p`
-  ${infoBook};
-  width: 186px;
-  height: auto;
-  margin-right: 18px;
+    ${infoBook};
+    width: 186px;
+    height: auto;
+    margin-right: 18px;
 
-  ${mq.desktop} {
-    width: 368px;
-    margin-right: 16px;
-  }
+    ${mq.desktop} {
+        width: 368px;
+        margin-right: 16px;
+    }
 `;
 
 export const BookYear = styled.p`
@@ -324,12 +324,12 @@ export const BookYear = styled.p`
 `;
 
 export const BookPage = styled.p`
-  ${infoBook};
+    ${infoBook};
 
-  ${mq.desktop} {
-    width: 88px;
-    margin-right: 18px;
-  }
+    ${mq.desktop} {
+        width: 88px;
+        margin-right: 18px;
+    }
 `;
 
 export const StyledRating = styled(Rating)`
@@ -369,4 +369,10 @@ export const LinkMore = styled(Link)`
 export const ArrowMore = styled.svg`
     transform: rotate(180deg);
     margin-left: 10px;
+`;
+
+export const EmptyCategoryMessage = styled.p`
+    background: ${colors.whiteText};
+    box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
+    padding: 20px 24px;
 `;
