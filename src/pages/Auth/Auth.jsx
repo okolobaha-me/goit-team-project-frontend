@@ -10,5 +10,5 @@ export const Auth = () => {
     const dispatch = useDispatch();
     token.set(tokonValue)
     dispatch(refresh(tokenValue));
-    return <><Navigate to={"../library"}/></>;
+    return <><Navigate to={"/library"}/></>;
 };
