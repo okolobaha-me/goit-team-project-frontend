@@ -19,6 +19,19 @@ export const signUp = createAsyncThunk(
     }
 );
 
+export const googleSignUp = createAsyncThunk(
+    'auth/google',
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.get('/auth/google', credentials);
+            token.set(data.token);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
 export const signIn = createAsyncThunk(
     'auth/signin',
     async (credentials, { rejectWithValue }) => {
