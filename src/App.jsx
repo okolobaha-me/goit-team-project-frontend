@@ -1,6 +1,9 @@
 import {Route, Routes} from 'react-router-dom';
 import {lazy, Suspense, useEffect, useRef} from 'react';
 
+// Tostify
+import { ToastContainer } from 'react-toastify';
+
 // Components
 import {Layout} from './components/Layout/Layout';
 import LibraryCategories from './components/LibraryCategories';
@@ -162,6 +165,7 @@ export const App = () => {
                     />
                 </Route>
             </Routes>
+            <ToastContainer />
         </>
     );
 };
