@@ -8,6 +8,7 @@ export const Auth = () => {
     const tokenValue = searchParams.get('token');
     console.log(searchParams.get('token'));
     const dispatch = useDispatch();
-    dispatch(refresh(token));
+    token.set(tokonValue)
+    dispatch(refresh(tokenValue));
     return <></>;
 };
