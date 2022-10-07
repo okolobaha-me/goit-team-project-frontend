@@ -2,7 +2,7 @@ import {Route, Routes} from 'react-router-dom';
 import {lazy, Suspense, useEffect, useRef} from 'react';
 
 // Tostify
-import { ToastContainer } from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 
 // Components
 import {Layout} from './components/Layout/Layout';
@@ -18,6 +18,7 @@ import {token} from './redux/auth/token';
 import {refresh} from './redux/auth/auth-operations';
 import {PrivateRoute} from './components/Routes/PrivateRoute';
 import {PublicRoute} from './components/Routes/PublicRoute';
+import {Auth} from './pages/Auth/Auth';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -163,6 +164,7 @@ export const App = () => {
                             </PrivateRoute>
                         }
                     />
+                    <Route path={'auth'} element={<Auth />} />
                 </Route>
             </Routes>
             <ToastContainer />

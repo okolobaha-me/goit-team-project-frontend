@@ -21,7 +21,7 @@ import googleIcon from '../../images/svg/google-icon.png';
 import {useForm} from 'react-hook-form';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {googleSignUp, signUp} from '../../redux/auth/auth-operations';
+import {signUp} from '../../redux/auth/auth-operations';
 
 const SignUpForm = () => {
     const [checkPas, setCheckPas] = useState(true);
@@ -52,17 +52,13 @@ const SignUpForm = () => {
         // navigate('../signin');
     };
 
-    const g = () => {
-        dispatch(googleSignUp());
-    };
-
     return (
         <>
             <Container>
                 <DesktopBox>
                     <TabletBox>
                         <MobBox>
-                            <Button onClick={g}>
+                            <Button href="https://books-reading-goit.herokuapp.com/auth/google">
                                 <GoogleIcon>
                                     <img
                                         src={googleIcon}

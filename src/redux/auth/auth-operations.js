@@ -21,9 +21,9 @@ export const signUp = createAsyncThunk(
 
 export const googleSignUp = createAsyncThunk(
     'auth/google',
-    async (credentials, { rejectWithValue }) => {
+    async (_, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get('/auth/google', credentials);
+            const { data } = await axios.get('/auth/google');
             token.set(data.token);
             return data;
         } catch (error) {
