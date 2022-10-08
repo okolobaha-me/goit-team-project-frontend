@@ -164,7 +164,14 @@ export const App = () => {
                             </PrivateRoute>
                         }
                     />
-                    <Route path={'auth'} element={<Auth />} />
+                    <Route
+                        path={'auth'}
+                        element={
+                            <PublicRoute isLoggedIn={isLoggedIn}>
+                                <Auth />
+                            </PublicRoute>
+                        }
+                    />
                 </Route>
             </Routes>
             <ToastContainer />

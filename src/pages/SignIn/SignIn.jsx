@@ -1,21 +1,21 @@
 import {
     Button,
-    DesktopBox,
-    TabletBox,
-    QuoteAutor,
-    Line,
-    QuoteTextBox,
-    QuoteIconSpan,
-    GoogleIcon,
-    QuoteText,
-    MobBox,
-    QuoteBox,
-    Link,
     Container,
+    DesktopBox,
+    GoogleIcon,
+    Line,
+    Link,
+    MobBox,
+    QuoteAutor,
+    QuoteBox,
+    QuoteIconSpan,
+    QuoteText,
+    QuoteTextBox,
+    TabletBox,
 } from './SignIn.styled';
 import googleIcon from '../../images/svg/google-icon.png';
 import icons from '../../images/svg/icons.svg';
-import { SignInForm } from '../../components/AuthForms';
+import {SignInForm} from '../../components/AuthForms';
 
 const SignIn = () => {
     return (
@@ -23,7 +23,7 @@ const SignIn = () => {
             <DesktopBox>
                 <TabletBox>
                     <MobBox>
-                        <Button>
+                        <Button href="https://books-reading-goit.herokuapp.com/auth/google">
                             <GoogleIcon>
                                 <img
                                     src={googleIcon}
