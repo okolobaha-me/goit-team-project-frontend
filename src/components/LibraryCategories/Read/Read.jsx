@@ -29,18 +29,6 @@ const Read = ({ length }) => {
         setResumeBookId(null);
     };
 
-    // const addBook = id => {
-    //     if (selectedBooks.find(b => b._id === id)) {
-    //         console.log("you can't add the same book again");
-    //         return;
-    //     }
-
-    //     setSelectedBooks(prev => [
-    //         ...prev,
-    //         books.data?.result.find(book => book._id === id),
-    //     ]);
-    // };
-
     const openModal = bookId => {
         doneBooks.find(book => book._id === bookId);
         setResumeBookId(bookId);

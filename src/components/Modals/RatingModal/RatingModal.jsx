@@ -22,6 +22,7 @@ const RatingModal = ({ closeModal, bookId }) => {
 
     const onSubmit = data => {
         addReview(bookId, data);
+        // console.log(bookId, data);
         closeModal();
     };
 
