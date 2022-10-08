@@ -110,7 +110,8 @@ export const MobBox = styled.div`
 
 export const Button = styled.a`
     position: relative;
-    display: inline-flex;
+    display: flex;
+    width: max-content;
     font-family: ${fonts.roboto};
     font-size: 16px;
     line-height: 2.4;

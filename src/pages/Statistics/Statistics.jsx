@@ -1,9 +1,9 @@
-import { Container } from '../../baseStyles';
+import {Container} from '../../baseStyles';
 import Timer from '../../components/Timer';
 import Goals from '../../components/Goals';
-import { ListOfBooksTraining } from '../../components/ListOfBooksTraining';
-import { Results } from '../../components/Results';
-import { TrainingForm } from '../../components/TrainingForm';
+import {ListOfBooksTraining} from '../../components/ListOfBooksTraining';
+import {Results} from '../../components/Results';
+import {TrainingForm} from '../../components/TrainingForm';
 import {
     BottomWrapper,
     FormWrapper,
@@ -16,21 +16,24 @@ import {
     TopWrapper,
 } from './Statistics.styled';
 
-import { useGetPlanningQuery } from '../../redux/books/booksSlice';
+import {useGetPlanningQuery} from '../../redux/books/booksSlice';
 
-import { Graph } from '../../components/Graph/Graph';
+import {Graph} from '../../components/Graph/Graph';
 
 const Statistics = () => {
     const isTablet = window.screen.width > 767 && window.screen.width <= 1279;
 
-    const { data: books } = useGetPlanningQuery();
+    const { data } = useGetPlanningQuery();
 
-    const booksNumber = books?.data.booksNumber;
-    const planningDuration = books?.data.planningDur;
+    const booksNumber = data?.data.booksNumber;
+    const planningDuration = data?.data.planningDur;
+    const booksLeft = data?.planning?.booksToRead.length;
 
-    const result = books?.planning;
+    const planing = data?.planning;
 
-    const booksLeft = result?.booksToRead.length;
+    console.log(planing);
+
+    const { endDate } = planing;
 
     return (
         <Container>
@@ -45,7 +48,7 @@ const Statistics = () => {
                     </GoalsWrapper>
                     <InnerWrapper>
                         <TimerWrapper>
-                            <Timer />
+                            <Timer endDate={endDate} />
                         </TimerWrapper>
                         <FormWrapper>
                             {isTablet && (

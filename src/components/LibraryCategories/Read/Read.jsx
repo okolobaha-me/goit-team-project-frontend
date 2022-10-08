@@ -1,12 +1,11 @@
 import ReadMobile from './ReadMobile';
 import ReadTablet from './ReadTablet';
-import { colors } from '../../../baseStyles';
-import { useState } from 'react';
-import { RatingModal } from '../../Modals';
-import { EmptyCategoryMessage } from '../LibraryCategories.styled';
-import { MiniLoader } from '../../Loader/MiniLoader';
-import { useGetDoneBooksQuery } from '../../../redux/books/booksSlice';
-import { useVisibleBooks } from '../../../hooks/useVisibleBooks';
+import {colors} from '../../../baseStyles';
+import {useState} from 'react';
+import {RatingModal} from '../../Modals';
+import {MiniLoader} from '../../Loader/MiniLoader';
+import {useGetDoneBooksQuery} from '../../../redux/books/booksSlice';
+import {useVisibleBooks} from '../../../hooks/useVisibleBooks';
 
 let mobile = window.matchMedia('(max-width: 767px)').matches;
 
@@ -19,11 +18,6 @@ const Read = ({ length }) => {
     const visibleBooks = useVisibleBooks(books?.data?.result, length);
 
     if (isLoading) return <MiniLoader />;
-
-    if (!visibleBooks.length)
-        return (
-            <EmptyCategoryMessage>Тут поки що немає книг</EmptyCategoryMessage>
-        );
 
     const closeModal = () => {
         setResumeBookId(null);

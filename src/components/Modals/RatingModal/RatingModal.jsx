@@ -9,10 +9,10 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import { Controller, useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { ModalWrapper } from '../ModalWrapper';
-import { useAddBookReviewMutation } from '../../../redux/books/booksSlice';
+import {Controller, useForm} from 'react-hook-form';
+import {useState} from 'react';
+import {ModalWrapper} from '../ModalWrapper';
+import {useAddBookReviewMutation} from '../../../redux/books/booksSlice';
 
 const RatingModal = ({ closeModal, bookId }) => {
     const { handleSubmit, control } = useForm();
@@ -21,8 +21,7 @@ const RatingModal = ({ closeModal, bookId }) => {
     const [addReview] = useAddBookReviewMutation();
 
     const onSubmit = data => {
-        addReview(bookId, data);
-        // console.log(bookId, data);
+        addReview({ ...data, id: bookId });
         closeModal();
     };
 

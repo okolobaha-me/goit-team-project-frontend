@@ -11,9 +11,9 @@ const LibraryCategories = () => {
     const { data: booksInProcess = [] } = useGetReadBooksQuery();
     const { data: booksPlan = [] } = useGetPlanBooksQuery();
     const { data: booksDone = [] } = useGetDoneBooksQuery();
-    const isInProcessBooks = !!booksInProcess.data?.result.length;
-    const isPlanBooks = !!booksPlan.data?.result.length;
-    const isDoneBooks = !!booksDone.data?.result.length;
+    const isInProcessBooks = booksInProcess.data?.result.length > 3;
+    const isPlanBooks = booksPlan.data?.result.length > 3;
+    const isDoneBooks = booksDone.data?.result.length > 3;
 
     return (
         <>

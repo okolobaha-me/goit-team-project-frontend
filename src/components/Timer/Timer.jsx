@@ -1,12 +1,12 @@
 import TimerLogic from './TimerLogic';
-import { TimerContainer } from './Timer.styled';
+import {TimerContainer} from './Timer.styled';
 
-const Timer = () => {
+const Timer = ({ endDate }) => {
     return (
         <>
             <TimerContainer>
                 <TimerLogic />
-                <TimerLogic expectDate={'13 May 2023'} />
+                <TimerLogic expectDate={endDate} />
             </TimerContainer>
         </>
     );
