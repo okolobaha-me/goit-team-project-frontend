@@ -9,16 +9,20 @@ import {
     StyledRating,
     Title,
 } from './RatingModal.styled';
-import {Controller, useForm} from 'react-hook-form';
-import {useState} from 'react';
-import {ModalWrapper} from '../ModalWrapper';
+import { Controller, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { ModalWrapper } from '../ModalWrapper';
+import { useAddBookReviewMutation } from '../../../redux/books/booksSlice';
 
 const RatingModal = ({ closeModal, bookId }) => {
     const { handleSubmit, control } = useForm();
     const [ratingErr, setRatingErr] = useState(null);
 
+    const [addReview] = useAddBookReviewMutation();
+
     const onSubmit = data => {
-        console.log(data, bookId);
+        addReview(bookId, data);
+        // console.log(bookId, data);
         closeModal();
     };
 
@@ -51,7 +55,7 @@ const RatingModal = ({ closeModal, bookId }) => {
                     />
 
                     <Controller
-                        name={'comment'}
+                        name={'resume'}
                         control={control}
                         render={({ field: { onChange, value } }) => (
                             <Label>

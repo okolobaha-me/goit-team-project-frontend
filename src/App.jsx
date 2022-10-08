@@ -2,7 +2,7 @@ import {Route, Routes} from 'react-router-dom';
 import {lazy, Suspense, useEffect, useRef} from 'react';
 
 // Tostify
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 // Components
 import {Layout} from './components/Layout/Layout';
@@ -151,7 +151,9 @@ export const App = () => {
                             path={'start-new'}
                             element={
                                 <PrivateRoute isLoggedIn={isLoggedIn}>
-                                    <StartNewTraining />
+                                    <Suspense fallback={<Loader />}>
+                                        <StartNewTraining />
+                                    </Suspense>
                                 </PrivateRoute>
                             }
                         />
@@ -160,7 +162,9 @@ export const App = () => {
                         path={'statistics'}
                         element={
                             <PrivateRoute isLoggedIn={isLoggedIn}>
-                                <Statistics />
+                                <Suspense fallback={<Loader />}>
+                                    <Statistics />
+                                </Suspense>
                             </PrivateRoute>
                         }
                     />
