@@ -1,8 +1,8 @@
-import {Button, ButtonWrapper, Text} from './ExitModal.styled';
-import {ModalWrapper} from '../ModalWrapper';
-import {useDispatch, useSelector} from 'react-redux';
-import {signOut} from '../../../redux/auth/auth-operations';
-import {getUserId} from '../../../redux/auth/auth-selectors';
+import { Button, ButtonWrapper, Text } from './ExitModal.styled';
+import { ModalWrapper } from '../ModalWrapper';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from '../../../redux/auth/auth-operations';
+import { getUserId } from '../../../redux/auth/auth-selectors';
 
 const ExitModal = ({ closeModal }) => {
     const dispatch = useDispatch();

@@ -16,6 +16,9 @@ import {
     TopWrapper,
 } from './Statistics.styled';
 import { Graph } from '../../components/Graph/Graph';
+
+import AnimationPage from '../../components/Animations/AnimationPage';
+
 import { fillGraphData } from '../../services/graphService';
 
 const Statistics = ({ result }) => {
@@ -36,43 +39,45 @@ const Statistics = ({ result }) => {
     );
 
     return (
-        <Section>
-            <TopWrapper>
-                <GoalsWrapper>
-                    <Goals
-                        amountBooks={booksNumber}
-                        amountDays={planningDuration}
-                        booksLeft={booksLeft}
+        <AnimationPage>
+            <Section>
+                <TopWrapper>
+                    <GoalsWrapper>
+                        <Goals
+                            amountBooks={booksNumber}
+                            amountDays={planningDuration}
+                            booksLeft={booksLeft}
+                        />
+                    </GoalsWrapper>
+                    <InnerWrapper>
+                        <TimerWrapper>
+                            <Timer endDate={endDate} />
+                        </TimerWrapper>
+                        <FormWrapper>
+                            {isTablet && (
+                                <>
+                                    <Title>Моє тренування</Title>
+                                    <TrainingForm />
+                                </>
+                            )}
+                        </FormWrapper>
+                        <ListWrapper>
+                            <ListOfBooksTraining books={books} />
+                        </ListWrapper>
+                    </InnerWrapper>
+                </TopWrapper>
+                <BottomWrapper>
+                    <GraphWrapper>
+                        <Graph averagePages={averagePages} data={graphData} />
+                    </GraphWrapper>
+                    <Results
+                        results={results}
+                        endDate={endDate}
+                        minDate={startDate}
                     />
-                </GoalsWrapper>
-                <InnerWrapper>
-                    <TimerWrapper>
-                        <Timer endDate={endDate} />
-                    </TimerWrapper>
-                    <FormWrapper>
-                        {isTablet && (
-                            <>
-                                <Title>Моє тренування</Title>
-                                <TrainingForm />
-                            </>
-                        )}
-                    </FormWrapper>
-                    <ListWrapper>
-                        <ListOfBooksTraining books={books} />
-                    </ListWrapper>
-                </InnerWrapper>
-            </TopWrapper>
-            <BottomWrapper>
-                <GraphWrapper>
-                    <Graph averagePages={averagePages} data={graphData} />
-                </GraphWrapper>
-                <Results
-                    results={results}
-                    endDate={endDate}
-                    minDate={startDate}
-                />
-            </BottomWrapper>
-        </Section>
+                </BottomWrapper>
+            </Section>
+        </AnimationPage>
     );
 };
 

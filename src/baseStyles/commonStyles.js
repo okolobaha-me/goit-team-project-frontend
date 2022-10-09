@@ -126,6 +126,8 @@ export const input = ({ variant }) => {
 };
 
 export const Container = styled.div`
+    position: relative;
+
     max-width: ${mqBreakpoints.mobile};
     margin: 0 auto;
     padding: 0 20px;
