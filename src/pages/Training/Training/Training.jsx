@@ -1,4 +1,4 @@
-import {TrainingForm} from '../../../components/TrainingForm';
+import { TrainingForm } from '../../../components/TrainingForm';
 import {
     BottomWrapper,
     Button,
@@ -10,15 +10,25 @@ import {
     Title,
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
-import {ListOfBooksStartTraining} from '../../../components/ListOfBooksStartTraining';
-import {ButtonMore, IconMore,} from '../../../components/LibraryCategories/LibraryCategories.styled';
+import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
+import {
+    ButtonMore,
+    IconMore,
+} from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
-import {Graph} from '../../../components/Graph/Graph';
-import {useState} from 'react';
-import {useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery,} from '../../../redux/books/booksSlice';
-import {differenceInCalendarDays, format} from 'date-fns';
+import { Graph } from '../../../components/Graph/Graph';
+import { useState } from 'react';
+import {
+    useAddPlaningMutation,
+    useGetPlanBooksQuery,
+    useGetPlanningQuery,
+} from '../../../redux/books/booksSlice';
+import { differenceInCalendarDays, format } from 'date-fns';
 import Statistics from '../../Statistics/Statistics';
-import {Loader} from '../../../components/Loader/Loader';
+import { Loader } from '../../../components/Loader/Loader';
+
+import notifications from '../../../helpers/notification';
+const { warningNotification } = notifications;
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
@@ -34,13 +44,14 @@ export const Training = () => {
     const { data: books = [] } = useGetPlanBooksQuery();
 
     const addBook = id => {
-        if (selectedBooks.find(b => b._id === id)) {
-            console.log("you can't add the same book again");
+        if (selectedBooks.find(book => book._id === id)) {
+            warningNotification("You can't add the same book again");
             return;
         }
 
         setSelectedBooks(prev => [
             ...prev,
+
             books.data?.result.find(book => book._id === id),
         ]);
 
@@ -60,12 +71,13 @@ export const Training = () => {
         );
 
         if (!startValue || !endValue) {
-            console.log('choose dates');
+            warningNotification('Choose dates');
             return;
         }
 
         if (books.length === 0) {
-            console.log('add at least one book');
+            warningNotification('Add at least one book');
+            return;
         }
 
         const startDate = format(startValue._d, 'yyyy-MM-dd');

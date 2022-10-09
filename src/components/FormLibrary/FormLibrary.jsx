@@ -1,13 +1,25 @@
-import {Controller, useForm} from 'react-hook-form';
-import {Button, Form, Icon, Input, Label, Wrapper, WrapYear, YearPicker,} from './FormLibrary.styled';
+import { Controller, useForm } from 'react-hook-form';
+import {
+    Button,
+    Form,
+    Icon,
+    Input,
+    Label,
+    Wrapper,
+    WrapYear,
+    YearPicker,
+} from './FormLibrary.styled';
 import icons from '../../images/svg/icons.svg';
-import {Link} from 'react-router-dom';
-import {LocalizationProvider} from '@mui/x-date-pickers';
-import {DatePicker} from '@mui/x-date-pickers/DatePicker';
-import {useState} from 'react';
-import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
-import {format} from 'date-fns';
-import {useAddBookMutation} from '../../redux/books/booksSlice';
+import { Link } from 'react-router-dom';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useState } from 'react';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { format } from 'date-fns';
+import { useAddBookMutation } from '../../redux/books/booksSlice';
+
+import notifications from '../../helpers/notification';
+const { errorNotification, successNotification } = notifications;
 
 const FormLibrary = () => {
     const { register, handleSubmit, reset, control } = useForm();
@@ -20,9 +32,13 @@ const FormLibrary = () => {
         const newBook = { title, author, totalPages, year };
 
         addBook(newBook).then(r => {
-            if (!r.error) reset();
-            else {
-                console.log('err');
+            if (!r.error) {
+                successNotification('Book added');
+                reset();
+            } else {
+                return errorNotification(
+                    'Something went wrong, try again later'
+                );
             }
         });
     };
