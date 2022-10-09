@@ -1,8 +1,8 @@
 import axios from 'axios';
-import {token} from './token';
+import { token } from './token';
 
-import {createAsyncThunk} from '@reduxjs/toolkit';
-import {baseUrl} from '../../API';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { baseUrl } from '../../API';
 
 axios.defaults.baseURL = baseUrl;
 
@@ -61,7 +61,7 @@ export const refresh = createAsyncThunk(
     'user/refresh',
     async (credentials, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get('/user/current', credentials);
+            const { data } = await axios.get('/user/', credentials);
             token.set(data.data.user.token);
             return data;
         } catch (error) {

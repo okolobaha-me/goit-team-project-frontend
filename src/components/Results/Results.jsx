@@ -12,24 +12,38 @@ import {
 } from './Results.styled';
 import icons from '../../images/svg/icons.svg';
 import moment from 'moment';
-import {DateItem} from './DateItem';
-
-const items = [
-    {
-        id: '1',
-        date: '10.10.2019',
-        time: '08:10:23',
-        numberOfPages: 342,
-    },
-    {
-        id: '2',
-        date: '10.09.2022',
-        time: '11:10:00',
-        numberOfPages: 34,
-    },
-];
+import { format } from 'date-fns';
+import { useState } from 'react';
+import {
+    useGetPlanningQuery,
+    useAddUpdateStatisticMutation,
+} from '../../redux/books/booksSlice';
 
 export function Results() {
+    const [info, setInfo] = useState(null);
+
+    const [addInfo] = useAddUpdateStatisticMutation();
+
+    const handleSelectDate = e => {
+        const date = e?._d;
+
+        const formatDate = format(date, 'dd-MM-yyyy');
+
+        setInfo({ date: formatDate });
+    };
+
+    const handleSelectPages = e => {
+        const pages = e;
+
+        setInfo({ ...info, pages });
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        addInfo(info);
+    };
+
     return (
         <Wrapper>
             <Title>Результати</Title>
@@ -40,7 +54,7 @@ export function Results() {
                         <DatePickerCustom
                             format="DD.MM.YYYY"
                             defaultValue={moment()}
-                            onChange={e => console.log(e)}
+                            onChange={handleSelectDate}
                             suffixIcon={
                                 <Icon>
                                     <use href={`${icons}#icon-polygon`} />
@@ -52,18 +66,20 @@ export function Results() {
                         Кількість сторінок
                         <Input
                             defaultValue={32}
-                            onChange={e => console.log(e)}
+                            onChange={handleSelectPages}
                         ></Input>
                     </Label>
                 </WrapperOdLabels>
-                <Button type="submit">Додати результат</Button>
+                <Button type="submit" onClick={handleSubmit}>
+                    Додати результат
+                </Button>
             </Form>
             <Title>СТАТИСТИКА</Title>
-            <DatesList>
-                {items.map(item => {
-                    return <DateItem key={item.id} data={item}></DateItem>;
+            {/* <DatesList>
+                {items.map((item, index) => {
+                    return <DateItem key={index} data={item}></DateItem>;
                 })}
-            </DatesList>
+            </DatesList> */}
         </Wrapper>
     );
 }

@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {baseUrl} from '../../API';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { baseUrl } from '../../API';
 
 export const booksSlice = createApi({
     reducerPath: 'books',
@@ -55,17 +55,27 @@ export const booksSlice = createApi({
         addBookReview: builder.mutation({
             query: review => {
                 const { rating, id, resume } = review;
-                const r = {
+                const response = {
                     rating,
                     resume,
                 };
                 return {
                     url: `/book/${id}`,
                     method: 'PUT',
-                    body: r,
+                    body: response,
                 };
             },
             invalidatesTags: ['Done'],
+        }),
+        addUpdateStatistic: builder.mutation({
+            query: info => {
+                return {
+                    url: `/user/planning`,
+                    method: 'PATCH',
+                    body: info,
+                };
+            },
+            invalidatesTags: ['Planning'],
         }),
     }),
 });
@@ -78,4 +88,5 @@ export const {
     useAddBookMutation,
     useAddPlaningMutation,
     useAddBookReviewMutation,
+    useAddUpdateStatisticMutation,
 } = booksSlice;

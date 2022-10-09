@@ -27,8 +27,6 @@ const Statistics = () => {
 
     if (!result) return <Loader />;
 
-    console.log(result.data.books);
-
     const booksNumber = result?.data.booksNumber;
     const planningDuration = result?.data.planningDur;
     const booksLeft = result?.planning?.booksToRead.length;
