@@ -11,14 +11,22 @@ import {
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
 import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
-import { ButtonMore, IconMore } from '../../../components/LibraryCategories/LibraryCategories.styled';
+import {
+    ButtonMore,
+    IconMore,
+} from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
 import { Graph } from '../../../components/Graph/Graph';
 import { useState } from 'react';
-import { useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery } from '../../../redux/books/booksSlice';
+import {
+    useAddPlaningMutation,
+    useGetPlanBooksQuery,
+    useGetPlanningQuery,
+} from '../../../redux/books/booksSlice';
 import { differenceInCalendarDays, format } from 'date-fns';
 import Statistics from '../../Statistics/Statistics';
 import { Loader } from '../../../components/Loader/Loader';
+import AnimatioPage from '../../../components/Animations/AnimationPage';
 
 import notifications from '../../../helpers/notification';
 
@@ -115,55 +123,57 @@ export const Training = () => {
 
     return (
         <>
-            <HeadWrapper>
-                <GoalsWrapper>
-                    <Goals
-                        amountBooks={selectedBooks.length}
-                        amountDays={getTrainingDuration()}
-                    />
-                </GoalsWrapper>
-
-                <FormListWrapper>
-                    <FormWrapper>
-                        {!isMobile && (
-                            <>
-                                <Title>Моє тренування</Title>
-                                <TrainingForm
-                                    addBook={addBook}
-                                    startValue={startValue}
-                                    setStartValue={setStartValue}
-                                    endValue={endValue}
-                                    setEndValue={setEndValue}
-                                    books={getOptionBooks()}
-                                />
-                            </>
-                        )}
-                    </FormWrapper>
-
-                    <ListWrapper>
-                        <ListOfBooksStartTraining
-                            books={selectedBooks}
-                            deleteBook={deleteBook}
+            <AnimatioPage>
+                <HeadWrapper>
+                    <GoalsWrapper>
+                        <Goals
+                            amountBooks={selectedBooks.length}
+                            amountDays={getTrainingDuration()}
                         />
-                    </ListWrapper>
-                </FormListWrapper>
-            </HeadWrapper>
+                    </GoalsWrapper>
 
-            <BottomWrapper>
-                <Button variant={'accent'} onClick={startNewPlaning}>
-                    Почати тренування
-                </Button>
+                    <FormListWrapper>
+                        <FormWrapper>
+                            {!isMobile && (
+                                <>
+                                    <Title>Моє тренування</Title>
+                                    <TrainingForm
+                                        addBook={addBook}
+                                        startValue={startValue}
+                                        setStartValue={setStartValue}
+                                        endValue={endValue}
+                                        setEndValue={setEndValue}
+                                        books={getOptionBooks()}
+                                    />
+                                </>
+                            )}
+                        </FormWrapper>
 
-                <Graph averagePages={getAveragePages()} data={graphData} />
-            </BottomWrapper>
+                        <ListWrapper>
+                            <ListOfBooksStartTraining
+                                books={selectedBooks}
+                                deleteBook={deleteBook}
+                            />
+                        </ListWrapper>
+                    </FormListWrapper>
+                </HeadWrapper>
 
-            {isMobile && (
-                <ButtonMore to={'start-new'} relative="library">
-                    <IconMore width="52" height="52">
-                        <use href={`${icons}#icon-more`}></use>
-                    </IconMore>
-                </ButtonMore>
-            )}
+                <BottomWrapper>
+                    <Button variant={'accent'} onClick={startNewPlaning}>
+                        Почати тренування
+                    </Button>
+
+                    <Graph averagePages={getAveragePages()} data={graphData} />
+                </BottomWrapper>
+
+                {isMobile && (
+                    <ButtonMore to={'start-new'} relative="library">
+                        <IconMore width="52" height="52">
+                            <use href={`${icons}#icon-more`}></use>
+                        </IconMore>
+                    </ButtonMore>
+                )}
+            </AnimatioPage>
         </>
     );
 };
