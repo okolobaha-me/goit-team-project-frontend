@@ -11,8 +11,6 @@ import {
 
 import OtherCategoriesTabletItem from '../OtherCategories/OtherCategoriesTabletItem';
 
-let tablet = window.matchMedia('(min-width: 768px)').matches;
-
 const OtherCategoriesTablet = ({ type, color, books }) => {
     return (
         <>

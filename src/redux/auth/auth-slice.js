@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {refresh, signIn, signOut, signUp} from './auth-operations';
+import {googleSignUp, refresh, signIn, signOut, signUp,} from './auth-operations';
 
 const initialState = {
     user: { name: '', email: '', books: [], planning: {} },
@@ -30,6 +30,9 @@ const authSlice = createSlice({
             state.token = payload.data.token;
             state.isLoggedIn = true;
             state.isLoading = false;
+        },
+        [googleSignUp.fulfilled]: (state, { payload }) => {
+            state.token = payload.data.token;
         },
         [signIn.rejected](state) {
             state.isLoading = false;

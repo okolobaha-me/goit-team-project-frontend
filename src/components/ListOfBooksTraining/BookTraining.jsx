@@ -1,18 +1,19 @@
 import {
-    Item,
-    Title,
-    ListOfDesc,
-    DescItem,
-    Label,
     Desc,
-    Wrapper,
+    DescItem,
     IconCheckbox,
+    Item,
+    Label,
+    ListOfDesc,
+    Title,
+    Wrapper,
 } from '../ListOfBooks/ListOfBooks.styled';
 import icons from '../../images/svg/icons.svg';
 
-export function BookTraining({
-    data: { name, year, amountOfPages, author, checked },
-}) {
+export function BookTraining({ data }) {
+    const { title, year, totalPages, author, status } = data;
+    const checked = status === 'done';
+
     return (
         <Item>
             <Wrapper>
@@ -25,7 +26,7 @@ export function BookTraining({
                         )}
                     </IconCheckbox>
                 </div>
-                <Title>{name}</Title>
+                <Title>{title}</Title>
             </Wrapper>
             <ListOfDesc>
                 <DescItem>
@@ -38,7 +39,7 @@ export function BookTraining({
                 </DescItem>
                 <DescItem>
                     <Label>Стор:</Label>
-                    <Desc>{amountOfPages}</Desc>
+                    <Desc>{totalPages}</Desc>
                 </DescItem>
             </ListOfDesc>
         </Item>

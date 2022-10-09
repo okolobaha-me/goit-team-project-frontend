@@ -1,5 +1,5 @@
-import {Select} from 'antd';
-import {useState} from 'react';
+import { Select } from 'antd';
+import { useState } from 'react';
 import icons from '../../images/svg/icons.svg';
 import {
     Button,
@@ -11,7 +11,9 @@ import {
     InputDateWrapper,
     Selects,
 } from './TrainingForm.styled';
-import {useGetPlanBooksQuery} from '../../redux/books/booksSlice';
+import notification from '../../helpers/notification';
+
+const { warningNotification } = notification;
 
 const { Option } = Select;
 
@@ -21,6 +23,7 @@ export function TrainingForm({
     setStartValue,
     endValue,
     setEndValue,
+    books,
 }) {
     const [endOpen, setEndOpen] = useState(false);
     const [book, setBook] = useState(null);
@@ -72,12 +75,14 @@ export function TrainingForm({
         setEndOpen(open);
     };
 
-    const { data: books = []} = useGetPlanBooksQuery();
-
     const handleSubmit = e => {
         e.preventDefault();
 
-        addBook(book);
+        if (!book) {
+            warningNotification('Виберіть із бібліотеки хоча б одну книгу!');
+        } else {
+            addBook(book);
+        }
     };
 
     const handleChange = data => {
@@ -147,7 +152,7 @@ export function TrainingForm({
                     </Icon>
                 }
             >
-                {books.data?.result.map(book => (
+                {books.map(book => (
                     <Option value={book._id} key={book._id}>
                         {book.title}
                     </Option>

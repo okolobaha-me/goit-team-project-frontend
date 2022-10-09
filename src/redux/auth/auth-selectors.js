@@ -5,3 +5,5 @@ export const getToken = state => state.auth.token;
 export const getUserId = state => state.auth.user._id;
 
 export const getLoadingCurrent = state => state.auth.isLoading;
+
+export const getUserName = state => state.auth.user.name;

@@ -1,12 +1,12 @@
-import {Date, DatesItem, NumberOfPages, Pages, Time} from './Results.styled';
+import { Date, DatesItem, NumberOfPages, Pages } from './Results.styled';
 
-export function DateItem({ data: { date, time, numberOfPages } }) {
+export function DateItem({ data: { date, pagesCount } }) {
     return (
         <DatesItem>
             <Date>{date}</Date>
-            <Time>{time}</Time>
+
             <NumberOfPages>
-                {numberOfPages}&nbsp;
+                {pagesCount}&nbsp;
                 <Pages>стор.</Pages>
             </NumberOfPages>
         </DatesItem>

@@ -1,10 +1,15 @@
 import styled from '@emotion/styled';
-import {colors} from '../../../baseStyles/utils/variables';
-import {mq} from '../../../baseStyles/utils/mediaQueries';
-import {btn} from '../../../baseStyles/commonStyles';
+import { colors } from '../../../baseStyles';
+import { mq } from '../../../baseStyles';
+import { btn } from '../../../baseStyles';
 
 export const Icon = styled.svg`
     fill: ${colors.lightGrayText};
+    margin-bottom: 12px;
+`;
+
+export const OrangeIcon = styled.svg`
+    fill: ${colors.accentText};
     margin-bottom: 12px;
 `;
 

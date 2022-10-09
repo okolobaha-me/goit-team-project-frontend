@@ -1,4 +1,12 @@
-import {Description, InfoWrapper, Item, StatsItem, Text, Title, Wrapper,} from './Goals.styled';
+import {
+    Description,
+    InfoWrapper,
+    Item,
+    StatsItem,
+    Text,
+    Title,
+    Wrapper,
+} from './Goals.styled';
 
 const Goals = ({ amountBooks, amountDays, booksLeft }) => {
     return (

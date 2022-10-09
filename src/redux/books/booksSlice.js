@@ -15,19 +15,19 @@ export const booksSlice = createApi({
             return headers;
         },
     }),
-    tagTypes: ['Plan', 'Read', 'Done'],
-    keepUnusedDataFor: 3000,
+    tagTypes: ['Plan', 'Read', 'Done', 'Planning'],
+    keepUnusedDataFor: 1,
     endpoints: builder => ({
         getPlanBooks: builder.query({
             query: () => 'book/get-status/plan',
             providesTags: ['Plan'],
         }),
         getReadBooks: builder.query({
-            query: () => '/get-status/read',
+            query: () => 'book/get-status/read',
             providesTags: ['Read'],
         }),
         getDoneBooks: builder.query({
-            query: () => '/get-status/done',
+            query: () => 'book/get-status/done',
             providesTags: ['Done'],
         }),
         addBook: builder.mutation({
@@ -44,7 +44,31 @@ export const booksSlice = createApi({
                 method: 'POST',
                 body: planing,
             }),
-            invalidatesTags: ['Plan', 'Read'],
+            invalidatesTags: ['Plan', 'Read', 'Planning'],
+        }),
+        getPlanning: builder.query({
+            query: () => ({
+                url: '/user/planning',
+            }),
+            providesTags: ['Planning'],
+        }),
+        addBookReview: builder.mutation({
+            query: review => {
+                return {
+                    url: `/book/`,
+                    method: 'PUT',
+                    body: review,
+                };
+            },
+            invalidatesTags: ['Done'],
+        }),
+        addUpdateStatistic: builder.mutation({
+            query: info => ({
+                url: `/user/planning`,
+                method: 'PATCH',
+                body: info,
+            }),
+            invalidatesTags: ['Planning'],
         }),
     }),
 });
@@ -53,6 +77,9 @@ export const {
     useGetPlanBooksQuery,
     useGetReadBooksQuery,
     useGetDoneBooksQuery,
+    useGetPlanningQuery,
     useAddBookMutation,
     useAddPlaningMutation,
+    useAddBookReviewMutation,
+    useAddUpdateStatisticMutation,
 } = booksSlice;

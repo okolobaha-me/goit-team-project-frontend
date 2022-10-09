@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors, mq } from '../../baseStyles';
+import {colors, mq} from '../../baseStyles';
 
 export const Section = styled.section`
     padding-top: 20px;
@@ -38,7 +38,7 @@ export const InnerWrapper = styled.div`
 export const TimerWrapper = styled.div`
     margin-bottom: 40px;
     ${mq.desktop} {
-        margin-bottom: 0px;
+        margin-bottom: 0;
         padding-top: 8px;
     }
 `;
@@ -60,19 +60,14 @@ export const ListWrapper = styled.div`
 `;
 
 export const GraphWrapper = styled.div`
-    width: 280px;
-    height: 290px;
-    background-color: white;
-    box-shadow: 0 2px 3px rgba(9, 30, 63, 0.25);
     margin-bottom: 32px;
 
     ${mq.tablet} {
-        width: 704px;
-        height: 340px;
+        margin-bottom: 40px;
     }
 
     ${mq.desktop} {
-        width: 928px;
+        margin-bottom: 0;
     }
 `;
 

@@ -9,13 +9,11 @@ import {
     ListOfDesc,
     Wrapper,
 } from '../ListOfBooks/ListOfBooks.styled';
-import {TrDescItem, TrTitle} from './ListOfBooksStartTraining.styled';
+import { TrDescItem, TrTitle } from './ListOfBooksStartTraining.styled';
 
-export function BookStartTraining({
-    data: { title, year, amountOfPages, author },
-    deleteBook,
-    id,
-}) {
+export function BookStartTraining({ data, deleteBook, id }) {
+    const { title, year, author, totalPages } = data;
+
     const handleDeleteBook = () => {
         deleteBook(id);
     };
@@ -46,7 +44,7 @@ export function BookStartTraining({
                 </TrDescItem>
                 <TrDescItem>
                     <Label>Стор:</Label>
-                    <Desc>{amountOfPages}</Desc>
+                    <Desc>{totalPages}</Desc>
                 </TrDescItem>
             </ListOfDesc>
         </Item>

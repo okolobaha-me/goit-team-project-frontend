@@ -10,6 +10,7 @@ import LibraryCategories from './components/LibraryCategories';
 import Read from './components/LibraryCategories/Read';
 import { InProcess } from './components/LibraryCategories/InProcess';
 import AddPage from './pages/Library/AddPage/AddPage';
+
 import { Training } from './pages/Training/Training/Training';
 import { Loader } from './components/Loader/Loader';
 
@@ -27,13 +28,13 @@ import { PublicRoute } from './components/Routes/PublicRoute';
 
 // Animation
 import { AnimatePresence } from 'framer-motion';
+import { Auth } from './pages/Auth/Auth';
 
 // PAGES
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const Library = lazy(() => import('./pages/Library/Library'));
 const Info = lazy(() => import('./pages/Info/Info'));
-const Statistics = lazy(() => import('./pages/Statistics/Statistics'));
 const TrainingPage = lazy(() => import('./pages/Training/TrainingPage'));
 const PlanPage = lazy(() => import('./pages/Library/PlanPage/PlanPage'));
 const StartNewTraining = lazy(() =>
@@ -161,17 +162,19 @@ export const App = () => {
                                 path={'start-new'}
                                 element={
                                     <PrivateRoute isLoggedIn={isLoggedIn}>
-                                        <StartNewTraining />
+                                        <Suspense fallback={<Loader />}>
+                                            <StartNewTraining />
+                                        </Suspense>
                                     </PrivateRoute>
                                 }
                             />
                         </Route>
                         <Route
-                            path={'statistics'}
+                            path={'auth'}
                             element={
-                                <PrivateRoute isLoggedIn={isLoggedIn}>
-                                    <Statistics />
-                                </PrivateRoute>
+                                <PublicRoute isLoggedIn={isLoggedIn}>
+                                    <Auth />
+                                </PublicRoute>
                             }
                         />
                     </Route>
