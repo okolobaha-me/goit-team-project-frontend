@@ -26,6 +26,7 @@
     "recharts": "^2.1.14",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "uuid": "^9.0.0",
     "vercel": "^28.4.2",
     "web-vitals": "^2.1.4"
   },
