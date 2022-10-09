@@ -33,15 +33,12 @@ export function Results({ results, endDate }) {
     const handleSubmit = e => {
         e.preventDefault();
         addInfo({ date: format(date._d, 'yyyy-MM-dd'), pages }).then(r => {
-            console.log(r.data.message);
             if (r.data.message === 'Plan finished') {
                 if (compareAsc(new Date(endDate), new Date()) === 1) {
                     setIsTrainingFinishedModalOpen(true);
                 } else {
                     setIsWellDoneModalOpen(true);
                 }
-
-                console.log(compareAsc(new Date(endDate), new Date()));
             }
 
             if (r.data.message === 'Book finished') {

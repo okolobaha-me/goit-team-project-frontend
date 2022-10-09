@@ -108,7 +108,6 @@ export const Training = () => {
     });
 
     const getOptionBooks = () => {
-        console.log(selectedIds);
         return books.data?.result.filter(book => {
             return !selectedIds.includes(book._id);
         });
