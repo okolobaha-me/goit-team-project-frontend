@@ -1,5 +1,13 @@
-import {NumberDay, StatisticsHome, TextStats} from './Graph.styled';
-import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
+import { NumberDay, StatisticsHome, TextStats } from './Graph.styled';
+import {
+    CartesianGrid,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
+} from 'recharts';
 
 export const Graph = ({ averagePages = 0, data }) => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
@@ -9,7 +17,7 @@ export const Graph = ({ averagePages = 0, data }) => {
 
         if (isTablet) return data.slice(-6);
 
-        return data;
+        return data.length ? data : [{}];
     };
     const getGraphHeight = () => {
         if (isMobile) return 210;

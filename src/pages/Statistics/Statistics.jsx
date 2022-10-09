@@ -1,8 +1,8 @@
 import Timer from '../../components/Timer';
 import Goals from '../../components/Goals';
-import {ListOfBooksTraining} from '../../components/ListOfBooksTraining';
-import {Results} from '../../components/Results';
-import {TrainingForm} from '../../components/TrainingForm';
+import { ListOfBooksTraining } from '../../components/ListOfBooksTraining';
+import { Results } from '../../components/Results';
+import { TrainingForm } from '../../components/TrainingForm';
 import {
     BottomWrapper,
     FormWrapper,
@@ -15,8 +15,8 @@ import {
     Title,
     TopWrapper,
 } from './Statistics.styled';
-import {Graph} from '../../components/Graph/Graph';
-import {fillGraphData} from '../../services/graphService';
+import { Graph } from '../../components/Graph/Graph';
+import { fillGraphData } from '../../services/graphService';
 
 const Statistics = ({ result }) => {
     const isTablet = window.screen.width > 767 && window.screen.width <= 1279;
@@ -26,9 +26,7 @@ const Statistics = ({ result }) => {
     const booksLeft = result.planning.booksToRead.length;
     const planing = result.planning;
     const books = result.data.books;
-    const { endDate, startDate } = planing;
-    const results = planing.results;
-    const totalPages = planing.totalPages;
+    const { endDate, startDate, results, totalPages } = planing;
     const averagePages = Math.ceil(totalPages / planningDuration);
     const graphData = fillGraphData(
         results,
@@ -68,7 +66,7 @@ const Statistics = ({ result }) => {
                 <GraphWrapper>
                     <Graph averagePages={averagePages} data={graphData} />
                 </GraphWrapper>
-                <Results />
+                <Results results={results} endDate={endDate} />
             </BottomWrapper>
         </Section>
     );

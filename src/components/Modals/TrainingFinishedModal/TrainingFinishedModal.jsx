@@ -1,9 +1,14 @@
-import { Button, ButtonWrapper, Icon, Text } from './WellDoneModal.styled';
 import icons from '../../../images/svg/icons.svg';
 import { ModalWrapper } from '../ModalWrapper';
 import { useNavigate } from 'react-router-dom';
+import {
+    Button,
+    ButtonWrapper,
+    OrangeIcon,
+    Text,
+} from '../WellDoneModal/WellDoneModal.styled';
 
-const WellDoneModal = ({ closeModal }) => {
+const TrainingFinishedModal = ({ closeModal }) => {
     const goToNewTraining = () => {
         document.location.reload();
     };
@@ -17,13 +22,12 @@ const WellDoneModal = ({ closeModal }) => {
     return (
         <>
             <ModalWrapper closeModal={closeModal} variant={'info'}>
-                <Icon width="50" height="45">
+                <OrangeIcon width="50" height="45">
                     <use href={`${icons}#icon-thumbUp`} />
-                </Icon>
+                </OrangeIcon>
                 <Text>
                     Ти молодчина, <br />
-                    але потрібно швидше! <br />
-                    Наступного разу тобі все вдасться)
+                    Ти впорався з тренуванням!
                 </Text>
                 <ButtonWrapper>
                     <Button variant={'tranparent'} onClick={goToNewTraining}>
@@ -38,4 +42,4 @@ const WellDoneModal = ({ closeModal }) => {
     );
 };
 
-export default WellDoneModal;
+export default TrainingFinishedModal;
