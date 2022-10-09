@@ -1,18 +1,19 @@
 import {
-    Item,
-    Title,
-    ListOfDesc,
-    DescItem,
-    Label,
     Desc,
-    Wrapper,
+    DescItem,
     IconCheckbox,
+    Item,
+    Label,
+    ListOfDesc,
+    Title,
+    Wrapper,
 } from '../ListOfBooks/ListOfBooks.styled';
 import icons from '../../images/svg/icons.svg';
 
-export function BookTraining({
-    data: { title, year, totalPages, author, checked },
-}) {
+export function BookTraining({ data }) {
+    const { title, year, totalPages, author, status } = data;
+    const checked = status === 'done';
+
     return (
         <Item>
             <Wrapper>

@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { baseUrl } from '../../API';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {baseUrl} from '../../API';
 
 export const booksSlice = createApi({
     reducerPath: 'books',
@@ -16,7 +16,7 @@ export const booksSlice = createApi({
         },
     }),
     tagTypes: ['Plan', 'Read', 'Done', 'Planning'],
-    keepUnusedDataFor: 3000,
+    keepUnusedDataFor: 1,
     endpoints: builder => ({
         getPlanBooks: builder.query({
             query: () => 'book/get-status/plan',
@@ -49,32 +49,25 @@ export const booksSlice = createApi({
         getPlanning: builder.query({
             query: () => ({
                 url: '/user/planning',
-                invalidatesTags: ['Planning'],
             }),
+            providesTags: ['Planning'],
         }),
         addBookReview: builder.mutation({
             query: review => {
-                const { rating, id, resume } = review;
-                const response = {
-                    rating,
-                    resume,
-                };
                 return {
-                    url: `/book/${id}`,
+                    url: `/book/`,
                     method: 'PUT',
-                    body: response,
+                    body: review,
                 };
             },
             invalidatesTags: ['Done'],
         }),
         addUpdateStatistic: builder.mutation({
-            query: info => {
-                return {
-                    url: `/user/planning`,
-                    method: 'PATCH',
-                    body: info,
-                };
-            },
+            query: info => ({
+                url: `/user/planning`,
+                method: 'PATCH',
+                body: info,
+            }),
             invalidatesTags: ['Planning'],
         }),
     }),

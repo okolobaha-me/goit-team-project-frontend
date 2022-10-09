@@ -21,7 +21,7 @@ const RatingModal = ({ closeModal, bookId }) => {
     const [addReview] = useAddBookReviewMutation();
 
     const onSubmit = data => {
-        addReview({ ...data, id: bookId });
+        addReview({ ...data, bookId });
         closeModal();
     };
 

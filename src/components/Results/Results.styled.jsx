@@ -144,6 +144,10 @@ export const Label = styled.label`
     line-height: 13px;
 
     color: ${colors.darkGrayText};
+
+    & * {
+        letter-spacing: 1px !important;
+    }
 `;
 
 export const Button = styled.button`

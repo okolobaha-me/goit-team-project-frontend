@@ -1,21 +1,8 @@
-import {
-    TableOfBooks,
-    ListOfBook,
-    ItemLabel,
-    ListOfLabels,
-} from '../ListOfBooks/ListOfBooks.styled';
+import {ItemLabel, ListOfBook, ListOfLabels, TableOfBooks,} from '../ListOfBooks/ListOfBooks.styled';
 
-import { BookTraining } from './BookTraining';
-import { useGetPlanningQuery } from '../../redux/books/booksSlice';
-import { Loader } from '../Loader/Loader';
+import {BookTraining} from './BookTraining';
 
-export function ListOfBooksTraining() {
-    const { data: result } = useGetPlanningQuery();
-
-    if (!result) return <Loader />;
-
-    const books = result?.data.books;
-
+export function ListOfBooksTraining({ books }) {
     return (
         <TableOfBooks>
             <ListOfLabels>

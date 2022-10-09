@@ -16,7 +16,7 @@ const ReadTabletItem = ({ color, book, openModal }) => {
     const { title, author, year, totalPages, rating, _id } = book;
 
     const openResumeModal = () => {
-        openModal(_id);
+        openModal(_id, rating);
     };
 
     return (

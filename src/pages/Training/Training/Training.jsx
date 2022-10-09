@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router-dom';
-import { TrainingForm } from '../../../components/TrainingForm';
+import {Navigate} from 'react-router-dom';
+import {TrainingForm} from '../../../components/TrainingForm';
 import {
     BottomWrapper,
     Button,
@@ -11,20 +11,13 @@ import {
     Title,
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
-import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
-import {
-    ButtonMore,
-    IconMore,
-} from '../../../components/LibraryCategories/LibraryCategories.styled';
+import {ListOfBooksStartTraining} from '../../../components/ListOfBooksStartTraining';
+import {ButtonMore, IconMore,} from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
-import { Graph } from '../../../components/Graph/Graph';
-import { useState } from 'react';
-import {
-    useAddPlaningMutation,
-    useGetPlanBooksQuery,
-    useGetPlanningQuery,
-} from '../../../redux/books/booksSlice';
-import { differenceInCalendarDays, format } from 'date-fns';
+import {Graph} from '../../../components/Graph/Graph';
+import {useState} from 'react';
+import {useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery,} from '../../../redux/books/booksSlice';
+import {differenceInCalendarDays, format} from 'date-fns';
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;

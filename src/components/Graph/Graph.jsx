@@ -1,57 +1,15 @@
-import { NumberDay, StatisticsHome, TextStats } from './Graph.styled';
-import {
-    CartesianGrid,
-    Line,
-    LineChart,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis,
-} from 'recharts';
-import { useGetPlanningQuery } from '../../redux/books/booksSlice';
-import { Loader } from '../Loader/Loader';
+import {NumberDay, StatisticsHome, TextStats} from './Graph.styled';
+import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 
 export const Graph = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     let isTablet = window.matchMedia('(max-width: 1279px)').matches;
 
-    const { data: result } = useGetPlanningQuery();
+    // const { data: result } = useGetPlanningQuery();
 
-    if (!result) return <Loader />;
+    // if (!result) return <Loader />;
 
-    console.log(result);
-
-    const fillGraphData = obj => {
-        const lastDay = Object.keys(obj)[Object.keys(obj).length - 1];
-        const pagesPerDay = 100;
-        const duration = 8;
-
-        const arr = [];
-
-        for (let i = 0; i < lastDay; i++) {
-            const day = { uv: 0, pv: pagesPerDay };
-            arr.push(day);
-        }
-
-        const daysLeft = duration - Number(lastDay);
-
-        let left = [];
-
-        if (daysLeft > 0) {
-            for (let i = 0; i < daysLeft; i++) {
-                const day = { pv: pagesPerDay };
-                left.push(day);
-            }
-        }
-
-        const graphData = [...arr, ...left];
-
-        for (const day in obj) {
-            graphData[Number(day) - 1].uv = obj[day];
-        }
-
-        return graphData;
-    };
+    // console.log(result);
 
     const data = [
         {
@@ -102,12 +60,12 @@ export const Graph = () => {
         return 235;
     };
 
-    const averagePages = result.planning.pagesPerDay;
+    // const averagePages = result.planning.pagesPerDay;
 
     return (
         <StatisticsHome>
             <TextStats>
-                Кількість сторінок / день <NumberDay>{averagePages}</NumberDay>
+                Кількість сторінок / день <NumberDay>10</NumberDay>
             </TextStats>
             <ResponsiveContainer width="100%" height={getGraphHeight()}>
                 <LineChart data={visibleData()}>
