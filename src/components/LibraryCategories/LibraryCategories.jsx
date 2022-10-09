@@ -21,7 +21,6 @@ const LibraryCategories = () => {
         booksPlan.data?.result.length === 0 &&
         booksDone.data?.result.length === 0;
 
-    console.log(isEmptyLibrary);
 
     return (
         <>
