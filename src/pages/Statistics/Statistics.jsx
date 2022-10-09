@@ -27,10 +27,14 @@ const Statistics = () => {
 
     if (!result) return <Loader />;
 
-    const booksNumber = result?.data.booksNumber;
-    const planningDuration = result?.data.planningDur;
-    const booksLeft = result?.planning?.booksToRead.length;
-    const planing = result?.planning;
+    const booksNumber = data.data.booksNumber;
+    const planningDuration = data.data.planningDur;
+    const booksLeft = data.planning.booksToRead.length;
+
+    const planing = data.planning;
+
+    console.log(planing);
+
 
     const { endDate } = planing;
 
