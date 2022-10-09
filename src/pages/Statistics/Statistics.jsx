@@ -23,14 +23,16 @@ import { Graph } from '../../components/Graph/Graph';
 const Statistics = () => {
     const isTablet = window.screen.width > 767 && window.screen.width <= 1279;
 
-    const { data } = useGetPlanningQuery();
+    const { data: result } = useGetPlanningQuery();
 
-    if (!data) return <Loader />;
+    if (!result) return <Loader />;
 
-    const booksNumber = data?.data.booksNumber;
-    const planningDuration = data?.data.planningDur;
-    const booksLeft = data?.planning?.booksToRead.length;
-    const planing = data?.planning;
+    console.log(result.data.books);
+
+    const booksNumber = result?.data.booksNumber;
+    const planningDuration = result?.data.planningDur;
+    const booksLeft = result?.planning?.booksToRead.length;
+    const planing = result?.planning;
 
     const { endDate } = planing;
 

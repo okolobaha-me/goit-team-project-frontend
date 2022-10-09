@@ -1,9 +1,22 @@
-import {NumberDay, StatisticsHome, TextStats} from './Graph.styled';
-import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
+import { NumberDay, StatisticsHome, TextStats } from './Graph.styled';
+import {
+    CartesianGrid,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
+} from 'recharts';
+import { useGetPlanningQuery } from '../../redux/books/booksSlice';
 
 export const Graph = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     let isTablet = window.matchMedia('(max-width: 1279px)').matches;
+
+    const { data: result } = useGetPlanningQuery();
+
+    console.log(result);
 
     const data = [
         {
