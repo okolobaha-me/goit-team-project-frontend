@@ -48,13 +48,11 @@ const SignIn = () => {
                     </QuoteIconSpan>
                     <QuoteTextBox>
                         <QuoteText>
-                            Книги — это корабли мысли, странствующие по волнам
-                            времени и бережно несущие свой драгоценный груз от
-                            поколения к поколению.{' '}
+                        Books are the ships of thoughts, wandering through the waves of time.{' '}
                         </QuoteText>
                     </QuoteTextBox>
                     <Line></Line>
-                    <QuoteAutor>Бэкон Ф.</QuoteAutor>
+                    <QuoteAutor>Francis Bacon</QuoteAutor>
                 </QuoteBox>
             </DesktopBox>
         </Container>
