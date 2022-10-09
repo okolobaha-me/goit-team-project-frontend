@@ -36,7 +36,7 @@ const ModalWrapper = ({ closeModal, children, variant }) => {
     };
 
     return createPortal(
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
             <AnimationModal>
                 <Backdrop onClick={handleBackdropClick}>
                     <ModalContainer variant={variant}>

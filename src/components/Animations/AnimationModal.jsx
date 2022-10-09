@@ -10,10 +10,14 @@ const AnimationModal = ({ children }) => {
     return (
         <motion.div
             variants={animations}
-            initial={'initial'}
+            initial="initial"
             animate="animate"
             exit="exit"
-            transition={{ duration: 0.2 }}
+            transition={{
+                duration: 0.2,
+                type: 'Tween',
+                stiffness: 300,
+            }}
         >
             {children}
         </motion.div>
