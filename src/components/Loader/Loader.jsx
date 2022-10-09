@@ -11,6 +11,6 @@ export const Loader = () => {
                 size={60}
                 aria-label="Loading Spinner"
             />
-        </LoaderWrapper>
+           </LoaderWrapper>
     );
 };
