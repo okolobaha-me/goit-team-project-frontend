@@ -11,37 +11,34 @@ import {
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
 import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
-import {
-    ButtonMore,
-    IconMore,
-} from '../../../components/LibraryCategories/LibraryCategories.styled';
+import { ButtonMore, IconMore } from '../../../components/LibraryCategories/LibraryCategories.styled';
 import icons from '../../../images/svg/icons.svg';
 import { Graph } from '../../../components/Graph/Graph';
 import { useState } from 'react';
-import {
-    useAddPlaningMutation,
-    useGetPlanBooksQuery,
-    useGetPlanningQuery,
-} from '../../../redux/books/booksSlice';
+import { useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery } from '../../../redux/books/booksSlice';
 import { differenceInCalendarDays, format } from 'date-fns';
 import Statistics from '../../Statistics/Statistics';
 import { Loader } from '../../../components/Loader/Loader';
 
 import notifications from '../../../helpers/notification';
+
 const { warningNotification } = notifications;
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     const [selectedBooks, setSelectedBooks] = useState([]);
+    const [selectedIds, setSelectedIds] = useState([]);
     const [startValue, setStartValue] = useState(null);
     const [endValue, setEndValue] = useState(null);
     const [pagesQuantity, setPagesQuantity] = useState(0);
 
     const deleteBook = id => {
         setSelectedBooks(prev => prev.filter(book => book._id !== id));
+        setSelectedIds(prev => prev.filter(bookId => bookId !== id));
     };
 
-    const { data: books = [] } = useGetPlanBooksQuery();
+    const { data: books = [], isLoading: isBooksLoading } =
+        useGetPlanBooksQuery();
 
     const addBook = id => {
         if (selectedBooks.find(book => book._id === id)) {
@@ -54,6 +51,7 @@ export const Training = () => {
 
             books.data?.result.find(book => book._id === id),
         ]);
+        setSelectedIds(prev => [...prev, id]);
 
         const pages = books.data?.result.find(
             book => book._id === id
@@ -96,7 +94,7 @@ export const Training = () => {
     };
 
     const { data, isLoading } = useGetPlanningQuery();
-    if (isLoading) return <Loader />;
+    if (isLoading || isBooksLoading) return <Loader />;
     if (data) return <Statistics result={data} />;
 
     const getAveragePages = () => {
@@ -108,6 +106,13 @@ export const Training = () => {
     const graphData = Array(getTrainingDuration()).fill({
         pv: getAveragePages(),
     });
+
+    const getOptionBooks = () => {
+        console.log(selectedIds);
+        return books.data?.result.filter(book => {
+            return !selectedIds.includes(book._id);
+        });
+    };
 
     return (
         <>
@@ -130,6 +135,7 @@ export const Training = () => {
                                     setStartValue={setStartValue}
                                     endValue={endValue}
                                     setEndValue={setEndValue}
+                                    books={getOptionBooks()}
                                 />
                             </>
                         )}
