@@ -1,71 +1,26 @@
 import {NumberDay, StatisticsHome, TextStats} from './Graph.styled';
 import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 
-export const Graph = () => {
+export const Graph = ({ averagePages = 0, data }) => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     let isTablet = window.matchMedia('(max-width: 1279px)').matches;
-
-    // const { data: result } = useGetPlanningQuery();
-
-    // if (!result) return <Loader />;
-
-    // console.log(result);
-
-    const data = [
-        {
-            uv: 120,
-            pv: 100,
-        },
-        {
-            uv: 100,
-            pv: 100,
-        },
-        {
-            uv: 76,
-            pv: 100,
-        },
-        {
-            uv: 50,
-            pv: 100,
-        },
-        {
-            uv: 67,
-            pv: 100,
-        },
-        {
-            uv: 150,
-            pv: 100,
-        },
-        {
-            uv: 120,
-            pv: 100,
-        },
-        {
-            uv: 90,
-            pv: 100,
-        },
-    ];
-
     const visibleData = () => {
-        if (isMobile) return data.slice(data.length - 3);
+        if (isMobile) return data.slice(-3);
 
-        if (isTablet) return data.slice(data.length - 6);
+        if (isTablet) return data.slice(-6);
 
         return data;
     };
-
     const getGraphHeight = () => {
         if (isMobile) return 210;
 
         return 235;
     };
 
-    // const averagePages = result.planning.pagesPerDay;
-
     return (
         <StatisticsHome>
             <TextStats>
-                Кількість сторінок / день <NumberDay>10</NumberDay>
+                Кількість сторінок / день <NumberDay>{averagePages}</NumberDay>
             </TextStats>
             <ResponsiveContainer width="100%" height={getGraphHeight()}>
                 <LineChart data={visibleData()}>

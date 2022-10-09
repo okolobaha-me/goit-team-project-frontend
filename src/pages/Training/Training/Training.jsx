@@ -1,4 +1,3 @@
-import {Navigate} from 'react-router-dom';
 import {TrainingForm} from '../../../components/TrainingForm';
 import {
     BottomWrapper,
@@ -18,13 +17,15 @@ import {Graph} from '../../../components/Graph/Graph';
 import {useState} from 'react';
 import {useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery,} from '../../../redux/books/booksSlice';
 import {differenceInCalendarDays, format} from 'date-fns';
+import Statistics from '../../Statistics/Statistics';
+import {Loader} from '../../../components/Loader/Loader';
 
 export const Training = () => {
     let isMobile = window.matchMedia('(max-width: 767px)').matches;
     const [selectedBooks, setSelectedBooks] = useState([]);
     const [startValue, setStartValue] = useState(null);
     const [endValue, setEndValue] = useState(null);
-    const { data } = useGetPlanningQuery();
+    const [pagesQuantity, setPagesQuantity] = useState(0);
 
     const deleteBook = id => {
         setSelectedBooks(prev => prev.filter(book => book._id !== id));
@@ -42,6 +43,12 @@ export const Training = () => {
             ...prev,
             books.data?.result.find(book => book._id === id),
         ]);
+
+        const pages = books.data?.result.find(
+            book => book._id === id
+        ).totalPages;
+
+        setPagesQuantity(prev => prev + pages);
     };
 
     const [addPlaning] = useAddPlaningMutation();
@@ -74,7 +81,19 @@ export const Training = () => {
         return differenceInCalendarDays(endValue._d, startValue._d);
     };
 
-    if (data) return <Navigate to="../statistics" />;
+    const { data, isLoading } = useGetPlanningQuery();
+    if (isLoading) return <Loader />;
+    if (data) return <Statistics result={data} />;
+
+    const getAveragePages = () => {
+        if (!getTrainingDuration()) return 0;
+
+        return Math.ceil(pagesQuantity / getTrainingDuration());
+    };
+
+    const graphData = Array(getTrainingDuration()).fill({
+        pv: getAveragePages(),
+    });
 
     return (
         <>
@@ -116,7 +135,7 @@ export const Training = () => {
                     Почати тренування
                 </Button>
 
-                <Graph />
+                <Graph averagePages={getAveragePages()} data={graphData} />
             </BottomWrapper>
 
             {isMobile && (

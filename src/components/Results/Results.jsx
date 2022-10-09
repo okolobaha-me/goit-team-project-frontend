@@ -13,9 +13,6 @@ export function Results() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // console.log({ date: format(date._d, 'yyyy-MM-dd'), pages });
-
-        // console.log(date._d);
         addInfo({ date: format(date._d, 'yyyy-MM-dd'), pages }).then(r => {
             console.log(r);
         });

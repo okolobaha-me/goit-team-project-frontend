@@ -2,7 +2,7 @@ import {Route, Routes} from 'react-router-dom';
 import {lazy, Suspense, useEffect, useRef} from 'react';
 
 // Tostify
-import { ToastContainer } from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 
 // Components
 import {Layout} from './components/Layout/Layout';
@@ -25,7 +25,6 @@ const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const Library = lazy(() => import('./pages/Library/Library'));
 const Info = lazy(() => import('./pages/Info/Info'));
-const Statistics = lazy(() => import('./pages/Statistics/Statistics'));
 const TrainingPage = lazy(() => import('./pages/Training/TrainingPage'));
 const PlanPage = lazy(() => import('./pages/Library/PlanPage/PlanPage'));
 const StartNewTraining = lazy(() =>
@@ -158,16 +157,6 @@ export const App = () => {
                             }
                         />
                     </Route>
-                    <Route
-                        path={'statistics'}
-                        element={
-                            <PrivateRoute isLoggedIn={isLoggedIn}>
-                                <Suspense fallback={<Loader />}>
-                                    <Statistics />
-                                </Suspense>
-                            </PrivateRoute>
-                        }
-                    />
                     <Route
                         path={'auth'}
                         element={
