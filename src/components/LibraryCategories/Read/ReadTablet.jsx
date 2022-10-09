@@ -1,13 +1,11 @@
-import {Author, ListOther, NameBook, Page, RatingTitle, Title, WrapperTitles, Year,} from '../LibraryCategories.styled';
+import {Author, ListOther, NameBook, Page, RatingTitle, Title, WrapperTitles, Year, EmptyCategoryMessage} from '../LibraryCategories.styled';
 import ReadTabletItem from '../Read/ReadTabletItem';
-
-let tablet = window.matchMedia('(min-width: 768px)').matches;
 
 const ReadTablet = ({ color, books, openModal }) => {
     return (
         <>
             <Title>Прочитано</Title>
-            {tablet && (
+            {!!books?.length ? (
                 <>
                     <WrapperTitles>
                         <NameBook>Назва книги</NameBook>
@@ -27,7 +25,10 @@ const ReadTablet = ({ color, books, openModal }) => {
                                 />
                             ))}
                     </ListOther>{' '}
-                </>
+                </>) : (
+                <EmptyCategoryMessage>
+                    Тут поки що немає книг
+                </EmptyCategoryMessage>
             )}
         </>
     );
