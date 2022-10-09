@@ -19,8 +19,12 @@ const FormLibrary = () => {
         const year = format(data.reqDate, 'yyyy');
         const newBook = { title, author, totalPages, year };
 
-        addBook(newBook);
-        reset();
+        addBook(newBook).then(r => {
+            if (!r.error) reset();
+            else {
+                console.log('err');
+            }
+        });
     };
 
     return (
