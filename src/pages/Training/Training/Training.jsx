@@ -45,7 +45,7 @@ export const Training = () => {
 
     const addBook = id => {
         if (selectedBooks.find(book => book._id === id)) {
-            warningNotification("You can't add the same book again");
+            warningNotification('Ви не можете додати ту ж книжку ще раз!');
             return;
         }
 
@@ -71,12 +71,14 @@ export const Training = () => {
         );
 
         if (!startValue || !endValue) {
-            warningNotification('Choose dates');
+            warningNotification('Оберіть початок та кінець тренування!');
             return;
         }
 
         if (books.length === 0) {
-            warningNotification('Add at least one book');
+            warningNotification(
+                'Перед тим як почати тренування виберіть із бібліотеки хоча б одну книгу!'
+            );
             return;
         }
 
