@@ -1,21 +1,12 @@
-import { Container } from '../../baseStyles';
-import { EmptyWrapper, Section } from './Library.styled';
-import EmptyLibrary from '../../components/EmptyLibrary';
-import { Outlet } from 'react-router-dom';
+import {Container} from '../../baseStyles';
+import {Section} from './Library.styled';
+import {Outlet} from 'react-router-dom';
 
 const Library = () => {
-    const isLibraryEmpty = false;
-
     return (
         <Section>
             <Container>
-                {isLibraryEmpty ? (
-                    <EmptyWrapper>
-                        <EmptyLibrary />
-                    </EmptyWrapper>
-                ) : (
-                    <Outlet />
-                )}
+                <Outlet />
             </Container>
         </Section>
     );
