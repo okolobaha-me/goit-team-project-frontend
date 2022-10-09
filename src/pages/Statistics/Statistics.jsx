@@ -66,7 +66,11 @@ const Statistics = ({ result }) => {
                 <GraphWrapper>
                     <Graph averagePages={averagePages} data={graphData} />
                 </GraphWrapper>
-                <Results results={results} endDate={endDate} />
+                <Results
+                    results={results}
+                    endDate={endDate}
+                    minDate={startDate}
+                />
             </BottomWrapper>
         </Section>
     );

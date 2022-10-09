@@ -20,7 +20,7 @@ import CongratulationsModal from '../Modals/CongratulationsModal';
 import TrainingFinishedModal from '../Modals/TrainingFinishedModal/TrainingFinishedModal';
 import { WellDoneModal } from '../Modals';
 
-export function Results({ results, endDate }) {
+export function Results({ results, endDate, minDate }) {
     const [pages, setPages] = useState(0);
     const [date, setDate] = useState(moment());
     const [isWellDoneModalOpen, setIsWellDoneModalOpen] = useState(false);
@@ -62,6 +62,8 @@ export function Results({ results, endDate }) {
                         <Label>
                             Дата
                             <DatePickerCustom
+                                minDate={new Date(minDate)}
+                                maxDate={moment()._d}
                                 format="DD.MM.YY"
                                 defaultValue={date}
                                 onChange={setDate}
