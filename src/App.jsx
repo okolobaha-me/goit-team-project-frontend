@@ -57,7 +57,7 @@ export const App = () => {
             token.set(tokenValue);
             dispatch(refresh(tokenValue));
         }
-    }, [tokenValue]);
+    }, [dispatch, tokenValue]);
 
     if (isLoading) return <Loader />;
 
