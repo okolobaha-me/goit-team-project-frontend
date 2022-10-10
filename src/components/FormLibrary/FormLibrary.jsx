@@ -33,7 +33,7 @@ const FormLibrary = () => {
 
         addBook(newBook).then(r => {
             if (!r.error) {
-                successNotification('Книга додана');
+                successNotification('Книга додана!');
                 reset();
             } else {
                 errorNotification('Щось пішло не так, спробуйте пізніше.');
