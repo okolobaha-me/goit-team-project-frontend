@@ -1,4 +1,4 @@
-import {differenceInDays} from 'date-fns';
+import { differenceInDays } from 'date-fns';
 
 export const getFormattedResults = (results, startDate) => {
     const formattedResults = {};
@@ -47,6 +47,8 @@ export const fillGraphData = (results, startDate, totalPages, duration) => {
     }
 
     const graphData = [...arr, ...left];
+
+    console.log(graphData);
 
     for (const day in obj) {
         graphData[Number(day)].uv = obj[day];
