@@ -1,6 +1,6 @@
-import {Container} from '../../baseStyles';
-import {Section} from './Library.styled';
-import {Outlet} from 'react-router-dom';
+import { Container } from '../../baseStyles';
+import { Section } from './Library.styled';
+import { Outlet } from 'react-router-dom';
 
 const Library = () => {
     return (
