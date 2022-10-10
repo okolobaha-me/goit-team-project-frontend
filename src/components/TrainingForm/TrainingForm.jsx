@@ -152,7 +152,7 @@ export function TrainingForm({
                     </Icon>
                 }
             >
-                {books.map(book => (
+                {books?.map(book => (
                     <Option value={book._id} key={book._id}>
                         {book.title}
                     </Option>
