@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {colors, fonts, mq} from '../../baseStyles';
+import { colors, fonts, mq } from '../../baseStyles';
 
 export const TableOfBooks = styled.div`
     font-family: ${fonts.main};
@@ -15,13 +15,12 @@ export const TableOfBooks = styled.div`
 
         width: 704px;
         height: 228px;
-
-        border-top: 1px solid ${colors.sectionBorder};
     }
 
     ${mq.desktop} {
         width: 928px;
         height: 213px;
+        overflow-x: hidden;
     }
 `;
 
@@ -93,10 +92,6 @@ export const Item = styled.li`
     padding-bottom: 20px;
 
     border-bottom: 1px solid ${colors.sectionBorder};
-
-    &:first-of-type {
-        border-top: 1px solid ${colors.sectionBorder};
-    }
 
     ${mq.tablet} {
         display: flex;

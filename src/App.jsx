@@ -180,7 +180,7 @@ export const App = () => {
                     </Route>
                 </Routes>
             </AnimatePresence>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="bottom-right" autoClose={2500} />
         </>
     );
 };

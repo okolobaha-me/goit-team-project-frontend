@@ -1,9 +1,9 @@
 // libraryCategoriesStyled
 import styled from '@emotion/styled';
-import {css} from '@emotion/react';
-import {btn, colors, list, mq} from '../../baseStyles';
-import {Rating} from '@mui/material';
-import {Link} from 'react-router-dom';
+import { css } from '@emotion/react';
+import { btn, colors, list, mq } from '../../baseStyles';
+import { Rating } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export const titles = () => {
     return css`
@@ -32,10 +32,6 @@ export const item = () => {
         justify-content: center;
         background: ${colors.whiteText};
         box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
-
-        :last-of-type {
-            margin-bottom: 0;
-        }
     `;
 };
 
