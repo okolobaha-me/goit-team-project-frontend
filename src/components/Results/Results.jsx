@@ -54,7 +54,7 @@ export function Results({ results, endDate, minDate }) {
     };
 
     const disabledDate = current => {
-        return current.valueOf() > Date.now();
+        return current && current.valueOf() > Date.now();
     };
 
     return (
