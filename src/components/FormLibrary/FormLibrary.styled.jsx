@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import {btn, colors, fonts, input, mq} from '../../baseStyles';
-import {TextField} from '@mui/material';
+import { btn, colors, fonts, input, mq } from '../../baseStyles';
+import { TextField } from '@mui/material';
 
 export const Wrapper = styled.div`
     background: ${colors.mainBg};
@@ -49,6 +49,7 @@ export const Button = styled.button`
 
 export const Input = styled.input`
     ${input};
+    height: 46px;
     margin-top: 8px;
 `;
 
