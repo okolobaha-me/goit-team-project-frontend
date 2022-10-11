@@ -76,10 +76,6 @@ export const Item = styled.li`
     background: ${colors.whiteBg};
     box-shadow: 0 2px 3px 0 #091e3f1a;
     margin-bottom: 20px;
-
-    &:last-of-type {
-        margin-bottom: 0;
-    }
 `;
 
 export const ItemBook = styled.li`
@@ -90,9 +86,6 @@ export const ItemBook = styled.li`
     justify-content: center;
     background: ${colors.whiteText};
     box-shadow: 0 2px 3px rgba(9, 30, 63, 0.1);
-    :last-of-type {
-        margin-bottom: 0;
-    }
 `;
 export const ItemOtherBook = styled.li`
     ${item};
