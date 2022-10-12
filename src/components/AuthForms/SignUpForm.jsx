@@ -18,10 +18,10 @@ import {
     TabletBox,
 } from './SignUpForm.styled';
 import googleIcon from '../../images/svg/google-icon.png';
-import {useForm} from 'react-hook-form';
-import {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {signUp} from '../../redux/auth/auth-operations';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../redux/auth/auth-operations';
 
 const SignUpForm = () => {
     const [checkPas, setCheckPas] = useState(true);
@@ -49,7 +49,6 @@ const SignUpForm = () => {
         const signUpData = { name, email, password };
 
         dispatch(signUp(signUpData));
-        // navigate('../signin');
     };
 
     return (
