@@ -23,7 +23,7 @@ import notifications from '../../helpers/notification';
 
 export function Results({ results, endDate, minDate }) {
     const [pages, setPages] = useState(0);
-    const [date, setDate] = useState(moment());
+    const [date, setDate] = useState(null);
     const [isWellDoneModalOpen, setIsWellDoneModalOpen] = useState(false);
     const [isTrainingFinishedModalOpen, setIsTrainingFinishedModalOpen] =
         useState(false);
@@ -61,6 +61,10 @@ export function Results({ results, endDate, minDate }) {
         setIsTrainingFinishedModalOpen(false);
     };
 
+    const disabledDate = current => {
+        return current && current.valueOf() > Date.now();
+    };
+
     return (
         <>
             <Wrapper>
@@ -70,10 +74,11 @@ export function Results({ results, endDate, minDate }) {
                         <Label>
                             Дата
                             <DatePickerCustom
-                                minDate={new Date(minDate)}
-                                maxDate={moment()._d}
+                                disabledDate={disabledDate}
+                                // minDate={new Date(minDate)}
+                                // maxDate={moment()._d}
                                 format="DD.MM.YY"
-                                defaultValue={date}
+                                defaultValue={moment()}
                                 onChange={setDate}
                                 suffixIcon={
                                     <Icon>
