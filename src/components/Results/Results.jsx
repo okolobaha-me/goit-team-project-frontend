@@ -14,7 +14,7 @@ import icons from '../../images/svg/icons.svg';
 import moment from 'moment';
 import { useState } from 'react';
 import { useAddUpdateStatisticMutation } from '../../redux/books/booksSlice';
-import { compareAsc, format } from 'date-fns';
+import { compareAsc, compareDesc, format } from 'date-fns';
 import { DateItem } from './DateItem';
 import CongratulationsModal from '../Modals/CongratulationsModal';
 import TrainingFinishedModal from '../Modals/TrainingFinishedModal/TrainingFinishedModal';
@@ -61,6 +61,14 @@ export function Results({ results, endDate, minDate }) {
         setIsTrainingFinishedModalOpen(false);
     };
 
+    const disabledDate = date => {
+        const min = new Date(minDate);
+        return (
+            compareDesc(min, date._d) === -1 ||
+            compareDesc(date._d, new Date()) === -1
+        );
+    };
+
     return (
         <>
             <Wrapper>
@@ -70,6 +78,7 @@ export function Results({ results, endDate, minDate }) {
                         <Label>
                             Дата
                             <DatePickerCustom
+                                disabledDate={disabledDate}
                                 minDate={new Date(minDate)}
                                 maxDate={moment()._d}
                                 format="DD.MM.YY"
