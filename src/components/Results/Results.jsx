@@ -23,7 +23,7 @@ import notifications from '../../helpers/notification';
 
 export function Results({ results, endDate, minDate }) {
     const [pages, setPages] = useState(0);
-    const [date, setDate] = useState(null);
+    const [date, setDate] = useState(moment());
     const [isWellDoneModalOpen, setIsWellDoneModalOpen] = useState(false);
     const [isTrainingFinishedModalOpen, setIsTrainingFinishedModalOpen] =
         useState(false);
@@ -39,7 +39,6 @@ export function Results({ results, endDate, minDate }) {
             warningNotification('Введіть кількість прочитаних сторінок');
             return;
         }
-
         addInfo({ date: format(date._d, 'yyyy-MM-dd'), pages }).then(r => {
             if (r.data.message === 'Plan finished') {
                 if (compareAsc(new Date(endDate), new Date()) === 1) {
