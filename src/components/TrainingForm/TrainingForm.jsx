@@ -83,6 +83,8 @@ export function TrainingForm({
         } else {
             addBook(book);
         }
+
+        setBook('');
     };
 
     const handleChange = data => {
@@ -137,6 +139,7 @@ export function TrainingForm({
             </DatesWrapper>
             <Selects
                 showSearch
+                value={book}
                 placeholder="Виберіть книги з бібліотеки"
                 size="large"
                 optionFilterProp="children"

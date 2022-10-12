@@ -1,7 +1,7 @@
-import {css} from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import {colors} from '../../../baseStyles/utils/variables';
-import {mq} from '../../../baseStyles/utils/mediaQueries';
+import { colors } from '../../../baseStyles/utils/variables';
+import { mq } from '../../../baseStyles/utils/mediaQueries';
 
 export const Backdrop = styled.div`
     position: fixed;
@@ -19,6 +19,17 @@ const chooseModalVariant = variant => {
                 padding: 20px 20px 40px;
                 line-height: 1.25;
 
+                ${mq.mobile} {
+                    width: 300px;
+                }
+
+                ${mq.mobileM} {
+                    width: 350px;
+                }
+                ${mq.mobileL} {
+                    width: 400px;
+                }
+
                 ${mq.tablet} {
                     width: 608px;
                 }
@@ -30,6 +41,13 @@ const chooseModalVariant = variant => {
                 padding: 48px 24px;
                 text-align: center;
                 line-height: 1.38;
+
+                ${mq.mobileM} {
+                    width: 350px;
+                }
+                ${mq.mobileL} {
+                    width: 400px;
+                }
 
                 ${mq.tablet} {
                     width: 394px;
