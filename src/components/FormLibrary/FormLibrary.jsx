@@ -17,6 +17,8 @@ import { useState } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { format } from 'date-fns';
 import { useAddBookMutation } from '../../redux/books/booksSlice';
+import AnimationPage from '../Animations/AnimationPage';
+import { AnimatePresence } from 'framer-motion';
 
 import notifications from '../../helpers/notification';
 const { errorNotification, successNotification } = notifications;
@@ -42,73 +44,79 @@ const FormLibrary = () => {
     };
 
     return (
-        <Wrapper>
-            <Link to={'..'}>
-                <Icon width="24" height="12">
-                    <use href={`${icons}#icon-arrowBack`} />
-                </Icon>
-            </Link>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-                <Label>
-                    Назва книги
-                    <Input
-                        {...register('title', { required: true })}
-                        type="text"
-                        name="title"
-                        placeholder="..."
-                        variant={'border'}
-                    />
-                </Label>
-                <Label>
-                    Автор книги
-                    <Input
-                        {...register('author', { required: true })}
-                        type="text"
-                        name="author"
-                        placeholder="..."
-                    />
-                </Label>
-                <Controller
-                    name="reqDate"
-                    defaultValue={reqDate}
-                    control={control}
-                    render={({ field: { onChange, ...restField } }) => (
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DatePicker
-                                views={['year']}
-                                onChange={event => {
-                                    onChange(event);
-                                    setReqDate(event);
-                                }}
-                                renderInput={params => (
-                                    <Label>
-                                        <span>Рік випуску</span>
-                                        <WrapYear>
-                                            <YearPicker {...params} />
-                                        </WrapYear>
-                                    </Label>
-                                )}
-                                {...restField}
+        <AnimatePresence>
+            <AnimationPage>
+                <Wrapper>
+                    <Link to={'..'}>
+                        <Icon width="24" height="12">
+                            <use href={`${icons}#icon-arrowBack`} />
+                        </Icon>
+                    </Link>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Label>
+                            Назва книги
+                            <Input
+                                {...register('title', { required: true })}
+                                type="text"
+                                name="title"
+                                placeholder="..."
+                                variant={'border'}
                             />
-                        </LocalizationProvider>
-                    )}
-                />
-                <Label>
-                    Кількість сторінок
-                    <Input
-                        {...register('totalPages', { required: true })}
-                        type="number"
-                        name="totalPages"
-                        placeholder="..."
-                        min="1"
-                    />
-                </Label>
+                        </Label>
+                        <Label>
+                            Автор книги
+                            <Input
+                                {...register('author', { required: true })}
+                                type="text"
+                                name="author"
+                                placeholder="..."
+                            />
+                        </Label>
+                        <Controller
+                            name="reqDate"
+                            defaultValue={reqDate}
+                            control={control}
+                            render={({ field: { onChange, ...restField } }) => (
+                                <LocalizationProvider
+                                    dateAdapter={AdapterDateFns}
+                                >
+                                    <DatePicker
+                                        views={['year']}
+                                        onChange={event => {
+                                            onChange(event);
+                                            setReqDate(event);
+                                        }}
+                                        renderInput={params => (
+                                            <Label>
+                                                <span>Рік випуску</span>
+                                                <WrapYear>
+                                                    <YearPicker {...params} />
+                                                </WrapYear>
+                                            </Label>
+                                        )}
+                                        {...restField}
+                                    />
+                                </LocalizationProvider>
+                            )}
+                        />
+                        <Label>
+                            Кількість сторінок
+                            <Input
+                                {...register('totalPages', { required: true })}
+                                type="number"
+                                name="totalPages"
+                                placeholder="..."
+                                min="1"
+                            />
+                        </Label>
 
-                <Button type="submit" variant={'transparent'}>
-                    Додати
-                </Button>
-            </Form>
-        </Wrapper>
+                        <Button type="submit" variant={'transparent'}>
+                            Додати
+                        </Button>
+                    </Form>
+                </Wrapper>
+            </AnimationPage>
+        </AnimatePresence>
     );
 };
 

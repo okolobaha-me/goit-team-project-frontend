@@ -1,11 +1,11 @@
 import ReadMobile from './ReadMobile';
 import ReadTablet from './ReadTablet';
-import {colors} from '../../../baseStyles';
-import {useState} from 'react';
-import {RatingModal} from '../../Modals';
-import {MiniLoader} from '../../Loader/MiniLoader';
-import {useGetDoneBooksQuery} from '../../../redux/books/booksSlice';
-import {useVisibleBooks} from '../../../hooks/useVisibleBooks';
+import { colors } from '../../../baseStyles';
+import { useState } from 'react';
+import { RatingModal } from '../../Modals';
+import { MiniLoader } from '../../Loader/MiniLoader';
+import { useGetDoneBooksQuery } from '../../../redux/books/booksSlice';
+import { useVisibleBooks } from '../../../hooks/useVisibleBooks';
 
 let mobile = window.matchMedia('(max-width: 767px)').matches;
 
