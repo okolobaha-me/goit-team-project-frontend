@@ -1,7 +1,18 @@
-import {EmailLabel, EnterBtn, ErrText, Form, Input, LabelText, PasLabel, Span,} from './SignInForm.styled';
-import {useForm} from 'react-hook-form';
-import {useDispatch} from 'react-redux';
-import {signIn} from '../../redux/auth/auth-operations';
+import {
+    EmailLabel,
+    EnterBtn,
+    ErrText,
+    Form,
+    Input,
+    LabelText,
+    PasLabel,
+    Span,
+} from './SignInForm.styled';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/auth-operations';
+import notification from '../../helpers/notification';
+const { errorNotification } = notification;
 
 const SignInForm = () => {
     const {
@@ -11,8 +22,12 @@ const SignInForm = () => {
     } = useForm();
     const dispatch = useDispatch();
 
-    const onSubmit = data => {
-        dispatch(signIn(data));
+    const onSubmit = async data => {
+        dispatch(signIn(data)).then(r => {
+            if (r.type === 'auth/signin/rejected') {
+                errorNotification('Невірна пошта або пароль!');
+            }
+        });
     };
 
     return (
