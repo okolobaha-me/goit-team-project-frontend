@@ -16,9 +16,7 @@ import {
     TopWrapper,
 } from './Statistics.styled';
 import { Graph } from '../../components/Graph/Graph';
-
 import AnimationPage from '../../components/Animations/AnimationPage';
-
 import { fillGraphData } from '../../services/graphService';
 
 const Statistics = ({ result }) => {

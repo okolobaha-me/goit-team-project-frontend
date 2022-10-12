@@ -48,8 +48,6 @@ export const fillGraphData = (results, startDate, totalPages, duration) => {
 
     const graphData = [...arr, ...left];
 
-    console.log(graphData);
-
     for (const day in obj) {
         graphData[Number(day)].uv = obj[day];
     }
