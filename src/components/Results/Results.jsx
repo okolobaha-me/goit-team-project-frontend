@@ -19,6 +19,7 @@ import { DateItem } from './DateItem';
 import CongratulationsModal from '../Modals/CongratulationsModal';
 import TrainingFinishedModal from '../Modals/TrainingFinishedModal/TrainingFinishedModal';
 import { WellDoneModal } from '../Modals';
+import notifications from '../../helpers/notification';
 
 export function Results({ results, endDate, minDate }) {
     const [pages, setPages] = useState(0);
@@ -29,9 +30,16 @@ export function Results({ results, endDate, minDate }) {
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] =
         useState(false);
     const [addInfo] = useAddUpdateStatisticMutation();
+    const { warningNotification } = notifications;
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        if (pages === 0) {
+            warningNotification('Введіть кількість прочитаних сторінок');
+            return;
+        }
+
         addInfo({ date: format(date._d, 'yyyy-MM-dd'), pages }).then(r => {
             if (r.data.message === 'Plan finished') {
                 if (compareAsc(new Date(endDate), new Date()) === 1) {

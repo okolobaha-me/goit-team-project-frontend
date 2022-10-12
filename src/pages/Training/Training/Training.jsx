@@ -11,18 +11,9 @@ import {
 } from '../Training.styled';
 import Goals from '../../../components/Goals';
 import { ListOfBooksStartTraining } from '../../../components/ListOfBooksStartTraining';
-import {
-    ButtonMore,
-    IconMore,
-} from '../../../components/LibraryCategories/LibraryCategories.styled';
-import icons from '../../../images/svg/icons.svg';
 import { Graph } from '../../../components/Graph/Graph';
 import { useState } from 'react';
-import {
-    useAddPlaningMutation,
-    useGetPlanBooksQuery,
-    useGetPlanningQuery,
-} from '../../../redux/books/booksSlice';
+import { useAddPlaningMutation, useGetPlanBooksQuery, useGetPlanningQuery } from '../../../redux/books/booksSlice';
 import { differenceInCalendarDays, format } from 'date-fns';
 import Statistics from '../../Statistics/Statistics';
 import { Loader } from '../../../components/Loader/Loader';
@@ -33,7 +24,6 @@ import notifications from '../../../helpers/notification';
 const { warningNotification } = notifications;
 
 export const Training = () => {
-    let isMobile = window.matchMedia('(max-width: 767px)').matches;
     const [selectedBooks, setSelectedBooks] = useState([]);
     const [selectedIds, setSelectedIds] = useState([]);
     const [startValue, setStartValue] = useState(null);
@@ -134,19 +124,15 @@ export const Training = () => {
 
                     <FormListWrapper>
                         <FormWrapper>
-                            {!isMobile && (
-                                <>
-                                    <Title>Моє тренування</Title>
-                                    <TrainingForm
-                                        addBook={addBook}
-                                        startValue={startValue}
-                                        setStartValue={setStartValue}
-                                        endValue={endValue}
-                                        setEndValue={setEndValue}
-                                        books={getOptionBooks()}
-                                    />
-                                </>
-                            )}
+                            <Title>Моє тренування</Title>
+                            <TrainingForm
+                                addBook={addBook}
+                                startValue={startValue}
+                                setStartValue={setStartValue}
+                                endValue={endValue}
+                                setEndValue={setEndValue}
+                                books={getOptionBooks()}
+                            />
                         </FormWrapper>
 
                         <ListWrapper>
@@ -165,14 +151,6 @@ export const Training = () => {
 
                     <Graph averagePages={getAveragePages()} data={graphData} />
                 </BottomWrapper>
-
-                {isMobile && (
-                    <ButtonMore to={'start-new'} relative="library">
-                        <IconMore width="52" height="52">
-                            <use href={`${icons}#icon-more`}></use>
-                        </IconMore>
-                    </ButtonMore>
-                )}
             </AnimatioPage>
         </>
     );

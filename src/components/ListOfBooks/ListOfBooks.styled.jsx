@@ -157,6 +157,10 @@ export const BtnDelete = styled.button`
     width: 14px;
     height: 18px;
 
+    ${mq.mobileOnly} {
+        margin-left: auto;
+    }
+
     ${mq.tablet} {
         position: absolute;
         top: 25px;

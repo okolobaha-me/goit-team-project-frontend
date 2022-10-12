@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {btn, colors, mq} from '../../baseStyles';
+import { btn, colors, mq } from '../../baseStyles';
 
 export const Section = styled.section`
     padding: 20px 0 60px;
@@ -89,7 +89,11 @@ export const FormListWrapper = styled.div`
     }
 `;
 
-export const FormWrapper = styled.div``;
+export const FormWrapper = styled.div`
+    ${mq.mobileOnly} {
+        margin-bottom: 20px;
+    }
+`;
 
 export const BottomWrapper = styled.div`
     width: 100%;
