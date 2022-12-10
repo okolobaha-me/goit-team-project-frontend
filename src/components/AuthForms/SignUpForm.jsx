@@ -57,7 +57,7 @@ const SignUpForm = () => {
                 <DesktopBox>
                     <TabletBox>
                         <MobBox>
-                            <Button href="https://books-reading-goit.herokuapp.com/auth/google">
+                            <Button href="http://ec2-3-72-105-99.eu-central-1.compute.amazonaws.com/auth/google">
                                 <GoogleIcon>
                                     <img
                                         src={googleIcon}
