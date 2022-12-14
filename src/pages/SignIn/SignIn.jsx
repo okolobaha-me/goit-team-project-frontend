@@ -13,10 +13,13 @@ import {
     QuoteTextBox,
     TabletBox,
 } from './SignIn.styled';
+import { baseUrl } from '../../API';
 import googleIcon from '../../images/svg/google-icon.png';
 import icons from '../../images/svg/icons.svg';
 import { SignInForm } from '../../components/AuthForms';
 import AnimatioPage from '../../components/Animations/AnimationPage';
+
+const signInUrl = `${baseUrl}auth/google`;
 
 const SignIn = () => {
     return (
@@ -25,7 +28,7 @@ const SignIn = () => {
                 <DesktopBox>
                     <TabletBox>
                         <MobBox>
-                            <Button href="https://books-reading-goit.herokuapp.com/auth/google">
+                            <Button href={signInUrl}>
                                 <GoogleIcon>
                                     <img
                                         src={googleIcon}
@@ -50,7 +53,8 @@ const SignIn = () => {
                         </QuoteIconSpan>
                         <QuoteTextBox>
                             <QuoteText>
-                                Books are the ships of thoughts, wandering through the waves of time.
+                                Books are the ships of thoughts, wandering
+                                through the waves of time.
                             </QuoteText>
                         </QuoteTextBox>
                         <Line></Line>
