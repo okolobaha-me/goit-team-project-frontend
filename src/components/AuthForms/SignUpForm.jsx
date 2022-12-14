@@ -22,6 +22,9 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../redux/auth/auth-operations';
+import { baseUrl } from '../../API';
+
+const signUpUrl = `${baseUrl}auth/google`;
 
 const SignUpForm = () => {
     const [checkPas, setCheckPas] = useState(true);
@@ -57,7 +60,7 @@ const SignUpForm = () => {
                 <DesktopBox>
                     <TabletBox>
                         <MobBox>
-                            <Button href="http://ec2-3-72-105-99.eu-central-1.compute.amazonaws.com/auth/google">
+                            <Button href={signUpUrl}>
                                 <GoogleIcon>
                                     <img
                                         src={googleIcon}

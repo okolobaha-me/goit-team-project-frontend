@@ -13,10 +13,13 @@ import {
     QuoteTextBox,
     TabletBox,
 } from './SignIn.styled';
+import { baseUrl } from '../../API';
 import googleIcon from '../../images/svg/google-icon.png';
 import icons from '../../images/svg/icons.svg';
 import { SignInForm } from '../../components/AuthForms';
 import AnimatioPage from '../../components/Animations/AnimationPage';
+
+const signInUrl = `${baseUrl}auth/google`;
 
 const SignIn = () => {
     return (
@@ -25,7 +28,7 @@ const SignIn = () => {
                 <DesktopBox>
                     <TabletBox>
                         <MobBox>
-                            <Button href="http://ec2-3-72-105-99.eu-central-1.compute.amazonaws.com/auth/google">
+                            <Button href={signInUrl}>
                                 <GoogleIcon>
                                     <img
                                         src={googleIcon}
